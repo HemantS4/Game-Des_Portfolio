@@ -12,6 +12,9 @@
   height: 100%;
   z-index: 0;
   opacity: 1;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Sidebar Styles */
@@ -334,6 +337,9 @@
   transform-style: preserve-3d;
   will-change: transform, opacity;
   pointer-events: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .project-card {
@@ -424,7 +430,7 @@
 /* Dim other cards when one is selected */
 .projects-grid:has(.project-card.selected) .project-card:not(.selected) {
   opacity: 0.3;
-  filter: blur(3px);
+  filter: blur(2px);
   transition: all 0.4s ease;
   transform: scale(0.95) !important;
 }

@@ -11,11 +11,22 @@ export default function Projects({ scrollProgress }) {
 
   useEffect(() => {
     const startTime = Date.now()
+    let lastUpdate = 0
+    const fps = 30 // Limit to 30 FPS instead of 60 for better performance
+    const interval = 1000 / fps
 
-    const animate = () => {
-      const currentTime = (Date.now() - startTime) / 1000
-      setTime(currentTime)
-      setSectionProgress(window.projectsProgress || 0)
+    const animate = (timestamp) => {
+      if (!lastUpdate) lastUpdate = timestamp
+      const delta = timestamp - lastUpdate
+
+      // Only update if enough time has passed
+      if (delta >= interval) {
+        const currentTime = (Date.now() - startTime) / 1000
+        setTime(currentTime)
+        setSectionProgress(window.projectsProgress || 0)
+        lastUpdate = timestamp - (delta % interval)
+      }
+
       animationRef.current = requestAnimationFrame(animate)
     }
 

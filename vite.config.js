@@ -10,13 +10,26 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'esbuild', // Use esbuild instead of terser (faster and built-in)
+    target: 'es2015', // Target modern browsers for better optimization
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks: {
           'three': ['three'],
           'react-three': ['@react-three/fiber', '@react-three/drei']
-        }
+        },
+        // Optimize chunk loading
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
-    }
+    },
+    // Enable compression
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 1000
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei']
   }
 })

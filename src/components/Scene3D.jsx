@@ -369,7 +369,7 @@ function MoonSphere({ mousePosition, scrollProgress, clicked, onMoonClick }) {
           scale={3.0}
           position={[0, 0, -2]}
         >
-          <sphereGeometry args={[1, 128, 128]} />
+          <sphereGeometry args={[1, 64, 64]} />
           <primitive object={moonMaterial} attach="material" />
         </mesh>
       )}
@@ -379,7 +379,7 @@ function MoonSphere({ mousePosition, scrollProgress, clicked, onMoonClick }) {
 
 function ParticleField({ mousePosition, scrollProgress }) {
   const particlesRef = useRef()
-  const count = 3000
+  const count = 1500 // Reduced from 3000 for better performance
 
   const positions = React.useMemo(() => {
     const pos = new Float32Array(count * 3)
@@ -415,6 +415,8 @@ function ParticleField({ mousePosition, scrollProgress }) {
   }, [count])
 
   useFrame((state) => {
+    if (!particlesRef.current) return
+
     const time = state.clock.getElapsedTime()
 
     // Rotate based on mouse and time
@@ -424,6 +426,9 @@ function ParticleField({ mousePosition, scrollProgress }) {
     // Spread particles based on scroll
     const scale = 1 + scrollProgress * 0.8
     particlesRef.current.scale.set(scale, scale, scale)
+
+    // Optimize: Only animate particles every other frame
+    if (Math.floor(time * 60) % 2 === 0) return
 
     // Animate particle positions
     const positions = particlesRef.current.geometry.attributes.position.array
@@ -477,7 +482,7 @@ function ParticleField({ mousePosition, scrollProgress }) {
 
 function Stars({ mousePosition }) {
   const starsRef = useRef()
-  const count = 2000
+  const count = 1000 // Reduced from 2000 for better performance
 
   const positions = React.useMemo(() => {
     const pos = new Float32Array(count * 3)
@@ -620,7 +625,11 @@ export default function Scene3D({ scrollProgress: externalScrollProgress }) {
 
   return (
     <div className="canvas-container">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
+      >
         <color attach="background" args={['#050510']} />
         <fog attach="fog" args={['#050510', 10, 100]} />
 
