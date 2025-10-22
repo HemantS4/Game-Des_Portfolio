@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getProjectById, getAdjacentProjects } from '../data/projectsData'
+import Sidebar from './Sidebar'
 import '../styles/ProjectDetail.css'
 
 export default function ProjectDetail() {
@@ -9,6 +10,7 @@ export default function ProjectDetail() {
   const [project, setProject] = useState(null)
   const [adjacentProjects, setAdjacentProjects] = useState(null)
   const [selectedImage, setSelectedImage] = useState(null)
+  const [activeSection, setActiveSection] = useState('projects')
 
   useEffect(() => {
     // Scroll to top when project changes
@@ -30,9 +32,11 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="project-detail">
-      {/* Hero Section */}
-      <section className="project-hero">
+    <>
+      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <div className="project-detail">
+        {/* Hero Section */}
+        <section className="project-hero">
         <Link to="/" className="back-button">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -243,6 +247,7 @@ export default function ProjectDetail() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   )
 }

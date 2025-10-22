@@ -12,7 +12,6 @@ import './App.css'
 function HomePage({ activeSection, setActiveSection, scrollProgress }) {
   return (
     <>
-      <Scene3D scrollProgress={scrollProgress} />
       <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
       <main className="main-content">
         <Hero />
@@ -90,6 +89,9 @@ function AppContent() {
 
   return (
     <div className="app">
+      {/* 3D Background - visible on all pages */}
+      <Scene3D scrollProgress={isHomePage ? scrollProgress : 0} />
+
       <Routes>
         <Route
           path="/"

@@ -2,7 +2,7 @@
 
 .project-detail {
   min-height: 100vh;
-  background: var(--color-bg);
+  background: transparent; /* Transparent to show 3D background */
   color: var(--color-text);
   padding: 2rem var(--sidebar-width) 4rem calc(var(--sidebar-width) + 2rem);
   position: relative;

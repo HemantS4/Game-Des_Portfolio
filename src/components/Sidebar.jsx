@@ -1,6 +1,10 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function Sidebar({ activeSection, setActiveSection }) {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
@@ -9,10 +13,23 @@ export default function Sidebar({ activeSection, setActiveSection }) {
   ]
 
   const scrollToSection = (id) => {
-    setActiveSection(id)
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    // If we're on a project detail page, navigate home first
+    if (location.pathname !== '/') {
+      navigate('/')
+      // Wait for navigation, then scroll
+      setTimeout(() => {
+        setActiveSection(id)
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      setActiveSection(id)
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }
 
