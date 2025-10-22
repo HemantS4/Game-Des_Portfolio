@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { projectsData } from '../data/projectsData'
 
 export default function Projects({ scrollProgress }) {
+  const navigate = useNavigate()
   const [hoveredProject, setHoveredProject] = useState(null)
   const [selectedProject, setSelectedProject] = useState(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -51,48 +54,7 @@ export default function Projects({ scrollProgress }) {
     return () => document.removeEventListener('click', handleClickOutside)
   }, [selectedProject])
 
-  const projects = [
-    {
-      id: 1,
-      title: 'Cyber Odyssey',
-      category: 'Action RPG',
-      year: '2024',
-      description: 'A futuristic action RPG set in a cyberpunk world with deep narrative choices.',
-      tools: ['Unreal Engine', 'Blueprints', 'C++', 'Blender'],
-      image: '/placeholder1.jpg',
-      link: 'https://example.com/cyber-odyssey'
-    },
-    {
-      id: 2,
-      title: 'Forest Keeper',
-      category: 'Puzzle Adventure',
-      year: '2023',
-      description: 'An environmental puzzle game focused on nature restoration and exploration.',
-      tools: ['Unity', 'C#', 'ProBuilder', 'Photoshop'],
-      image: '/placeholder2.jpg',
-      link: 'https://example.com/forest-keeper'
-    },
-    {
-      id: 3,
-      title: 'Velocity Rush',
-      category: 'Racing',
-      year: '2023',
-      description: 'High-speed arcade racer with dynamic track generation and multiplayer focus.',
-      tools: ['Unity', 'Mirror', 'Spine2D', 'FMOD'],
-      image: '/placeholder3.jpg',
-      link: 'https://example.com/velocity-rush'
-    },
-    {
-      id: 4,
-      title: 'Shadow Tactics',
-      category: 'Strategy',
-      year: '2022',
-      description: 'Turn-based tactical strategy with emergent gameplay and AI-driven enemies.',
-      tools: ['Godot', 'GDScript', 'Aseprite', 'Tiled'],
-      image: '/placeholder4.jpg',
-      link: 'https://example.com/shadow-tactics'
-    }
-  ]
+  const projects = projectsData
 
   const handleMouseMove = (e, projectId) => {
     const card = e.currentTarget
@@ -103,12 +65,12 @@ export default function Projects({ scrollProgress }) {
     setMousePosition({ x, y })
   }
 
-  const handleProjectClick = (e, projectId, link) => {
+  const handleProjectClick = (e, projectId) => {
     e.stopPropagation()
 
     if (selectedProject === projectId) {
-      // If already selected, open the link
-      window.open(link, '_blank')
+      // If already selected, navigate to detail page
+      navigate(`/project/${projectId}`)
     } else {
       // First click: zoom in
       setSelectedProject(projectId)
@@ -234,7 +196,7 @@ export default function Projects({ scrollProgress }) {
             onMouseEnter={() => setHoveredProject(project.id)}
             onMouseLeave={() => setHoveredProject(null)}
             onMouseMove={(e) => handleMouseMove(e, project.id)}
-            onClick={(e) => handleProjectClick(e, project.id, project.link)}
+            onClick={(e) => handleProjectClick(e, project.id)}
           >
             <div className="project-spotlight" style={{
               left: `${mousePosition.x}px`,

@@ -1,15 +1,33 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Scene3D from './components/Scene3D'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import About from './components/About'
 import Footer from './components/Footer'
+import ProjectDetail from './components/ProjectDetail'
 import './App.css'
 
-function App() {
+function HomePage({ activeSection, setActiveSection, scrollProgress }) {
+  return (
+    <>
+      <Scene3D scrollProgress={scrollProgress} />
+      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <main className="main-content">
+        <Hero />
+        <Projects scrollProgress={scrollProgress} />
+        <About />
+        <Footer />
+      </main>
+    </>
+  )
+}
+
+function AppContent() {
   const [activeSection, setActiveSection] = useState('home')
   const [scrollProgress, setScrollProgress] = useState(0)
+  const location = useLocation()
 
   useEffect(() => {
     let rafId = null
@@ -67,17 +85,33 @@ function App() {
     }
   }, [])
 
+  // Only run scroll tracking on home page
+  const isHomePage = location.pathname === '/'
+
   return (
     <div className="app">
-      <Scene3D scrollProgress={scrollProgress} />
-      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="main-content">
-        <Hero />
-        <Projects scrollProgress={scrollProgress} />
-        <About />
-        <Footer />
-      </main>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+              scrollProgress={isHomePage ? scrollProgress : 0}
+            />
+          }
+        />
+        <Route path="/project/:projectId" element={<ProjectDetail />} />
+      </Routes>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router basename="/Game-Des_Portfolio">
+      <AppContent />
+    </Router>
   )
 }
 
