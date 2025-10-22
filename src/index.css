@@ -7,17 +7,24 @@
 }
 
 :root {
-  --color-bg: #000000;
-  --color-text: #ededf1;
-  --color-primary: #6366f1;
-  --color-secondary: #8b5cf6;
-  --color-accent: #ec4899;
+  --color-bg: #050510;
+  --color-bg-dark: #020208;
+  --color-text: #e8e8f0;
+  --color-primary: #ff7849;
+  --color-secondary: #ffa05f;
+  --color-accent: #ffb88c;
+  --color-purple: #8855ff;
+  --color-blue: #4488ff;
+  --color-orange-glow: rgba(255, 120, 73, 0.5);
+  --color-purple-glow: rgba(136, 85, 255, 0.4);
   --sidebar-width: 100px;
   --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 body {
@@ -26,6 +33,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
+  background: radial-gradient(ellipse at bottom, #1b1b3a 0%, #050510 100%);
 }
 
 #root {

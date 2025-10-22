@@ -18,6 +18,13 @@ export default function Hero() {
     ))
   }
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section id="home" className="hero">
       <div className="hero-content">
@@ -29,7 +36,7 @@ export default function Hero() {
         <p className="hero-subtitle">
           Crafting immersive experiences through innovative game design
         </p>
-        <button className="cta-button">
+        <button className="cta-button" onClick={scrollToProjects}>
           <span>View My Work</span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
