@@ -198,33 +198,46 @@ export default function Projects({ scrollProgress }) {
             onMouseMove={(e) => handleMouseMove(e, project.id)}
             onClick={(e) => handleProjectClick(e, project.id)}
           >
-            <div className="project-spotlight" style={{
-              left: `${mousePosition.x}px`,
-              top: `${mousePosition.y}px`
-            }}></div>
-
-            <div className="project-header">
-              <h3 className="project-title">{project.title}</h3>
-              <span className="project-year">{project.year}</span>
+            {/* Project Image */}
+            <div className="project-image">
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                onError={(e) => {
+                  e.target.src = `https://via.placeholder.com/400x300/1a1a2e/ff7849?text=${encodeURIComponent(project.title)}`
+                }}
+              />
+              <div className="project-overlay"></div>
             </div>
 
-            <div className="project-category-badge">{project.category}</div>
-
-            <p className="project-description">{project.description}</p>
-
-            <div className="project-tools">
-              <span className="tools-label">Tools:</span>
-              <div className="tools-list">
-                {project.tools.map((tool, i) => (
-                  <span key={i} className="tool-tag">{tool}</span>
-                ))}
+            {/* Always visible: Title and Category */}
+            <div className="project-info-always">
+              <h3 className="project-title">{project.title}</h3>
+              <div className="project-meta-row">
+                <span className="project-category">{project.category}</span>
+                <span className="project-year">{project.year}</span>
               </div>
             </div>
 
-            <div className="project-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            {/* Only visible when selected: Description and Tools */}
+            <div className={`project-details-hidden ${selectedProject === project.id ? 'visible' : ''}`}>
+              <p className="project-description">{project.description}</p>
+
+              <div className="project-tools">
+                <span className="tools-label">Tools:</span>
+                <div className="tools-list">
+                  {project.tools.map((tool, i) => (
+                    <span key={i} className="tool-tag">{tool}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="project-cta">
+                <span className="view-project-text">Click again to view full details</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
             </div>
           </div>
         ))}
