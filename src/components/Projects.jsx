@@ -118,9 +118,11 @@ export default function Projects({ scrollProgress }) {
     let x, y, z, scale, opacity, rotateX, rotateY, rotateZ, zIndex
 
     if (isSelected) {
-      // Selected - stay in floating position, just bring forward
-      x = 50 + (pos.x - 50) * projectPhase + floatX * projectPhase
-      y = 50 + (pos.y - 50) * projectPhase + floatY * projectPhase
+      // Selected - center the card and ensure it stays within screen bounds
+      // Clamp position to ensure card with 360px width stays visible
+      // Using 50% center position keeps it safe from edges
+      x = 50 // Center horizontally for selected state
+      y = 50 // Center vertically for selected state
       z = 200 // Fixed Z position - brings forward but stays consistent
       scale = 1.0 // Normalized size (no scaling)
       opacity = 1

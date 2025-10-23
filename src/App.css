@@ -333,13 +333,15 @@
 .project-floating {
   position: absolute !important;
   width: 360px;
-  max-width: 85vw;
+  max-width: 90vw; /* Increased from 85vw for better mobile support */
+  max-height: 85vh; /* Prevent vertical overflow */
   transform-style: preserve-3d;
   will-change: transform, opacity;
   pointer-events: auto;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden; /* Ensure content doesn't overflow card bounds */
 }
 
 .project-card {
@@ -631,9 +633,30 @@
 }
 
 .project-details-hidden.visible {
-  max-height: 400px;
+  max-height: 50vh; /* Use viewport-relative units for better responsiveness */
   opacity: 1;
   padding: 0 1.5rem 1.5rem 1.5rem;
+  overflow-y: auto; /* Allow scrolling if content is too long */
+  overflow-x: hidden;
+}
+
+/* Styled scrollbar for project details */
+.project-details-hidden.visible::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-details-hidden.visible::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.project-details-hidden.visible::-webkit-scrollbar-thumb {
+  background: rgba(255, 120, 73, 0.5);
+  border-radius: 3px;
+}
+
+.project-details-hidden.visible::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 120, 73, 0.7);
 }
 
 .project-cta {
@@ -675,13 +698,17 @@
   padding: 6rem;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin-bottom: 4rem;
+  max-width: 1400px;
+  width: 100%;
 }
 
 .about-intro {
@@ -747,65 +774,40 @@
   transition: width 1s var(--transition);
 }
 
-.experience {
-  max-width: 900px;
-}
-
-.experience-title {
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
-  color: var(--color-text);
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  position: relative;
-  padding-left: 2rem;
-  border-left: 2px solid rgba(99, 102, 241, 0.3);
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -2.5rem;
-  top: 0;
-  width: 12px;
-  height: 12px;
+/* Resume Button */
+.resume-button {
   background: var(--color-primary);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--color-primary);
-}
-
-.timeline-year {
-  font-size: 0.9rem;
-  color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s var(--transition);
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px rgba(255, 120, 73, 0.3);
 }
 
-.timeline-content h4 {
-  font-size: 1.3rem;
-  margin-bottom: 0.25rem;
-  color: var(--color-text);
+.resume-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 120, 73, 0.5);
+  background: linear-gradient(135deg, var(--color-primary), #ff5733);
 }
 
-.timeline-content p {
-  opacity: 0.7;
-  margin-bottom: 0.5rem;
+.resume-button:active {
+  transform: translateY(-1px);
 }
 
-.timeline-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
+.resume-button svg {
+  transition: transform 0.3s var(--transition);
+}
+
+.resume-button:hover svg {
+  transform: translateX(3px);
 }
 
 /* Footer */
@@ -914,6 +916,16 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  /* Ensure project cards fit well on tablets */
+  .project-floating {
+    width: 340px;
+    max-width: 88vw;
+  }
+
+  .project-card.selected {
+    max-height: 80vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -947,5 +959,36 @@
   .footer-bottom {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  /* Mobile-specific project card adjustments */
+  .project-floating {
+    width: 300px;
+    max-width: 92vw;
+    max-height: 80vh;
+  }
+
+  .project-card {
+    min-height: 280px;
+  }
+
+  .project-card.selected {
+    max-height: 75vh;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .project-details-hidden.visible {
+    max-height: 40vh;
   }
 }

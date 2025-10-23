@@ -10,6 +10,11 @@ export default function About() {
     { name: 'Prototyping', level: 90 }
   ]
 
+  const handleResumeClick = () => {
+    // Open resume PDF in new tab
+    window.open('/resume.pdf', '_blank')
+  }
+
   return (
     <section id="about" className="about">
       <div className="about-content">
@@ -29,6 +34,18 @@ export default function About() {
             When I'm not designing games, you'll find me analyzing game mechanics,
             exploring indie titles, or prototyping new ideas in Unity and Unreal Engine.
           </p>
+
+          {/* Resume Button */}
+          <button className="resume-button" onClick={handleResumeClick}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            View Resume
+          </button>
         </div>
 
         <div className="about-skills">
@@ -48,42 +65,6 @@ export default function About() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="experience">
-        <h3 className="experience-title">Experience</h3>
-        <div className="timeline">
-          <div className="timeline-item">
-            <div className="timeline-year">2022 - Present</div>
-            <div className="timeline-content">
-              <h4>Senior Game Designer</h4>
-              <p>Creative Studio Inc.</p>
-              <p className="timeline-desc">
-                Leading design on AAA action RPG, managing gameplay systems and combat design.
-              </p>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="timeline-year">2020 - 2022</div>
-            <div className="timeline-content">
-              <h4>Game Designer</h4>
-              <p>Indie Games Studio</p>
-              <p className="timeline-desc">
-                Designed levels and puzzles for award-winning puzzle adventure game.
-              </p>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="timeline-year">2019 - 2020</div>
-            <div className="timeline-content">
-              <h4>Junior Game Designer</h4>
-              <p>Mobile Games Co.</p>
-              <p className="timeline-desc">
-                Created progression systems and monetization features for mobile titles.
-              </p>
-            </div>
           </div>
         </div>
       </div>
