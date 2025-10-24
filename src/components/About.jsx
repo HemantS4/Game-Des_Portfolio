@@ -2,18 +2,11 @@ import React from 'react'
 
 export default function About() {
   const tools = [
-    { name: 'Maya', category: '3D' },
-    { name: 'Blender', category: '3D' },
     { name: 'Unity', category: 'Engine' },
-    { name: 'Unreal Engine', category: 'Engine' },
+    { name: 'Blender', category: '3D' },
     { name: 'Photoshop', category: 'Adobe' },
-    { name: 'Illustrator', category: 'Adobe' },
-    { name: 'After Effects', category: 'Adobe' },
-    { name: 'Premiere Pro', category: 'Adobe' },
     { name: 'Figma', category: 'Design' },
-    { name: 'Substance Painter', category: '3D' },
-    { name: 'ZBrush', category: '3D' },
-    { name: 'Git', category: 'Dev' }
+    { name: 'Unreal', category: 'Engine' }
   ]
 
   const handleResumeClick = () => {
