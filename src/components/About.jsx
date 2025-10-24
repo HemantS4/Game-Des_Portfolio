@@ -1,13 +1,19 @@
 import React from 'react'
 
 export default function About() {
-  const skills = [
-    { name: 'Game Systems Design', level: 95 },
-    { name: 'Level Design', level: 90 },
-    { name: 'Combat Design', level: 85 },
-    { name: 'Narrative Design', level: 80 },
-    { name: 'UI/UX Design', level: 85 },
-    { name: 'Prototyping', level: 90 }
+  const tools = [
+    { name: 'Maya', category: '3D' },
+    { name: 'Blender', category: '3D' },
+    { name: 'Unity', category: 'Engine' },
+    { name: 'Unreal Engine', category: 'Engine' },
+    { name: 'Photoshop', category: 'Adobe' },
+    { name: 'Illustrator', category: 'Adobe' },
+    { name: 'After Effects', category: 'Adobe' },
+    { name: 'Premiere Pro', category: 'Adobe' },
+    { name: 'Figma', category: 'Design' },
+    { name: 'Substance Painter', category: '3D' },
+    { name: 'ZBrush', category: '3D' },
+    { name: 'Git', category: 'Dev' }
   ]
 
   const handleResumeClick = () => {
@@ -48,23 +54,33 @@ export default function About() {
           </button>
         </div>
 
-        <div className="about-skills">
-          <h3 className="skills-title">Core Competencies</h3>
-          <div className="skills-list">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-item">
-                <div className="skill-header">
-                  <span className="skill-name">{skill.name}</span>
-                  <span className="skill-percentage">{skill.level}%</span>
+        <div className="about-profile">
+          {/* Floating Profile Image */}
+          <div className="profile-image-container">
+            <div className="profile-image-wrapper">
+              <img
+                src="/profile.jpg"
+                alt="Profile"
+                className="profile-image"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/300x300/1a1a2e/ff7849?text=Your+Photo'
+                }}
+              />
+              <div className="profile-glow"></div>
+            </div>
+          </div>
+
+          {/* Tools Proficiency */}
+          <div className="tools-proficiency">
+            <h3 className="tools-title">Tools & Technologies</h3>
+            <div className="tools-grid">
+              {tools.map((tool, index) => (
+                <div key={index} className="tool-badge" data-category={tool.category}>
+                  <span className="tool-name">{tool.name}</span>
+                  <span className="tool-category">{tool.category}</span>
                 </div>
-                <div className="skill-bar">
-                  <div
-                    className="skill-progress"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
