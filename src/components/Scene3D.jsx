@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber'
 import { useGLTF, Sphere } from '@react-three/drei'
 import * as THREE from 'three'
 
-// Component to load GLTF moon model
+// Component to load GLTF moon model (Updated Oct 2024)
 function MoonModel({ meshRef, scrollProgress, mousePosition }) {
   const modelPath = import.meta.env.BASE_URL + 'models/moon.glb'
   const gltf = useGLTF(modelPath)
