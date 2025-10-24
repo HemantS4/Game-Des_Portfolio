@@ -173,24 +173,6 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Achievements */}
-      {project.achievements && project.achievements.length > 0 && (
-        <section className="project-section achievements-section">
-          <h2>Achievements & Recognition</h2>
-          <div className="achievements-grid">
-            {project.achievements.map((achievement, index) => (
-              <div key={index} className="achievement-card">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                    fill="#ff7849" stroke="#ff7849" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <p>{achievement}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* Links */}
       {project.links && Object.keys(project.links).length > 0 && (
         <section className="project-section links-section">
