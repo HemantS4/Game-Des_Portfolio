@@ -1,199 +1,160 @@
 // Centralized project data
 export const projectsData = [
   {
-    id: 'cyber-odyssey',
-    title: 'Cyber Odyssey',
-    category: 'Action RPG',
+    id: 'ammo-batics',
+    title: 'Ammo-batics',
+    category: '2D Platformer',
     year: '2024',
-    description: 'A futuristic action RPG set in a cyberpunk world with deep narrative choices.',
-    shortDescription: 'Futuristic action RPG with deep narrative',
-    tools: ['Unreal Engine', 'Blueprints', 'C++', 'Blender'],
-    thumbnail: '/images/projects/cyber-odyssey/thumbnail.jpg',
+    description: 'A 2D momentum-centric platformer where every shot fired becomes a movement decision.',
+    shortDescription: '2D shooter platformer focusing on Level Design',
+    tools: ['Unity', 'Blender', 'Photoshop', 'C#', 'Maya'],
+    thumbnail: '/images/projects/ammo-batics/thumbnail.jpg',
 
     // Detailed project information
-    overview: 'Cyber Odyssey is an immersive action RPG that takes players through a dystopian future where technology and humanity collide. Set in Neo-Tokyo 2084, players navigate through a world of corporate espionage, underground hacking networks, and philosophical questions about consciousness in the digital age.',
+    overview: 'Imagine falling into a deep, living cave system where every shot fired becomes a movement decision. Ammo-batics is a 2D momentum-centric platformer that transforms traditional shooting mechanics into a unique traversal system. You\'ve fallen into a karst system where flora has evolved weaponized spores. Armed with the "Kickspark" - a tool that doubles as cutter and propulsion pistol - players must escape upward by shooting to generate recoil-powered jumps, chaining shots, wall hops, and platforms.',
 
-    role: 'Lead Game Designer & Systems Designer',
-    duration: '18 months (Jan 2023 - June 2024)',
-    teamSize: '12 people',
-    platform: ['PC', 'PlayStation 5', 'Xbox Series X'],
+    role: 'Game Designer, Level Designer, 3D Artist',
+    duration: '2 Weeks',
+    teamSize: 'Solo Project',
+    platform: ['PC'],
 
     challenges: [
-      'Designing a branching narrative system that meaningfully affects gameplay',
-      'Balancing cybernetic augmentation progression with traditional RPG mechanics',
-      'Creating an immersive cyberpunk world that feels lived-in and believable',
-      'Implementing a real-time combat system that rewards tactical thinking'
+      'Balancing realistic recoil physics with responsive, predictable player movement',
+      'Creating a smooth learning curve that teaches complex movement combinations',
+      'Ensuring bioluminescent UI elements provide clear navigation cues while maintaining atmospheric immersion'
     ],
 
     solutions: [
-      'Developed a node-based dialogue system with consequence tracking across 200+ story nodes',
-      'Created a modular augmentation system allowing 50+ unique build combinations',
-      'Collaborated with artists to establish a cohesive visual language for the game world',
-      'Prototyped and iterated on combat mechanics through extensive playtesting'
+      'Developed precision shooting mechanics with physics-based recoil through extensive fine-tuning',
+      'Created interconnected rooms with multiple traversal routes for exploration',
+      'Implemented quick respawns and fair checkpoints for tight gameplay flow',
+      'Designed vertical shortcuts and unlockable connectors encouraging backtracking'
     ],
 
     features: [
-      'Branching narrative with 12 distinct endings',
-      'Deep character customization with cybernetic augmentations',
-      'Hack-and-slash combat with tactical pause system',
-      'Dynamic world that responds to player choices',
-      'Original soundtrack with 30+ tracks',
-      'Full voice acting for main story characters'
-    ],
-
-    achievements: [
-      'Featured at PAX East 2024',
-      'Winner - Best Narrative Design, Indie Game Awards 2024',
-      'Nominated for Best Action Game, The Game Awards 2024',
-      '500K+ wishlists on Steam'
+      'Precision shooting mechanics with physics-based recoil',
+      'Interconnected rooms with multiple traversal routes',
+      'Quick respawns and fair checkpoints',
+      'Explore → Learn → Bypass → Unlock progression cycle',
+      'Bioluminescent cave environments',
+      'Recoil-powered movement system'
     ],
 
     gallery: [
-      '/images/projects/cyber-odyssey/screenshot-1.jpg',
-      '/images/projects/cyber-odyssey/screenshot-2.jpg',
-      '/images/projects/cyber-odyssey/screenshot-3.jpg',
-      '/images/projects/cyber-odyssey/screenshot-4.jpg',
-      '/images/projects/cyber-odyssey/concept-art-1.jpg',
-      '/images/projects/cyber-odyssey/concept-art-2.jpg'
+      '/images/projects/ammo-batics/screenshot-1.jpg',
+      '/images/projects/ammo-batics/screenshot-2.jpg',
+      '/images/projects/ammo-batics/screenshot-3.jpg',
+      '/images/projects/ammo-batics/screenshot-4.jpg'
     ],
 
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Replace with actual video
+    videoUrl: '',
 
     links: {
-      steam: 'https://store.steampowered.com',
-      website: 'https://example.com/cyber-odyssey',
-      trailer: 'https://youtube.com'
+      itchIo: 'https://hemants4.itch.io/ammo-batics'
     }
   },
 
   {
-    id: 'forest-keeper',
-    title: 'Forest Keeper',
-    category: 'Puzzle Adventure',
-    year: '2023',
-    description: 'An environmental puzzle game focused on nature restoration and exploration.',
-    shortDescription: 'Environmental puzzle game about nature restoration',
-    tools: ['Unity', 'C#', 'ProBuilder', 'Photoshop'],
-    thumbnail: '/images/projects/forest-keeper/thumbnail.jpg',
+    id: 'flowlog',
+    title: 'FlowLog',
+    category: 'UX/UI & Gamification',
+    year: '2024',
+    description: 'A gamified journaling and documentation app for creative professionals.',
+    shortDescription: 'Gamified journaling app with AI assistance',
+    tools: ['Figma', 'Principle', 'Miro', 'Adobe Creative Suite', 'Notion'],
+    thumbnail: '/images/projects/flowlog/thumbnail.jpg',
 
-    overview: 'Forest Keeper is a meditative puzzle-adventure game where players take on the role of a guardian spirit tasked with restoring balance to a corrupted forest. Through solving environmental puzzles and nurturing wildlife, players breathe life back into a dying ecosystem.',
+    overview: 'FlowLog is a gamified journaling and documentation app designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them. The app combines AI-assisted organization with gamified habit design, helping users document their thoughts, designs, and inspirations effortlessly while staying engaged and consistent.',
 
-    role: 'Game Designer & Level Designer',
-    duration: '12 months (Jan 2022 - Dec 2022)',
-    teamSize: '6 people',
-    platform: ['PC', 'Nintendo Switch', 'iOS', 'Android'],
+    role: 'UX/UI Designer, Product Designer, Researcher',
+    duration: '2 Weeks',
+    teamSize: 'Solo Design Project',
+    platform: ['iOS', 'Android', 'Web'],
 
     challenges: [
-      'Creating puzzles that feel organic to the forest environment',
-      'Designing non-violent gameplay that remains engaging',
-      'Balancing accessibility with puzzle complexity',
-      'Communicating mechanics without traditional UI elements'
+      'Successfully transitioning from reflective journaling to creative documentation while maintaining engagement',
+      'Designing AI assistance that enhances creativity without overwhelming or replacing human control',
+      'Implementing gamification that supports intrinsic creativity rather than creating dependency on rewards'
     ],
 
     solutions: [
-      'Developed 60+ environmental puzzles using natural elements (water, light, plants)',
-      'Created a growth-based progression system where restored areas unlock new abilities',
-      'Implemented difficulty scaling based on player behavior analytics',
-      'Used visual language and environmental storytelling to guide players'
+      'Developed evidence-based design using Octalysis Framework, Self-Determination Theory, and Fogg Behavior Model',
+      'Created voice-to-text transcription for rapid idea capture',
+      'Implemented AI-powered formatting, summarization, and categorization',
+      'Designed XP system, badges, and streak tracking balanced with user autonomy'
     ],
 
     features: [
-      '5 distinct biomes to restore',
-      '60+ handcrafted environmental puzzles',
-      'Non-violent gameplay focused on nurturing and growth',
-      'Dynamic ecosystem simulation',
-      'Relaxing ambient soundtrack',
-      'Photo mode to capture beautiful moments'
-    ],
-
-    achievements: [
-      'Apple Arcade Featured Game',
-      'Winner - Best Mobile Game, IGF 2023',
-      'Metacritic Score: 87/100',
-      '2M+ downloads across all platforms',
-      'Featured in "Best Games for Relaxation" - IGN'
+      'Voice-to-text transcription for rapid idea capture',
+      'AI-powered formatting and categorization',
+      'XP system, badges, and streak tracking',
+      'Weekly vibe charts and monthly AI reflections',
+      'Unlockable themes for personalization',
+      'Privacy-first design with intentional sharing',
+      'Micro-prompts for creative inspiration'
     ],
 
     gallery: [
-      '/images/projects/forest-keeper/screenshot-1.jpg',
-      '/images/projects/forest-keeper/screenshot-2.jpg',
-      '/images/projects/forest-keeper/screenshot-3.jpg',
-      '/images/projects/forest-keeper/screenshot-4.jpg',
-      '/images/projects/forest-keeper/level-design-1.jpg'
+      '/images/projects/flowlog/screenshot-1.jpg',
+      '/images/projects/flowlog/screenshot-2.jpg',
+      '/images/projects/flowlog/screenshot-3.jpg',
+      '/images/projects/flowlog/ui-mockup.jpg'
     ],
 
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoUrl: '',
 
-    links: {
-      appStore: 'https://apps.apple.com',
-      googlePlay: 'https://play.google.com',
-      website: 'https://example.com/forest-keeper'
-    }
+    links: {}
   },
 
   {
-    id: 'velocity-rush',
-    title: 'Velocity Rush',
-    category: 'Racing',
-    year: '2023',
-    description: 'High-speed arcade racer with dynamic track generation and multiplayer focus.',
-    shortDescription: 'High-speed arcade racer with dynamic tracks',
-    tools: ['Unity', 'Mirror', 'Spine2D', 'FMOD'],
-    thumbnail: '/images/projects/velocity-rush/thumbnail.jpg',
+    id: 'flow-and-hold',
+    title: 'Flow & Hold',
+    category: 'Card Game Design',
+    year: '2024',
+    description: 'A philosophical card game redefining the binary of containment and continuum of water.',
+    shortDescription: 'Card game exploring water\'s dual nature',
+    tools: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma', 'Tabletop Simulator'],
+    thumbnail: '/images/projects/flow-and-hold/thumbnail.jpg',
 
-    overview: 'Velocity Rush is an adrenaline-fueled arcade racing game that combines classic racing mechanics with procedurally generated tracks. Every race is unique, featuring dynamic obstacles, power-ups, and intense multiplayer competition.',
+    overview: 'Water exists in a constant state of duality - it can be contained yet flows freely, held yet always seeking escape. Flow & Hold challenges players to think beyond traditional boundaries and explore the philosophical nature of water through strategic card gameplay. This innovative card game redefines the existing binary of contain and continuum, creating a unique gaming experience that mirrors water\'s fundamental properties through elegant mechanics and thoughtful design.',
 
-    role: 'Systems Designer & Gameplay Programmer',
-    duration: '10 months (Mar 2022 - Dec 2022)',
-    teamSize: '8 people',
-    platform: ['PC', 'PlayStation 5', 'Xbox Series X'],
+    role: 'Game Designer, Concept Developer, Visual Designer',
+    duration: '2 Months',
+    teamSize: 'Solo Project',
+    platform: ['Physical Card Game'],
 
     challenges: [
-      'Generating fair and fun tracks procedurally',
-      'Maintaining smooth 60fps in multiplayer with 12 players',
-      'Designing a progression system that keeps players engaged',
-      'Balancing power-ups for competitive fairness'
+      'Creating meaningful philosophical depth while maintaining engaging, competitive gameplay',
+      'Translating abstract concepts about water\'s nature into clear, intuitive visual card designs',
+      'Making complex philosophical concepts accessible to players of varying backgrounds'
     ],
 
     solutions: [
-      'Created a segment-based track generator with difficulty scaling',
-      'Optimized networking code and implemented LOD systems',
-      'Designed a season-based progression with weekly challenges',
-      'Developed rock-paper-scissors power-up meta with counterplay'
+      'Developed dynamic water states that change based on player actions',
+      'Created strategic balance between containment and release mechanics',
+      'Designed extensive research into water\'s physical and metaphysical properties',
+      'Implemented playtesting feedback to balance philosophy with engaging gameplay'
     ],
 
     features: [
-      'Procedurally generated tracks - infinite variety',
-      '12-player online multiplayer',
-      '25+ unlockable vehicles',
-      '15+ power-ups and abilities',
-      'Season-based progression system',
-      'Split-screen local multiplayer (4 players)',
-      'Custom livery editor'
-    ],
-
-    achievements: [
-      'Reached #1 on Steam Racing Charts (Launch Week)',
-      '1M+ players in first month',
-      'Average Twitch viewership: 50K concurrent',
-      'Featured in PlayStation Store "Multiplayer Mayhem" Collection'
+      'Dynamic water states responsive to player actions',
+      'Strategic balance between containment and release',
+      'Philosophical depth encouraging reflective gameplay',
+      'Multiple simultaneous water states',
+      'Elegant card design reflecting water properties',
+      'Meditative gameplay experience'
     ],
 
     gallery: [
-      '/images/projects/velocity-rush/screenshot-1.jpg',
-      '/images/projects/velocity-rush/screenshot-2.jpg',
-      '/images/projects/velocity-rush/screenshot-3.jpg',
-      '/images/projects/velocity-rush/multiplayer.jpg',
-      '/images/projects/velocity-rush/vehicles.jpg'
+      '/images/projects/flow-and-hold/screenshot-1.jpg',
+      '/images/projects/flow-and-hold/screenshot-2.jpg',
+      '/images/projects/flow-and-hold/card-designs.jpg',
+      '/images/projects/flow-and-hold/gameplay.jpg'
     ],
 
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoUrl: '',
 
-    links: {
-      steam: 'https://store.steampowered.com',
-      playstation: 'https://store.playstation.com',
-      xbox: 'https://xbox.com'
-    }
+    links: {}
   },
 
   {
