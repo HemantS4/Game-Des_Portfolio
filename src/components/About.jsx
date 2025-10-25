@@ -20,18 +20,17 @@ export default function About() {
         <div className="about-text">
           <h2 className="section-title">About Me</h2>
           <p className="about-intro">
-            I'm a passionate game designer with 5+ years of experience creating engaging
-            gameplay experiences across multiple genres and platforms.
+            Game System Designer specializing in creating engaging gameplay mechanics and systems
+            that drive player interaction and immersion.
           </p>
           <p className="about-description">
-            My design philosophy centers on player agency and meaningful choices.
-            I believe great games emerge from the intersection of intuitive mechanics,
-            compelling narratives, and thoughtful systems design. I specialize in
-            combat systems, progression mechanics, and creating emergent gameplay moments.
+            I focus on designing robust game systems, from combat mechanics to progression loops,
+            ensuring every element contributes to a cohesive player experience. My approach combines
+            analytical thinking with creative problem-solving to build systems that are both fun and balanced.
           </p>
           <p className="about-description">
-            When I'm not designing games, you'll find me analyzing game mechanics,
-            exploring indie titles, or prototyping new ideas in Unity and Unreal Engine.
+            With expertise in level design, game balancing, and player psychology, I craft experiences
+            that keep players engaged through well-designed feedback loops and meaningful choices.
           </p>
 
           {/* Resume Button */}

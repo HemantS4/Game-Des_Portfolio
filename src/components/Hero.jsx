@@ -29,12 +29,12 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className="hero-content">
         <h1 ref={titleRef} className="hero-title">
-          {splitText('Creative Game')}
+          {splitText('Game System')}
           <br />
           {splitText('Designer')}
         </h1>
         <p className="hero-subtitle">
-          Crafting immersive experiences through innovative game design
+          Designing engaging systems and mechanics that create meaningful player experiences
         </p>
         <button className="cta-button" onClick={scrollToProjects}>
           <span>View My Work</span>
