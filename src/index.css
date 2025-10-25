@@ -15,10 +15,18 @@
   --color-accent: #ffb88c;
   --color-purple: #8855ff;
   --color-blue: #4488ff;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
   --color-orange-glow: rgba(255, 120, 73, 0.5);
   --color-purple-glow: rgba(136, 85, 255, 0.4);
   --sidebar-width: 100px;
   --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  /* Game Design specific elements */
+  --game-card-bg: rgba(15, 15, 35, 0.85);
+  --game-card-border: rgba(255, 120, 73, 0.3);
+  --game-highlight: linear-gradient(135deg, #ff7849 0%, #8855ff 100%);
+  --game-glow: 0 0 30px rgba(255, 120, 73, 0.3);
 }
 
 html {

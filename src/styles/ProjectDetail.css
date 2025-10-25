@@ -7,6 +7,8 @@
   padding: 2rem var(--sidebar-width) 4rem calc(var(--sidebar-width) + 2rem);
   position: relative;
   z-index: 10;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Hero Section */
@@ -179,7 +181,19 @@
 
 /* Project Sections */
 .project-section {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.project-section::before {
+  content: '';
+  position: absolute;
+  top: -2.5rem;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--game-highlight);
+  border-radius: 2px;
 }
 
 .project-section h2 {
@@ -187,14 +201,31 @@
   color: var(--color-primary);
   margin-bottom: 2rem;
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.project-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
 }
 
 .overview-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: 1.15rem;
+  line-height: 1.9;
   color: var(--color-text);
   opacity: 0.95;
-  max-width: 900px;
+  max-width: 850px;
+  letter-spacing: 0.3px;
+  font-weight: 400;
 }
 
 /* Features */
@@ -236,7 +267,17 @@
 .challenges-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 4rem;
+  background: rgba(15, 15, 35, 0.4);
+  padding: 3rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 120, 73, 0.2);
+}
+
+.challenges-column h2,
+.solutions-column h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .challenge-list,
@@ -248,11 +289,12 @@
 .challenge-list li,
 .solution-list li {
   position: relative;
-  padding-left: 2rem;
-  margin-bottom: 1.5rem;
+  padding-left: 2.5rem;
+  margin-bottom: 2rem;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--color-text);
+  opacity: 0.95;
 }
 
 .challenge-list li::before {
