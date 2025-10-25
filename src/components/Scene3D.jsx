@@ -541,6 +541,108 @@ function Stars({ mousePosition }) {
   )
 }
 
+function Rocket({ mousePosition, scrollProgress }) {
+  const rocketRef = useRef()
+  const trailRef = useRef()
+  const { camera } = useThree()
+  const targetPosition = useRef(new THREE.Vector3())
+  const velocity = useRef(new THREE.Vector3())
+  const trailPositions = useRef([])
+  const maxTrailLength = 20
+
+  useFrame((state) => {
+    if (!rocketRef.current) return
+
+    const time = state.clock.getElapsedTime()
+
+    // Convert mouse position to 3D world coordinates
+    const vector = new THREE.Vector3(mousePosition.x, mousePosition.y, 0.5)
+    vector.unproject(camera)
+
+    const dir = vector.sub(camera.position).normalize()
+    const distance = 8 // Distance from camera
+    targetPosition.current = camera.position.clone().add(dir.multiplyScalar(distance))
+
+    // Smooth follow with easing
+    const lerpFactor = 0.08
+    rocketRef.current.position.lerp(targetPosition.current, lerpFactor)
+
+    // Calculate velocity for rotation
+    velocity.current.subVectors(targetPosition.current, rocketRef.current.position)
+
+    // Rotate rocket to face movement direction
+    if (velocity.current.length() > 0.01) {
+      const targetRotation = Math.atan2(velocity.current.x, velocity.current.z)
+      rocketRef.current.rotation.y = targetRotation
+      rocketRef.current.rotation.x = -velocity.current.y * 0.5
+      rocketRef.current.rotation.z = Math.sin(time * 3) * 0.1 // Slight wobble
+    }
+
+    // Update trail
+    trailPositions.current.unshift(rocketRef.current.position.clone())
+    if (trailPositions.current.length > maxTrailLength) {
+      trailPositions.current.pop()
+    }
+
+    // Fade out during about section
+    if (scrollProgress > 0.66) {
+      const fadeProgress = (scrollProgress - 0.66) / 0.34
+      rocketRef.current.scale.setScalar(Math.max(0, 1 - fadeProgress))
+    } else {
+      rocketRef.current.scale.setScalar(1)
+    }
+  })
+
+  return (
+    <group ref={rocketRef}>
+      {/* Rocket Body - cone shape */}
+      <mesh position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <coneGeometry args={[0.15, 0.6, 8]} />
+        <meshStandardMaterial
+          color="#ff7849"
+          emissive="#ff7849"
+          emissiveIntensity={0.5}
+          metalness={0.8}
+          roughness={0.2}
+        />
+      </mesh>
+
+      {/* Rocket Fins */}
+      {[0, 120, 240].map((angle, i) => (
+        <mesh
+          key={i}
+          position={[
+            Math.cos((angle * Math.PI) / 180) * 0.12,
+            -0.25,
+            Math.sin((angle * Math.PI) / 180) * 0.12
+          ]}
+          rotation={[0, (angle * Math.PI) / 180, 0]}
+        >
+          <boxGeometry args={[0.02, 0.15, 0.15]} />
+          <meshStandardMaterial
+            color="#8855ff"
+            metalness={0.6}
+            roughness={0.3}
+          />
+        </mesh>
+      ))}
+
+      {/* Engine Glow */}
+      <pointLight position={[0, -0.3, 0]} intensity={1} distance={2} color="#ff4488" />
+
+      {/* Exhaust particles */}
+      <mesh position={[0, -0.35, 0]}>
+        <sphereGeometry args={[0.08, 8, 8]} />
+        <meshBasicMaterial
+          color="#ff4488"
+          transparent
+          opacity={0.6}
+        />
+      </mesh>
+    </group>
+  )
+}
+
 function CameraController({ mousePosition, scrollProgress }) {
   const { camera } = useThree()
   const targetPosition = useRef({ x: 0, y: 0, z: 5 })
@@ -654,6 +756,7 @@ export default function Scene3D({ scrollProgress: externalScrollProgress }) {
           scrollProgress={scrollProgress}
           clicked={clicked}
         />
+        <Rocket mousePosition={mousePosition} scrollProgress={scrollProgress} />
         <CameraController mousePosition={mousePosition} scrollProgress={scrollProgress} />
       </Canvas>
     </div>
