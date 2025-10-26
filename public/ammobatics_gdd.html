@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AmmoBatics — Game Design Document</title>
+  <style>
+:root {
+  --bg-dark: #0a0e1a;
+  --bg-card: #12172b;
+  --bg-card-hover: #1a2138;
+  --text-primary: #e8f0f2;
+  --text-muted: #7b8ba8;
+  --accent-green: #92e6a7;
+  --accent-yellow: #ffd166;
+  --accent-orange: #ff7849;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(146, 230, 167, 0.3);
+  --glow-green: rgba(146, 230, 167, 0.15);
+  --glow-orange: rgba(255, 120, 73, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Space Grotesk", sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Animated Background */
+.bg-animated {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(146, 230, 167, 0.03), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 120, 73, 0.03), transparent 50%),
+    linear-gradient(180deg, var(--bg-dark) 0%, #0f1322 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 32px 100px;
+  position: relative;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 60px 0 80px;
+  position: relative;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, var(--glow-green), var(--glow-orange));
+  border: 1px solid var(--border-bright);
+  color: var(--text-primary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.title {
+  font-size: clamp(48px, 8vw, 92px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  animation: fadeInUp 0.8s ease-out;
+  text-shadow: 0 0 60px rgba(146, 230, 167, 0.2);
+}
+
+.subtitle {
+  color: var(--accent-yellow);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+.pillars {
+  display: inline-grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 24px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 24px 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  animation: fadeIn 0.8s ease-out 0.2s backwards;
+}
+
+.pillars .label {
+  color: var(--accent-orange);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.pillars .value {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+/* Table of Contents */
+.toc {
+  background: linear-gradient(135deg, rgba(146, 230, 167, 0.05), rgba(255, 120, 73, 0.05));
+  border: 1px solid var(--border-bright);
+  border-radius: 20px;
+  padding: 32px 40px;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.toc h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--accent-green);
+}
+
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+}
+
+.toc li {
+  counter-increment: toc-counter;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 36px;
+}
+
+.toc li::before {
+  content: counter(toc-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--glow-green);
+  border: 1px solid var(--accent-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.toc a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.toc a:hover {
+  color: var(--accent-green);
+  transform: translateX(4px);
+}
+
+/* Sections */
+.section {
+  margin: 80px 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.section h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 16px;
+  color: var(--accent-green);
+  letter-spacing: -1px;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-green), transparent);
+  border-radius: 2px;
+}
+
+.section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--accent-yellow);
+}
+
+.section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--accent-orange);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--glow-green), var(--glow-orange));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-green);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(146, 230, 167, 0.15);
+}
+
+.card:hover::before {
+  opacity: 0.03;
+}
+
+.card ul, .card ol {
+  padding-left: 24px;
+}
+
+.card li {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.card li::marker {
+  color: var(--accent-green);
+}
+
+/* Callout */
+.callout {
+  background: linear-gradient(135deg, rgba(146, 230, 167, 0.08), rgba(146, 230, 167, 0.02));
+  border-left: 4px solid var(--accent-green);
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin: 24px 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.callout b {
+  color: var(--accent-green);
+}
+
+/* Figure/Images */
+.figure {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-card);
+  transition: all 0.4s ease;
+  margin-bottom: 24px;
+}
+
+.figure:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 16px 48px rgba(146, 230, 167, 0.2);
+  transform: translateY(-4px);
+}
+
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.figure:hover img {
+  transform: scale(1.02);
+}
+
+.caption {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  font-style: italic;
+}
+
+/* Divider */
+.hr {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+  margin: 32px 0;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 20px;
+  background: var(--glow-green);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--accent-green);
+  color: var(--bg-dark);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: 100px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px 60px;
+  }
+
+  .header {
+    padding: 40px 0 60px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    margin: 60px 0;
+  }
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+</style>
+</head>
+<body>
+  <div class="bg-animated"></div>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge">Game Design Document</div>
+      <h1 class="title">AmmoBatics</h1>
+      <div class="subtitle">V1 (Level Pack) → V2 (Metroidvania)</div>
+
+      <div class="pillars">
+        <div class="label">Design Pillars</div>
+        <div class="value">Recoil = Movement · Readable Space · Flow over Failure · High Skill Ceiling</div>
+        <div class="label">Visual Style</div>
+        <div class="value">Lush-green cavern, high contrast tiles, warm hazard language</div>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#scope">Project Scope & Narrative</a></li>
+        <li><a href="#v1">V1 — Complete Spec</a></li>
+        <li><a href="#lessons">V1 Learnings & Drawbacks</a></li>
+        <li><a href="#v2">V2 — Metroidvania Design</a></li>
+        <li><a href="#beats">Beat Charts (V1 & V2)</a></li>
+        <li><a href="#gallery">Visual Gallery</a></li>
+        <li><a href="#future">Conclusion & Future Prospects</a></li>
+      </ol>
+    </div>
+
+    <div class="section" id="scope">
+      <h2>Project Scope & Narrative</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Two-Week Design & Prototype</h3>
+          <p>
+            <b>Context:</b> AmmoBatics started as a <b>two-week module</b>—design, block-out, and prototype the core loop,
+            then build a small level pack to demonstrate depth with minimal mechanics. V1 (the five-level pack) was created within this timebox.
+          </p>
+          <p style="margin-top: 16px;">
+            Goals for the sprint: prove the fun of <em>gun recoil as movement</em>, teach ricochet puzzles cleanly, and keep readability high.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Premise</h3>
+          <p>
+            A wandering boy discovers an <b>alien sidearm</b> in a field. He curiously fires—and the recoil hurls him backwards into
+            a hidden sinkhole. He wakes in a lush, bioluminescent cave system. The only way out is through: master the gun's physics,
+            bounce shots off ancient stone, open strange doors, and climb back to the surface.
+          </p>
+          <p class="callout" style="margin-top: 16px;">
+            The gun is both <b>key</b> and <b>grappling hook</b>: every shot is a negotiation between offense and movement.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="v1" class="section">
+      <h2>V1 — Complete Spec (2-week Module)</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Core Concept</h3>
+          <ul>
+            <li>Small verb set: Walk / Jump + <b>Recoil Mobility</b> via gun fire.</li>
+            <li>Ricochet bullets to hit remote targets and open doors.</li>
+            <li>Five short levels with <em>Teach → Test → Twist</em> cadence.</li>
+            <li>No lethal damage; failure is timing/aiming or ammo depletion.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>UX & Readability</h3>
+          <ul>
+            <li>Minimalist cave tiles; bright collision edges for clarity.</li>
+            <li>Marker & door link VFX for obvious cause & effect.</li>
+            <li>HUD kept minimal—ammo count only.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Player & Weapon</h3>
+          <ul>
+            <li>No wall-jump; modest midair control.</li>
+            <li>Each shot applies an impulse opposite aim; stacks briefly.</li>
+            <li><b>Finite ammo per level</b>; soft-locks possible.</li>
+            <li>Bullets bounce limited times; press targets/switches.</li>
+            <li>Self-damage: <b>Off</b>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Interactives</h3>
+          <ul>
+            <li>Targets/Markers → open linked doors/gates.</li>
+            <li>Multi-target doors in later levels.</li>
+            <li>Checkpoints: none (levels short).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3 style="color: var(--accent-yellow); font-size: 28px; margin: 40px 0 24px;">Level Pack (5-level Ramp)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Level 1 — The Fall & First Steps</h4>
+          <ul>
+            <li>On-rails opening moment (boy falls into cave; first safe room).</li>
+            <li>Tutorial: move, jump, aim; fire once to feel <b>recoil hop</b>.</li>
+            <li>Single target opens first door. No hazards. Intent clarity first.</li>
+          </ul>
+
+          <h4 style="margin-top: 24px;">Level 2 — Bank Shot</h4>
+          <ul>
+            <li>Target behind a wall; learn to use a <b>ricochet</b> off ceiling/wall.</li>
+            <li>Short vertical chimney requiring a down-shot recoil lift.</li>
+            <li>Still safe floors; emphasis on "see it, try it" iteration.</li>
+          </ul>
+
+          <h4 style="margin-top: 24px;">Level 3 — Cadence & Moving Platforms</h4>
+          <ul>
+            <li>Introduces a timed door and a slow moving platform.</li>
+            <li>Players learn <b>shot rhythm</b>: move → aim → shoot → stabilize.</li>
+            <li>Misses cost <em>time</em>, not lives—keeps experimentation high.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Level 4 — Routing with Limited Ammo</h4>
+          <ul>
+            <li>Three targets split across the room; order matters.</li>
+            <li><b>Finite ammo</b> creates light planning—waste bullets and you reset.</li>
+            <li>First hint of multi-path (safe/long vs risky/short ricochet).</li>
+          </ul>
+
+          <h4 style="margin-top: 24px;">Level 5 — Capstone Chain</h4>
+          <ul>
+            <li>Blends skills: bank shot → double recoil climb → door run.</li>
+            <li>Big "aha" finale once the chain clicks. No lethal hazards yet.</li>
+            <li>Exit vignette points to "deeper caves" (seed for Metroidvania).</li>
+          </ul>
+
+          <div class="callout" style="margin-top: 24px;">
+            <b>Takeaway:</b> The verb set is tiny, but expression is wide—great candidate for an interconnected map.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="lessons" class="section">
+      <h2>V1 Learnings & Drawbacks</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What Worked</h3>
+          <ul>
+            <li>Recoil mobility is expressive and rewarding.</li>
+            <li>Ricochet puzzles create strong "aha" moments.</li>
+            <li>Small rooms make goals and affordances clear.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pain Points</h3>
+          <ul>
+            <li><b>Ammo soft-locks</b> caused restarts and broke flow.</li>
+            <li>No threat model → low tension; mistakes cost little.</li>
+            <li>Players struggled to read recoil vectors; no preview.</li>
+            <li>Resets punished experimentation.</li>
+            <li>Finite rooms capped the sense of world and routing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 32px;">
+        <b>Design Opportunity:</b> Switch to regenerating ammo with slot upgrades, add light hazard model, provide laser/trajectory previews, move to an interconnected map with checkpoints and optional challenge routes.
+      </div>
+    </div>
+
+    <div id="v2" class="section">
+      <div class="callout" style="margin-bottom: 32px;">
+        <b>Narrative Continuation:</b> Deeper in the caverns, alien machinery responds to the gun. Doors hum awake; flora bristles.
+        The boy gradually understands the weapon—gaining <em>bullet slots</em> and <em>impulse control</em> as confidence (and upgrades) grow.
+        The exit is rumored near the old lava conduits—reach them, and you might find a shaft to the surface.
+      </div>
+
+      <h2>V2 — Metroidvania Design</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Pillars</h3>
+          <ul>
+            <li><b>Recoil = Movement</b> (laser + first-bounce preview).</li>
+            <li><b>Flow over Failure</b> (regen ammo, checkpoints, healing).</li>
+            <li><b>Tension with Fairness</b> (self-damage, readable hazards).</li>
+            <li><b>Exploration Loops</b> (multi-path → upgrades/shortcuts).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Progression & Systems</h3>
+          <ul>
+            <li>Start with <b>2 bullet slots</b>, auto-regen; upgrade up to 5.</li>
+            <li>Upgrades: +Slot, Recoil Booster, Faster Bullets, Heal/Heart.</li>
+            <li>Self-damage from ricochets (with i-frames).</li>
+            <li>Door states persist; checkpoints restore health.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="figure" style="margin-top: 40px;">
+        <img src="images/projects/ammo-batics/MIniMap.png" alt="V2 — Interconnected cavern map (metroidvania-style).">
+        <div class="caption">V2 — Interconnected cavern map (metroidvania-style).</div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 40px;">
+        <div class="card">
+          <h3>Biomes / Districts</h3>
+          <ol>
+            <li><b>Grottos</b> — onboarding, first slot upgrade.</li>
+            <li><b>Bubble Caverns</b> — spherical rooms, bank-shot classrooms.</li>
+            <li><b>Fire Run</b> — horizontal lava strips, regen pacing check.</li>
+            <li><b>Rootworks</b> — vertical shafts, door chains, first enemies.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Enemy & Hazard Set</h3>
+          <ul>
+            <li><b>Seed Spitter</b>: slow arcs; exploitable for timing.</li>
+            <li><b>Vine Lash</b>: telegraphed line hazard.</li>
+            <li><b>Moss Pod</b>: spawn temporary platforms when shot.</li>
+            <li>Spikes, lava, crumble tiles, optional conveyors/fans.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3 style="color: var(--accent-yellow); font-size: 28px; margin: 40px 0 24px;">How V2 Changes the Game (vs V1)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <ul>
+            <li><b>Ammo Economy:</b> Finite → <b>Regenerating</b> with <em>Slots</em>; no soft-locks.</li>
+            <li><b>Stakes:</b> No damage → <b>Self-damage + Hazards</b> with fair telegraphs.</li>
+            <li><b>Readability:</b> No preview → <b>Laser + first-bounce trajectory</b>.</li>
+            <li><b>Structure:</b> 5 isolated levels → <b>Interconnected map</b> with shortcuts.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li><b>Flow:</b> No checkpoints → <b>Crystals</b> that heal & respawn.</li>
+            <li><b>Progression:</b> Simple doors → doors + optional rooms → <b>Upgrades</b>.</li>
+            <li><b>Skill Ceiling:</b> Tight rooms → <b>Optional mastery routes</b> for rewards.</li>
+            <li><b>Theme:</b> Cave vignette → <b>Living cavern</b> with alien responses to the gun.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3 style="color: var(--accent-yellow); font-size: 28px; margin: 40px 0 24px;">Numbers (Initial Targets)</h3>
+      <div class="grid-3">
+        <div class="card">
+          <ul>
+            <li>Move: 6–9 u/s</li>
+            <li>Jump: 10 u/s</li>
+            <li>Gravity: 30 u/s²</li>
+            <li>Recoil impulse: 12 u/s air, 9 u/s ground</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Bullet: 18 u/s</li>
+            <li>Max bounces: 2</li>
+            <li>Bullet lifetime: 1.6 s</li>
+            <li>Ammo regen: ~1.2 s/slot</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Hearts: 3–5</li>
+            <li>I-frames: 0.7 s</li>
+            <li>Checkpoint fail loop: ≤ 30 s</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3 style="color: var(--accent-yellow); font-size: 28px; margin: 40px 0 24px;">Room Grammar Library</h3>
+      <div class="grid-2">
+        <div class="card">
+          <p><b>Ricochet Cages</b><br/>Unreachable targets; 1–2 bank solutions; safe floors.</p>
+          <p style="margin-top: 16px;"><b>Recoil Chimneys</b><br/>Vertical climb using down-shots; later add oblique ceilings.</p>
+          <p style="margin-top: 16px;"><b>Tempo Bridges</b><br/>Lava + timed doors; teach "shoot–wait–shoot".</p>
+        </div>
+        <div class="card">
+          <p><b>Skill Gates</b><br/>3-shot chains or Echo Round setups; rewards = upgrades/shortcuts.</p>
+          <p style="margin-top: 16px;"><b>Enemy Classrooms</b><br/>Learn to exploit enemy rhythm for movement windows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="beats" class="section">
+      <h2>Beat Charts</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>V1 Beat Chart (5 levels)</h3>
+          <ol>
+            <li>Intro: safe hop → first door.</li>
+            <li>Bank-shot: behind-wall target; mild vertical.</li>
+            <li>Cadence: timed door; controlled firing rhythm.</li>
+            <li>Routing: three targets; ammo tension.</li>
+            <li>Capstone: double-recoil chain; exit.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>V2 Macro Beat Chart</h3>
+          <ol>
+            <li><b>Onboarding</b> (Grottos): recoil hop labs; +1 slot.</li>
+            <li><b>First Fork</b>: safe/long vs hard/short → Recoil Booster.</li>
+            <li><b>Bubble Caverns</b>: bank-shot mastery; gentle self-dmg intro.</li>
+            <li><b>Fire Run</b>: regen pacing; optional Faster Bullets.</li>
+            <li><b>Rootworks</b>: door chains, enemies; optional +1 slot.</li>
+            <li><b>Shortcuts</b>: unlock loops back to hub.</li>
+            <li><b>Final Gate</b>: multi-room traversal exam → exit.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div id="gallery" class="section">
+      <h2>Visual Gallery</h2>
+      <div class="grid-2">
+        <div class="figure">
+          <img src="images/projects/ammo-batics/5.png" alt="V1 — Wide room with mid platforms (teaching recoil hop).">
+          <div class="caption">V1 — Wide room with mid platforms (teaching recoil hop).</div>
+        </div>
+
+        <div class="figure">
+          <img src="images/projects/ammo-batics/2.png" alt="V1 — Ricochet classroom with caged target.">
+          <div class="caption">V1 — Ricochet classroom with caged target.</div>
+        </div>
+
+        <div class="figure">
+          <img src="images/projects/ammo-batics/3.png" alt="V1 — Vertical climb; safe chambers and collectibles.">
+          <div class="caption">V1 — Vertical climb; safe chambers and collectibles.</div>
+        </div>
+
+        <div class="figure">
+          <img src="images/projects/ammo-batics/1.png" alt="V1 — Compact arena; door switch and enemy placeholder.">
+          <div class="caption">V1 — Compact arena; door switch and enemy placeholder.</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <div class="figure">
+          <img src="images/projects/ammo-batics/4.png" alt="V1 — Linear corridor; timing & cadence setup.">
+          <div class="caption">V1 — Linear corridor; timing & cadence setup.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="future" class="section">
+      <h2>Conclusion & Future Prospects</h2>
+      <p style="font-size: 17px; line-height: 1.8; margin-bottom: 32px;">
+        V1 validated the core loop—<b>recoil as movement</b>—and clarified readability needs. V2 builds on those
+        lessons with regeneration, checkpoints, previews, and an explorative structure that lets players feel
+        stronger as they learn. The next steps deepen expression without bloating verbs.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Short-Term</h3>
+          <ul>
+            <li>Boss-style traversal exam (no HP sponge; movement puzzle).</li>
+            <li>More enemy utilities (projectiles as moving platforms, timed hazards).</li>
+            <li>Accessibility toggles: slower lava ticks, stronger recoil aim assist.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Mid-Term</h3>
+          <ul>
+            <li>Additional biomes: Crystal Veins, Flooded Vaults, Wind Tunnels.</li>
+            <li>New temporary rounds: <em>Echo</em> (extra bounce), <em>Anchor</em> (brief stick to walls).</li>
+            <li>Dynamic mini-map annotations and speedrun mode with route timing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 32px;">
+        Through all expansions the rule holds: <b>one gun, many ways to move</b>. Depth comes from space design and player mastery.
+      </div>
+    </div>
+
+    <footer>
+      <p>AmmoBatics GDD · Designed with a focus on recoil mobility and expressive platforming.</p>
+      <p style="margin-top: 8px; opacity: 0.6;">© 2024 — Created with precision and passion.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Add smooth reveal animations on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section, .card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
