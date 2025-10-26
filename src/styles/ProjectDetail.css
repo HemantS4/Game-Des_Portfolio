@@ -19,6 +19,9 @@
 }
 
 .back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -30,15 +33,17 @@
   border: 1px solid rgba(255, 120, 73, 0.3);
   border-radius: 30px;
   transition: all 0.3s ease;
-  margin-bottom: 2rem;
-  background: rgba(15, 15, 35, 0.5);
+  background: rgba(15, 15, 35, 0.8);
   backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .back-button:hover {
   border-color: var(--color-primary);
-  background: rgba(255, 120, 73, 0.1);
-  transform: translateX(-5px);
+  background: rgba(255, 120, 73, 0.15);
+  transform: translateX(-10px);
+  box-shadow: 0 6px 20px rgba(255, 120, 73, 0.2);
 }
 
 .project-hero-content {
@@ -491,6 +496,17 @@
 @media (max-width: 768px) {
   .project-detail {
     padding: 2rem 1rem 3rem 1rem;
+  }
+
+  .back-button {
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .back-button:hover {
+    transform: translateX(-5px);
   }
 
   .project-title-large {
