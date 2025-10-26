@@ -118,9 +118,9 @@ export const projectsData = [
 
     overview: 'Water exists in a constant state of duality - it can be contained yet flows freely, held yet always seeking escape. Flow & Hold challenges players to think beyond traditional boundaries and explore the philosophical nature of water through strategic card gameplay. This innovative card game redefines the existing binary of contain and continuum, creating a unique gaming experience that mirrors water\'s fundamental properties through elegant mechanics and thoughtful design.',
 
-    role: 'Game Designer, Concept Developer, Visual Designer',
-    duration: '2 Months',
-    teamSize: 'Solo Project',
+    role: 'Game Designer, Concept Developer',
+    duration: '1 week',
+    teamSize: 'Multi disciplinary group Project',
     platform: ['Physical Card Game'],
 
     challenges: [

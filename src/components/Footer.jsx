@@ -9,8 +9,8 @@ export default function Footer() {
           <p className="footer-subtitle">
             I'm always interested in hearing about new projects and opportunities.
           </p>
-          <a href="mailto:hello@gamedesigner.com" className="contact-email">
-            hello@gamedesigner.com
+          <a href="mailto:sharmah677@gmail.com" className="contact-email">
+            sharmah677@gmail.com
           </a>
         </div>
 
@@ -28,10 +28,10 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Social</h4>
             <ul>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+              
               <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
               <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">Artstation</a></li>
+              
             </ul>
           </div>
 
@@ -40,8 +40,7 @@ export default function Footer() {
             <ul>
               <li><a href="#">Resume</a></li>
               <li><a href="#">Portfolio PDF</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">GDC Talks</a></li>
+              
             </ul>
           </div>
         </div>
