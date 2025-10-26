@@ -75,15 +75,26 @@ export default function ProjectDetail() {
       {/* Video Showcase */}
       {project.videoUrl && (
         <section className="project-video">
-          <h2>Trailer</h2>
+          <h2>Gameplay Video</h2>
           <div className="video-container">
-            <iframe
-              src={project.videoUrl}
-              title={`${project.title} Trailer`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            {project.videoUrl.includes('youtube.com') || project.videoUrl.includes('youtu.be') ? (
+              <iframe
+                src={project.videoUrl}
+                title={`${project.title} Video`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <video
+                controls
+                preload="metadata"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              >
+                <source src={project.videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
         </section>
       )}
