@@ -8,7 +8,7 @@ export const projectsData = [
     description: 'A 2D momentum-centric platformer where every shot fired becomes a movement decision.',
     shortDescription: '2D shooter platformer focusing on Level Design',
     tools: ['Unity', 'Blender', 'Photoshop', 'C#', 'Maya'],
-    thumbnail: '/images/projects/ammo-batics/MIniMap.png',
+    thumbnail: '/images/projects/ammo-batics/title-card.png',
 
     // Detailed project information
     overview: 'Imagine falling into a deep, living cave system where every shot fired becomes a movement decision. Ammo-batics is a 2D momentum-centric platformer that transforms traditional shooting mechanics into a unique traversal system. You\'ve fallen into a karst system where flora has evolved weaponized spores. Armed with the "Kickspark" - a tool that doubles as cutter and propulsion pistol - players must escape upward by shooting to generate recoil-powered jumps, chaining shots, wall hops, and platforms.',
@@ -41,13 +41,11 @@ export const projectsData = [
     ],
 
     gallery: [
-      '/images/projects/ammo-batics/MIniMap.png',
-      '/images/projects/ammo-batics/screenshot-2.jpg',
-      '/images/projects/ammo-batics/screenshot-3.jpg',
-      '/images/projects/ammo-batics/screenshot-4.jpg'
+      '/images/projects/ammo-batics/title-card.png',
+      '/images/projects/ammo-batics/MIniMap.png'
     ],
 
-    videoUrl: '/images/projects/ammo-batics/ammo-batics-v2.mp4',
+    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
 
     links: {
       itchIo: 'https://hemants4.itch.io/ammo-batics'
