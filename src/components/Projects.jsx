@@ -243,34 +243,18 @@ export default function Projects({ scrollProgress }) {
             </div>
           </div>
         ))}
-
-        {/* See All Card */}
-        <div
-          className="project-card project-floating see-all-card"
-          style={getCardStyle(projects.length)}
-          onMouseEnter={() => setHoveredProject('see-all')}
-          onMouseLeave={() => setHoveredProject(null)}
-          onClick={() => {
-            const projectsSection = document.getElementById('projects')
-            if (projectsSection) {
-              projectsSection.scrollIntoView({ behavior: 'smooth' })
-            }
-          }}
-        >
-          <div className="see-all-content">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="see-all-icon">
-              <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <h3 className="see-all-title">See All Projects</h3>
-            <p className="see-all-subtitle">Explore the complete portfolio</p>
-            <div className="see-all-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
-        </div>
       </div>
+
+      {/* See All Button */}
+      <button
+        className="see-all-button"
+        onClick={() => navigate('/all-projects')}
+      >
+        <span className="see-all-text">See All Projects</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
     </section>
   )
 }

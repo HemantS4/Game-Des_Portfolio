@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Footer from './components/Footer'
 import ProjectDetail from './components/ProjectDetail'
+import AllProjects from './components/AllProjects'
 import './App.css'
 
 function HomePage({ activeSection, setActiveSection, scrollProgress }) {
@@ -103,6 +104,7 @@ function AppContent() {
             />
           }
         />
+        <Route path="/all-projects" element={<AllProjects />} />
         <Route path="/project/:projectId" element={<ProjectDetail />} />
       </Routes>
     </div>
