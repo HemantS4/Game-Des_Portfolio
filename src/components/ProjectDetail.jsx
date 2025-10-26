@@ -61,17 +61,6 @@ export default function ProjectDetail() {
             ))}
           </div>
         </div>
-
-        {/* Thumbnail / Hero Image */}
-        <div className="project-hero-image">
-          <img
-            src={project.thumbnail}
-            alt={project.title}
-            onError={(e) => {
-              e.target.src = `https://via.placeholder.com/1200x600/1a1a2e/ff7849?text=${encodeURIComponent(project.title)}`
-            }}
-          />
-        </div>
       </section>
 
       {/* Video Showcase */}
@@ -97,6 +86,44 @@ export default function ProjectDetail() {
                 Your browser does not support the video tag.
               </video>
             )}
+          </div>
+        </section>
+      )}
+
+      {/* Links */}
+      {project.links && Object.keys(project.links).length > 0 && (
+        <section className="project-section links-section">
+          <h2>Links & Resources</h2>
+          <div className="links-grid">
+            {Object.entries(project.links).map(([platform, url]) => {
+              const isGDD = platform === 'gdd';
+              const linkText = isGDD
+                ? 'View Full Game Design Document'
+                : platform.charAt(0).toUpperCase() + platform.slice(1).replace(/([A-Z])/g, ' $1');
+
+              return (
+                <a
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={isGDD ? 'link-button gdd-button' : 'link-button'}
+                >
+                  {isGDD && (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                  {linkText}
+                  {!isGDD && (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </a>
+              );
+            })}
           </div>
         </section>
       )}
@@ -185,44 +212,6 @@ export default function ProjectDetail() {
           ))}
         </div>
       </section>
-
-      {/* Links */}
-      {project.links && Object.keys(project.links).length > 0 && (
-        <section className="project-section links-section">
-          <h2>Links & Resources</h2>
-          <div className="links-grid">
-            {Object.entries(project.links).map(([platform, url]) => {
-              const isGDD = platform === 'gdd';
-              const linkText = isGDD
-                ? 'View Full Game Design Document'
-                : platform.charAt(0).toUpperCase() + platform.slice(1).replace(/([A-Z])/g, ' $1');
-
-              return (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={isGDD ? 'link-button gdd-button' : 'link-button'}
-                >
-                  {isGDD && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )}
-                  {linkText}
-                  {!isGDD && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )}
-                </a>
-              );
-            })}
-          </div>
-        </section>
-      )}
 
       {/* Navigation to Other Projects */}
       {adjacentProjects && (
