@@ -50,7 +50,8 @@ export const projectsData = [
     videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
 
     links: {
-      itchIo: 'https://hemants4.itch.io/ammo-batics'
+      itchIo: 'https://hemants4.itch.io/ammo-batics',
+      gdd: `${BASE_URL}ammobatics_gdd.html`
     }
   },
 

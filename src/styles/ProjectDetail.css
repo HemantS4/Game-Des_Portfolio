@@ -385,6 +385,37 @@
   box-shadow: 0 10px 30px rgba(255, 120, 73, 0.4);
 }
 
+.gdd-button {
+  background: linear-gradient(135deg, rgba(146, 230, 167, 0.15), rgba(255, 120, 73, 0.15));
+  border: 2px solid var(--color-accent);
+  font-size: 1.1rem;
+  padding: 1.25rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gdd-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(146, 230, 167, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.gdd-button:hover::before {
+  left: 100%;
+}
+
+.gdd-button:hover {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+  box-shadow: 0 12px 40px rgba(146, 230, 167, 0.4);
+}
+
 /* Project Navigation */
 .project-navigation {
   display: grid;
