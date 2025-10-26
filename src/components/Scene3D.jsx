@@ -541,47 +541,130 @@ function Stars({ mousePosition }) {
   )
 }
 
-function Rocket({ mousePosition, scrollProgress }) {
+// Explosion particles component
+function Explosion({ position, onComplete }) {
+  const particlesRef = useRef()
+  const particleCount = 30
+  const startTime = useRef(Date.now())
+  const duration = 1000 // 1 second
+
+  const particles = useMemo(() => {
+    const temp = []
+    for (let i = 0; i < particleCount; i++) {
+      temp.push({
+        velocity: new THREE.Vector3(
+          (Math.random() - 0.5) * 3,
+          (Math.random() - 0.5) * 3,
+          (Math.random() - 0.5) * 3
+        ),
+        position: position.clone(),
+        color: new THREE.Color().setHSL(Math.random() * 0.1 + 0.05, 1, 0.6), // Orange-yellow colors
+        life: 1.0
+      })
+    }
+    return temp
+  }, [position])
+
+  useFrame(() => {
+    const elapsed = Date.now() - startTime.current
+    const progress = elapsed / duration
+
+    if (progress >= 1) {
+      onComplete()
+      return
+    }
+
+    particles.forEach((particle, i) => {
+      particle.position.add(particle.velocity.clone().multiplyScalar(0.016))
+      particle.velocity.multiplyScalar(0.95) // Damping
+      particle.life = 1 - progress
+    })
+  })
+
+  return (
+    <>
+      {particles.map((particle, i) => (
+        <mesh key={i} position={particle.position}>
+          <sphereGeometry args={[0.05 * particle.life, 8, 8]} />
+          <meshBasicMaterial
+            color={particle.color}
+            transparent
+            opacity={particle.life}
+          />
+        </mesh>
+      ))}
+    </>
+  )
+}
+
+function Rocket({ mousePosition, scrollProgress, shootTarget, onShootComplete }) {
   const rocketRef = useRef()
-  const trailRef = useRef()
   const { camera } = useThree()
   const targetPosition = useRef(new THREE.Vector3())
   const velocity = useRef(new THREE.Vector3())
-  const trailPositions = useRef([])
-  const maxTrailLength = 20
+  const isShooting = useRef(false)
+  const shootStartTime = useRef(0)
 
   useFrame((state) => {
     if (!rocketRef.current) return
 
     const time = state.clock.getElapsedTime()
 
-    // Convert mouse position to 3D world coordinates
-    const vector = new THREE.Vector3(mousePosition.x, mousePosition.y, 0.5)
-    vector.unproject(camera)
+    // If we have a shoot target, fly towards it quickly
+    if (shootTarget && !isShooting.current) {
+      isShooting.current = true
+      shootStartTime.current = time
 
-    const dir = vector.sub(camera.position).normalize()
-    const distance = 8 // Distance from camera
-    targetPosition.current = camera.position.clone().add(dir.multiplyScalar(distance))
-
-    // Smooth follow with easing
-    const lerpFactor = 0.08
-    rocketRef.current.position.lerp(targetPosition.current, lerpFactor)
-
-    // Calculate velocity for rotation
-    velocity.current.subVectors(targetPosition.current, rocketRef.current.position)
-
-    // Rotate rocket to face movement direction
-    if (velocity.current.length() > 0.01) {
-      const targetRotation = Math.atan2(velocity.current.x, velocity.current.z)
-      rocketRef.current.rotation.y = targetRotation
-      rocketRef.current.rotation.x = -velocity.current.y * 0.5
-      rocketRef.current.rotation.z = Math.sin(time * 3) * 0.1 // Slight wobble
+      // Convert 2D screen position to 3D world position
+      const vector = new THREE.Vector3(shootTarget.x, shootTarget.y, 0.5)
+      vector.unproject(camera)
+      const dir = vector.sub(camera.position).normalize()
+      const distance = 8
+      targetPosition.current.copy(camera.position).add(dir.multiplyScalar(distance))
     }
 
-    // Update trail
-    trailPositions.current.unshift(rocketRef.current.position.clone())
-    if (trailPositions.current.length > maxTrailLength) {
-      trailPositions.current.pop()
+    if (isShooting.current) {
+      const shootDuration = 0.5 // Fast shoot
+      const elapsed = time - shootStartTime.current
+
+      if (elapsed < shootDuration) {
+        // Rapid movement towards target
+        const progress = elapsed / shootDuration
+        rocketRef.current.position.lerp(targetPosition.current, 0.3)
+
+        // Face the target
+        const direction = new THREE.Vector3().subVectors(targetPosition.current, rocketRef.current.position)
+        if (direction.length() > 0.01) {
+          const targetRotation = Math.atan2(direction.x, direction.z)
+          rocketRef.current.rotation.y = targetRotation
+          rocketRef.current.rotation.x = -direction.y * 0.5
+        }
+      } else {
+        // Reached target, trigger explosion
+        isShooting.current = false
+        if (onShootComplete) {
+          onShootComplete(targetPosition.current.clone())
+        }
+      }
+    } else {
+      // Normal cursor following behavior
+      const vector = new THREE.Vector3(mousePosition.x, mousePosition.y, 0.5)
+      vector.unproject(camera)
+
+      const dir = vector.sub(camera.position).normalize()
+      const distance = 8
+      targetPosition.current = camera.position.clone().add(dir.multiplyScalar(distance))
+
+      rocketRef.current.position.lerp(targetPosition.current, 0.08)
+
+      velocity.current.subVectors(targetPosition.current, rocketRef.current.position)
+
+      if (velocity.current.length() > 0.01) {
+        const targetRotation = Math.atan2(velocity.current.x, velocity.current.z)
+        rocketRef.current.rotation.y = targetRotation
+        rocketRef.current.rotation.x = -velocity.current.y * 0.5
+        rocketRef.current.rotation.z = Math.sin(time * 3) * 0.1
+      }
     }
 
     // Fade out during about section
@@ -700,7 +783,10 @@ function CameraController({ mousePosition, scrollProgress }) {
 export default function Scene3D({ scrollProgress: externalScrollProgress }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [clicked, setClicked] = useState(false)
+  const [shootTarget, setShootTarget] = useState(null)
+  const [explosions, setExplosions] = useState([])
   const scrollProgress = externalScrollProgress || 0
+  const canvasRef = useRef()
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -711,9 +797,16 @@ export default function Scene3D({ scrollProgress: externalScrollProgress }) {
       })
     }
 
-    const handleClick = () => {
+    const handleClick = (event) => {
       setClicked(true)
       setTimeout(() => setClicked(false), 500)
+
+      // Create a 3D target position for the rocket to shoot at
+      const rect = canvasRef.current.getBoundingClientRect()
+      const x = ((event.clientX - rect.left) / rect.width) * 2 - 1
+      const y = -((event.clientY - rect.top) / rect.height) * 2 + 1
+
+      setShootTarget({ x, y, timestamp: Date.now() })
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -725,8 +818,18 @@ export default function Scene3D({ scrollProgress: externalScrollProgress }) {
     }
   }, [])
 
+  const handleShootComplete = (position) => {
+    // Add explosion at the position
+    setExplosions(prev => [...prev, { position, id: Date.now() }])
+    setShootTarget(null)
+  }
+
+  const removeExplosion = (id) => {
+    setExplosions(prev => prev.filter(exp => exp.id !== id))
+  }
+
   return (
-    <div className="canvas-container">
+    <div className="canvas-container" ref={canvasRef}>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}
         dpr={[1, 1.5]}
@@ -756,7 +859,22 @@ export default function Scene3D({ scrollProgress: externalScrollProgress }) {
           scrollProgress={scrollProgress}
           clicked={clicked}
         />
-        <Rocket mousePosition={mousePosition} scrollProgress={scrollProgress} />
+        <Rocket
+          mousePosition={mousePosition}
+          scrollProgress={scrollProgress}
+          shootTarget={shootTarget}
+          onShootComplete={handleShootComplete}
+        />
+
+        {/* Render explosions */}
+        {explosions.map(explosion => (
+          <Explosion
+            key={explosion.id}
+            position={explosion.position}
+            onComplete={() => removeExplosion(explosion.id)}
+          />
+        ))}
+
         <CameraController mousePosition={mousePosition} scrollProgress={scrollProgress} />
       </Canvas>
     </div>
