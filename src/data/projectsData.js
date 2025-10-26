@@ -1,4 +1,6 @@
 // Centralized project data
+const BASE_URL = import.meta.env.BASE_URL || '/';
+
 export const projectsData = [
   {
     id: 'ammo-batics',
@@ -8,7 +10,7 @@ export const projectsData = [
     description: 'A 2D momentum-centric platformer where every shot fired becomes a movement decision.',
     shortDescription: '2D shooter platformer focusing on Level Design',
     tools: ['Unity', 'Blender', 'Photoshop', 'C#', 'Maya'],
-    thumbnail: '/images/projects/ammo-batics/title-card.png',
+    thumbnail: `${BASE_URL}images/projects/ammo-batics/title-card.png`,
 
     // Detailed project information
     overview: 'Imagine falling into a deep, living cave system where every shot fired becomes a movement decision. Ammo-batics is a 2D momentum-centric platformer that transforms traditional shooting mechanics into a unique traversal system. You\'ve fallen into a karst system where flora has evolved weaponized spores. Armed with the "Kickspark" - a tool that doubles as cutter and propulsion pistol - players must escape upward by shooting to generate recoil-powered jumps, chaining shots, wall hops, and platforms.',
@@ -41,8 +43,8 @@ export const projectsData = [
     ],
 
     gallery: [
-      '/images/projects/ammo-batics/title-card.png',
-      '/images/projects/ammo-batics/MIniMap.png'
+      `${BASE_URL}images/projects/ammo-batics/title-card.png`,
+      `${BASE_URL}images/projects/ammo-batics/MIniMap.png`
     ],
 
     videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
@@ -60,7 +62,7 @@ export const projectsData = [
     description: 'A gamified journaling and documentation app for creative professionals.',
     shortDescription: 'Gamified journaling app with AI assistance',
     tools: ['Figma', 'Principle', 'Miro', 'Adobe Creative Suite', 'Notion'],
-    thumbnail: '/images/projects/flowlog/thumbnail.jpg',
+    thumbnail: `${BASE_URL}images/projects/flowlog/thumbnail.jpg`,
 
     overview: 'FlowLog is a gamified journaling and documentation app designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them. The app combines AI-assisted organization with gamified habit design, helping users document their thoughts, designs, and inspirations effortlessly while staying engaged and consistent.',
 
@@ -93,10 +95,10 @@ export const projectsData = [
     ],
 
     gallery: [
-      '/images/projects/flowlog/screenshot-1.jpg',
-      '/images/projects/flowlog/screenshot-2.jpg',
-      '/images/projects/flowlog/screenshot-3.jpg',
-      '/images/projects/flowlog/ui-mockup.jpg'
+      `${BASE_URL}images/projects/flowlog/screenshot-1.jpg`,
+      `${BASE_URL}images/projects/flowlog/screenshot-2.jpg`,
+      `${BASE_URL}images/projects/flowlog/screenshot-3.jpg`,
+      `${BASE_URL}images/projects/flowlog/ui-mockup.jpg`
     ],
 
     videoUrl: '',
@@ -112,7 +114,7 @@ export const projectsData = [
     description: 'A philosophical card game redefining the binary of containment and continuum of water.',
     shortDescription: 'Card game exploring water\'s dual nature',
     tools: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma', 'Tabletop Simulator'],
-    thumbnail: '/images/projects/flow-and-hold/thumbnail.jpg',
+    thumbnail: `${BASE_URL}images/projects/flow-and-hold/thumbnail.jpg`,
 
     overview: 'Water exists in a constant state of duality - it can be contained yet flows freely, held yet always seeking escape. Flow & Hold challenges players to think beyond traditional boundaries and explore the philosophical nature of water through strategic card gameplay. This innovative card game redefines the existing binary of contain and continuum, creating a unique gaming experience that mirrors water\'s fundamental properties through elegant mechanics and thoughtful design.',
 
@@ -144,10 +146,10 @@ export const projectsData = [
     ],
 
     gallery: [
-      '/images/projects/flow-and-hold/screenshot-1.jpg',
-      '/images/projects/flow-and-hold/screenshot-2.jpg',
-      '/images/projects/flow-and-hold/card-designs.jpg',
-      '/images/projects/flow-and-hold/gameplay.jpg'
+      `${BASE_URL}images/projects/flow-and-hold/screenshot-1.jpg`,
+      `${BASE_URL}images/projects/flow-and-hold/screenshot-2.jpg`,
+      `${BASE_URL}images/projects/flow-and-hold/card-designs.jpg`,
+      `${BASE_URL}images/projects/flow-and-hold/gameplay.jpg`
     ],
 
     videoUrl: '',
@@ -163,7 +165,7 @@ export const projectsData = [
     description: 'Turn-based tactical strategy with emergent gameplay and AI-driven enemies.',
     shortDescription: 'Turn-based tactical strategy with emergent AI',
     tools: ['Godot', 'GDScript', 'Aseprite', 'Tiled'],
-    thumbnail: '/images/projects/shadow-tactics/thumbnail.jpg',
+    thumbnail: `${BASE_URL}images/projects/shadow-tactics/thumbnail.jpg`,
 
     overview: 'Shadow Tactics is a turn-based tactical strategy game that emphasizes emergent gameplay through intelligent enemy AI and environmental interactions. Set in a dark fantasy world, players command a squad of specialized operatives through challenging stealth missions.',
 
@@ -204,11 +206,11 @@ export const projectsData = [
     ],
 
     gallery: [
-      '/images/projects/shadow-tactics/screenshot-1.jpg',
-      '/images/projects/shadow-tactics/screenshot-2.jpg',
-      '/images/projects/shadow-tactics/screenshot-3.jpg',
-      '/images/projects/shadow-tactics/ai-diagram.jpg',
-      '/images/projects/shadow-tactics/level-layout.jpg'
+      `${BASE_URL}images/projects/shadow-tactics/screenshot-1.jpg`,
+      `${BASE_URL}images/projects/shadow-tactics/screenshot-2.jpg`,
+      `${BASE_URL}images/projects/shadow-tactics/screenshot-3.jpg`,
+      `${BASE_URL}images/projects/shadow-tactics/ai-diagram.jpg`,
+      `${BASE_URL}images/projects/shadow-tactics/level-layout.jpg`
     ],
 
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
