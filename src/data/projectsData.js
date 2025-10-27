@@ -9,7 +9,7 @@ export const projectsData = [
     year: '2024',
     description: 'A 2D momentum-centric platformer where every shot fired becomes a movement decision.',
     shortDescription: '2D shooter platformer focusing on Level Design',
-    tools: ['Unity', 'Blender', 'Photoshop', 'C#', 'Maya'],
+    tools: ['Unity', 'Photoshop', 'C#'],
     thumbnail: `${BASE_URL}images/projects/ammo-batics/Cover.png`,
 
     // Detailed project information
@@ -68,7 +68,7 @@ export const projectsData = [
     year: '2024',
     description: 'A gamified documentation app that makes capturing ideas effortless and rewarding.',
     shortDescription: 'Gamified documentation app with AI assistance',
-    tools: ['Figma', 'Principle', 'Miro', 'Adobe Creative Suite', 'Notion'],
+    tools: ['Figma', 'Adobe Creative Suite', 'Notion'],
     thumbnail: `${BASE_URL}images/projects/flowlog/Home.png`,
 
     overview: 'Momentum redefines documentation as a playful, rewarding, and personalized act of self-expression. Through research-driven design and habit-focused gamification, it helps users turn small moments into meaningful, organized memories — powered by AI and sustained by intrinsic motivation. Designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them.',
