@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Momentum – Game Design Document</title>
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F9FAFB;
+        color: #2E2E2E;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: linear-gradient(135deg, #4B4DED, #96F2D7);
+        color: white;
+        padding: 50px 30px;
+        text-align: center;
+    }
+    header h1 {
+        font-size: 2.8em;
+        margin: 0;
+    }
+    header p {
+        font-size: 1.3em;
+    }
+    section {
+        padding: 40px 60px;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    h2 {
+        color: #4B4DED;
+        margin-bottom: 10px;
+        font-size: 1.8em;
+    }
+    h3 {
+        color: #2E2E2E;
+        margin-top: 25px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    th, td {
+        padding: 12px 15px;
+        border: 1px solid #E2E8F0;
+        text-align: left;
+        vertical-align: top;
+    }
+    th {
+        background-color: #4B4DED;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #F1F5F9;
+    }
+    .highlight {
+        background-color: #96F2D7;
+        padding: 10px;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+    footer {
+        background-color: #1F1F25;
+        color: #E2E8F0;
+        text-align: center;
+        padding: 25px 15px;
+        font-size: 0.95em;
+    }
+    @media print {
+        header, footer { background: none; color: black; }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Momentum</h1>
+    <p><em>Gamified Documentation App – Game Design Document (GDD)</em></p>
+</header>
+
+<section>
+    <h2>1. High Concept</h2>
+    <p><strong>Momentum</strong> is a gamified documentation and journaling app that helps students, designers, and professionals capture, organize, and grow their ideas while staying motivated through game mechanics such as XP, streaks, badges, and unlockable themes. It combines <strong>AI assistance</strong> with <strong>habit-forming design</strong> to make documentation both effortless and rewarding.</p>
+</section>
+
+<section>
+    <h2>2. Core Design Pillars</h2>
+    <table>
+        <tr><th>Pillar</th><th>Description</th></tr>
+        <tr><td>Accessibility</td><td>Capture ideas instantly through text, voice, or images.</td></tr>
+        <tr><td>Engagement</td><td>Reinforce daily habit through streaks, rewards, and prompts.</td></tr>
+        <tr><td>Assistance</td><td>AI formats, summarizes, and curates notes automatically.</td></tr>
+        <tr><td>Reflection</td><td>Visual summaries, vibe charts, and resurfaced entries encourage reflection.</td></tr>
+        <tr><td>Personalization</td><td>Unlockable themes and fonts that reflect the user's style.</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>3. Core Loop</h2>
+    <ol>
+        <li><strong>Capture:</strong> User logs an idea or note.</li>
+        <li><strong>Organize:</strong> AI formats and categorizes the entry.</li>
+        <li><strong>Earn:</strong> Gain XP and streak progress.</li>
+        <li><strong>Reflect:</strong> AI generates summaries and vibe reports.</li>
+        <li><strong>Personalize:</strong> Unlock visual themes and rewards.</li>
+    </ol>
+    <p class="highlight">Player motivation: Create → Progress → Reflect → Personalize → Repeat.</p>
+</section>
+
+<section>
+    <h2>4. Design Philosophy</h2>
+    <blockquote>“Documentation should feel as satisfying as creation.”</blockquote>
+    <ul>
+        <li>Non-intrusive gamification: Rewards support consistency, not addiction.</li>
+        <li>Flow-first design: Clean visuals for deep focus.</li>
+        <li>AI as collaborator: Enhances creativity, doesn’t replace it.</li>
+        <li>Emotionally intelligent: Encourages reflection and ownership.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>5. Target Audience</h2>
+    <table>
+        <tr><th>Segment</th><th>Description</th><th>Needs</th></tr>
+        <tr><td>Design Students</td><td>Generate ideas daily for coursework.</td><td>Quick capture + motivation.</td></tr>
+        <tr><td>Creative Professionals</td><td>Track client ideas, sketches, feedback.</td><td>Organization + summaries.</td></tr>
+        <tr><td>Writers / Researchers</td><td>Document thought processes.</td><td>Structured notes + AI formatting.</td></tr>
+        <tr><td>Productivity Seekers</td><td>Enjoy gamified progress systems.</td><td>XP, levels, streaks.</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>6. Gamification Mechanics</h2>
+    <table>
+        <tr><th>Mechanic</th><th>Description</th><th>Trigger</th><th>Motivation</th></tr>
+        <tr><td>XP System</td><td>Earn XP for actions like writing or tagging.</td><td>Each save action</td><td>Progress</td></tr>
+        <tr><td>Streaks</td><td>Daily consecutive activity tracker.</td><td>Daily use</td><td>Habit</td></tr>
+        <tr><td>Badges</td><td>Milestones for achievements.</td><td>XP milestones</td><td>Recognition</td></tr>
+        <tr><td>Theme Unlocks</td><td>Cosmetic personalization rewards.</td><td>Level progression</td><td>Ownership</td></tr>
+        <tr><td>Micro-Prompts</td><td>Short AI prompts for creativity.</td><td>Time-based</td><td>Curiosity</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>7. Reward System</h2>
+    <table>
+        <tr><th>Reward</th><th>Condition</th><th>Effect</th></tr>
+        <tr><td>XP Points</td><td>Each entry (+10), tag (+2)</td><td>Progress bar animation</td></tr>
+        <tr><td>Badges</td><td>“First Entry”, “7-Day Flow”</td><td>Visual trophy in profile</td></tr>
+        <tr><td>Themes</td><td>Level unlocks</td><td>New color palettes</td></tr>
+        <tr><td>Titles</td><td>Total XP earned</td><td>“Creative Explorer”, “Idea Architect”</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>8. Core Features</h2>
+    <ul>
+        <li><strong>Quick Capture:</strong> Text, voice, and photo entries.</li>
+        <li><strong>AI Summaries:</strong> Automatic formatting and insights.</li>
+        <li><strong>Gamification Layer:</strong> XP, badges, streaks, levels.</li>
+        <li><strong>Insights Dashboard:</strong> Vibe charts, summaries, resurfaced ideas.</li>
+        <li><strong>Social Circles:</strong> Share with selected peers.</li>
+        <li><strong>Customization:</strong> Unlock themes and fonts.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>9. AI System Overview</h2>
+    <table>
+        <tr><th>Module</th><th>Function</th><th>Example</th></tr>
+        <tr><td>Voice-to-Text</td><td>Convert speech to text.</td><td>“Sketch idea: gradient logo.”</td></tr>
+        <tr><td>Summarizer</td><td>Condense entries into key insights.</td><td>“Logo design inspired by flow.”</td></tr>
+        <tr><td>Tag Generator</td><td>Auto-suggests topics.</td><td>#design, #workflow</td></tr>
+        <tr><td>Layout Formatter</td><td>Applies templates for readability.</td><td>Idea cards, reports</td></tr>
+        <tr><td>Insight Analyzer</td><td>Detects recurring creative themes.</td><td>“You’ve written about color 5× this week.”</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>10. Art & Visual Direction</h2>
+    <ul>
+        <li><strong>Theme:</strong> Calm + Futuristic</li>
+        <li><strong>Primary Color:</strong> Indigo #4B4DED</li>
+        <li><strong>Accent:</strong> Mint #96F2D7</li>
+        <li><strong>Typography:</strong> Montserrat + Inter</li>
+        <li><strong>Animations:</strong> Soft glows, subtle confetti, fade transitions</li>
+    </ul>
+</section>
+
+<section>
+    <h2>11. Technical Overview</h2>
+    <table>
+        <tr><th>Component</th><th>Technology</th><th>Purpose</th></tr>
+        <tr><td>Frontend</td><td>Flutter / React Native</td><td>Cross-platform UI</td></tr>
+        <tr><td>Backend</td><td>Firebase</td><td>User data + XP sync</td></tr>
+        <tr><td>AI Engine</td><td>OpenAI API</td><td>Summaries + prompts</td></tr>
+        <tr><td>Database</td><td>Firestore</td><td>Store entries, streaks, badges</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>12. Closing Vision</h2>
+    <blockquote>“Momentum isn’t about journaling more — it’s about creating more, with rhythm and joy.”</blockquote>
+    <p>It gives structure to spontaneity, turning everyday notes into a journey of reflection, growth, and creativity.</p>
+</section>
+
+<footer>
+    <p>© 2025 Momentum | Designed by Hemant Sharma</p>
+</footer>
+
+</body>
+</html>

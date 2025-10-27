@@ -47,7 +47,7 @@ export const projectsData = [
       `${BASE_URL}images/projects/ammo-batics/MIniMap.png`
     ],
 
-        videoUrl: 'https://www.youtube.com/watch?v=oXmuplxd0LM&list=PLzsKV6Sv-yPG93MF2XV7B2x980g5FxmaS',
+    videoUrl: 'https://www.youtube.com/embed/oXmuplxd0LM',
 
     links: {
       itchIo: 'https://hemants4.itch.io/ammo-batics',
@@ -104,7 +104,9 @@ export const projectsData = [
 
     videoUrl: '',
 
-    links: {}
+    links: {
+      gdd: `${BASE_URL}Gamification_gdd.html`
+    }
   },
 
   {
