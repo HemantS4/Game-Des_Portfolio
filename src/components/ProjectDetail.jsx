@@ -163,6 +163,29 @@ export default function ProjectDetail() {
         <p className="overview-text">{project.overview}</p>
       </section>
 
+      {/* Extended Sections with Images (GDD-like layout) */}
+      {project.extendedSections && project.extendedSections.length > 0 && (
+        <section className="project-section extended-sections">
+          {project.extendedSections.map((section, index) => (
+            <div key={index} className={`extended-section ${index % 2 === 0 ? 'image-left' : 'image-right'}`}>
+              <div className="extended-section-image">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/projects/${project.id.replace(/-/g, '-')}/${section.image}`}
+                  alt={section.title}
+                  onError={(e) => {
+                    e.target.src = `https://via.placeholder.com/600x400/1a1a2e/ff7849?text=${encodeURIComponent(section.title)}`
+                  }}
+                />
+              </div>
+              <div className="extended-section-content">
+                <h2>{section.title}</h2>
+                <div className="section-text">{section.content}</div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
       {/* Features */}
       <section className="project-section features-section">
         <h2>Key Features</h2>

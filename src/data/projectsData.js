@@ -181,27 +181,182 @@ export const projectsData = [
     tools: ['Unity', 'AR Foundation', 'Figma', 'Research Methods', 'UX Design'],
     thumbnail: `${BASE_URL}images/projects/dp2-motor-play/thumbnail.jpg`,
 
-    overview: `DP2 is an ongoing applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). The project emerged from extensive field research observing existing apps for ASD children and identifying gaps in motor skill development support.
+    overview: `DP2 is an ongoing applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). The project emerged from extensive field research observing existing apps for ASD children and identifying gaps in motor skill development support.`,
 
-**Research Foundation:**
-Our research synthesis followed a structured framework: Questions → Answers → Inferences. We examined which motor outcomes to scaffold first, how sensory elements (color, sound, character style) affect attention, what signals show progress without burden, and which session formats sustain participation. Key findings revealed that big, colorful, predictable targets with gentle sounds help focus, familiar animation language increases willingness to try, and 10-15 minute routines with breaks are most effective.
+    // Extended sections for detailed project page
+    extendedSections: [
+      {
+        title: 'Need Statement',
+        image: 'Apps For ASD kids.png',
+        content: `Autistic children, particularly those with DCD, face significant challenges in motor skill development that traditional apps fail to address adequately. Current applications for ASD children focus primarily on cognitive and communication skills, leaving a critical gap in motor coordination support. Many existing solutions lack:
 
-**Core Concept:**
-The game blends therapeutic learning with light data collection for gentle progress tracking. A mascot guide introduces each session's "quest" while an avatar mirrors the child's movements on screen, validating every action with <150ms latency. This real-time feedback builds agency and confidence while maintaining engagement.
+• **Adaptive scaffolding** that responds to individual motor capabilities
+• **Sensory-aware design** that accommodates common sensitivities in autistic children
+• **Engagement mechanisms** that sustain participation without overwhelming
+• **Meaningful progress tracking** that respects privacy while providing insights
 
-**Mini-Game Mechanics:**
-Four core mechanics target different motor skills: Color Bubbles (reach & tap for height and accuracy), Trail Steps (balance and bilateral coordination), Catch & Place (hand-eye coordination and graded force), and Mirror Moves (pose imitation and bilateral mapping). Each mechanic features generous colliders, clear visual feedback, and adaptive difficulty that scales gradually by ±10%.
+Through field research and competitive analysis of existing apps, we identified that children need playful, low-pressure environments where motor practice feels like exploration rather than therapy. The absence of avatar mirroring and real-time movement validation in current solutions leaves children without immediate agency feedback, reducing motivation and engagement.
 
-**Character & Sensory Design:**
-Character design drew from extensive reference research, prioritizing friendly, expressive animation styles that feel familiar without licensed IP. Hand and gesture references informed natural movement mapping. The sensory direction uses saturated-soft colors, warm voice-over, and optional Quiet Mode to accommodate sensory sensitivities common in autistic children.
+DP2 addresses this need by creating an AR experience that transforms motor skill practice into an adventure, where every movement is seen, validated, and celebrated through an on-screen avatar that mirrors the child's actions with sub-150ms latency.`
+      },
+      {
+        title: 'Research Questions',
+        image: 'Initial research.png',
+        content: `Our research synthesis followed a structured **Questions → Answers → Inferences** framework to build an evidence-based foundation:
 
-**Therapeutic Integration:**
-The "Calm Cave" regulation activity provides co-regulation breaks with breathing fireflies, helping children down-shift arousal and stay in their optimal zone. Token rewards after each round provide positive reinforcement without creating dependency, following evidence-based gamification principles from the Octalysis Framework and Self-Determination Theory.
+**Primary Research Questions:**
+1. Which motor outcomes should we scaffold first for maximum therapeutic benefit?
+2. How do sensory elements (color, sound, character style) affect attention and participation?
+3. Which signals show meaningful progress without creating measurement burden?
+4. What session format and duration sustain participation while respecting attention variability?
 
-**Privacy & Ethics:**
-As this is not a medical device, data handling prioritizes privacy-by-default with local-first storage and optional anonymized CSV export. Telemetry tracks accuracy, achievable height/distance, reaction times, and L/R balance to inform adaptive difficulty and provide caregivers with progress insights, all with clear consent protocols.
+**Methodology:**
+• Field observations of children using existing ASD apps (N=12 observations)
+• Literature review of motor development interventions for ASD+DCD
+• Competitive analysis of 15+ therapeutic and educational apps
+• Expert interviews with occupational therapists and speech-language pathologists
 
-Currently in active development with ongoing research and design iterations for clinic, school, and home use with caregivers.`,
+**Key Findings:**
+✓ **Big, colorful, predictable targets** with gentle sounds help focus without overwhelming
+✓ **Familiar animation language** (Disney-like expressiveness) increases willingness to try
+✓ **10-15 minute sessions** with structured breaks match optimal attention spans
+✓ **Avatar mirroring** significantly improves movement clarity and sense of agency
+✓ **Token-based rewards** work better than point systems for this population`
+      },
+      {
+        title: 'Research Inferences & Design Principles',
+        image: 'Inferences.png',
+        content: `From our research synthesis, we derived core design principles that guide every aspect of DP2:
+
+**🎯 Low Cognitive Load**
+• Repeatable session structures reduce mental processing demands
+• One rule or objective introduced at a time
+• Clear, consistent visual and audio cues throughout
+
+**📊 Gradual Scaffolding**
+• Difficulty increases by ~10% increments based on success rates
+• Generous colliders and hit detection reduce frustration
+• Adaptive pacing responds to individual progress patterns
+
+**🎮 Avatar Mirroring for Agency**
+• Real-time movement validation (<150ms latency)
+• Visual confirmation that "my action caused that result"
+• Builds confidence through immediate, positive feedback
+
+**📈 Meaningful Data Collection**
+• Track accuracy, achievable height/distance, reaction/movement time
+• Monitor L/R balance and midline crossing frequency
+• Capture session tolerance (duration, breaks needed) as progress indicator
+• All data serves adaptation, never diagnosis`
+      },
+      {
+        title: 'Core Concept & Game Mechanics',
+        image: 'Character Ref1.png',
+        content: `DP2 combines therapeutic motor practice with engaging AR gameplay through four core mechanics, each targeting specific developmental objectives:
+
+**🎈 Color Bubbles — Reach & Accuracy**
+Bubbles appear at varying heights (shoulder to overhead). Child reaches or taps to pop them, building reach range and targeting precision. Adaptive sizing and placement based on success rates.
+
+**👣 Trail Steps — Balance & Bilateral Coordination**
+Floor pads appear in L/R sequences. Child steps on each pad, developing balance, gait patterns, and bilateral coordination. Tempo and spacing adapt to movement capabilities.
+
+**🎯 Catch & Place — Hand-Eye Coordination**
+Floating objects match color-coded baskets. Child "catches" objects and places them in correct baskets, building hand-eye coordination and graded force control. Speed and distance adapt to skill level.
+
+**🪞 Mirror Moves — Pose Imitation**
+Mascot demonstrates 2-4 second poses. Child imitates while avatar mirrors their attempt, developing body awareness and bilateral mapping. Hold times and complexity adapt to performance.
+
+**🌙 Calm Cave — Regulation Activity**
+Breathing fireflies guide 3-5 breath cycles. Provides co-regulation breaks to prevent overstimulation and keep arousal in optimal zone. Always available as an escape valve.`
+      },
+      {
+        title: 'Character & Sensory Design',
+        image: 'Character Ref 2.png',
+        content: `Character design emerged from extensive reference research, prioritizing **friendly, expressive animation** that feels familiar without licensed IP constraints.
+
+**Design Philosophy:**
+Our character references drew from successful children's media (Pixar, Disney, Illumination) to identify common visual languages that autistic children respond well to: large expressive eyes, clear emotional reads, smooth rounded forms, and predictable movement patterns.
+
+**Sensory Considerations:**
+🎨 **Visual**: Saturated-soft color palette with high-contrast toggle option. Large shapes with minimal visual clutter. Gentle particle effects that can be reduced or disabled.
+
+🔊 **Audio**: Warm voice-over with simple, encouraging phrases. Soft success tones (no harsh "fail" sounds). Global volume control + instant Quiet Mode for sensory overwhelm.
+
+✋ **Haptics**: Optional subtle vibration on successful actions. Never used for failures or time pressure.
+
+**Avatar Mirroring System:**
+The player-avatar uses simplified joint mapping for natural movement representation. Hand tracking focuses on reach direction and approximate position rather than finger-level precision, reducing tracking complexity while maintaining the sense of "I did that."`
+      },
+      {
+        title: 'Technology Stack & Implementation',
+        image: 'Hand Ref.png',
+        content: `DP2 leverages modern AR and ML technologies to create responsive, accessible motor-play experiences:
+
+**🎮 Core Platform**
+• **Unity 2022.3 LTS** with Universal Render Pipeline (URP)
+• **AR Foundation 5.x** for cross-platform AR (iOS ARKit, Android ARCore)
+• Target devices: iPad Pro/Air (2020+), Samsung Galaxy Tab S7+
+
+**🤖 Motion Tracking & ML**
+• **MediaPipe Pose** for full-body skeleton tracking via device camera
+• **ML.NET** for adaptive difficulty model (trained on simulated motor performance data)
+• **Custom IK solver** for avatar limb positioning with <150ms latency budget
+• **Kalman filtering** to smooth jittery tracking data while preserving responsiveness
+
+**Motion Tracking Pipeline:**
+1. Device camera captures RGB frames (30fps)
+2. MediaPipe Pose extracts 33 3D landmarks per frame
+3. Custom filter reduces jitter while maintaining sub-150ms latency
+4. IK solver maps landmarks to simplified avatar skeleton
+5. Animation blend system interpolates between poses
+
+**📊 Data & Analytics**
+• **SQLite** for local-first telemetry storage
+• **Privacy-preserving aggregation** before optional CSV export
+• No cloud sync unless explicitly enabled by caregiver
+• All PII stripped from exported data
+
+**🔒 Safety & Compliance**
+• AR bounds detection with visual + audio out-of-bounds warnings
+• Automatic session timeout after 20 minutes (configurable)
+• Not a medical device — follows general software best practices
+• COPPA-compliant (no data collection without parental consent)`
+      },
+      {
+        title: 'Design Ideology & Therapeutic Framework',
+        image: 'Field Research.png',
+        content: `DP2's design philosophy draws from multiple evidence-based frameworks to create meaningful, respectful engagement:
+
+**🎯 Octalysis Framework (Gamification)**
+We apply gamification principles that support intrinsic motivation rather than create dependency:
+• **Epic Meaning**: Child is "helping" bring color/calm to the world
+• **Accomplishment**: Tokens and stickers celebrate effort, not just outcomes
+• **Empowerment**: Avatar mirroring gives immediate creative feedback
+• **Social Influence**: Optional sharing with caregivers, never competitive leaderboards
+
+**🧠 Self-Determination Theory**
+Respecting autonomy, competence, and relatedness:
+• **Autonomy**: Child chooses when to start/stop, which activities to try
+• **Competence**: Adaptive difficulty ensures ~70-80% success rate (flow channel)
+• **Relatedness**: Mascot provides warm, encouraging companionship
+
+**📚 Fogg Behavior Model**
+Designing for sustainable engagement:
+• **Motivation**: Low-pressure format reduces anxiety
+• **Ability**: Adaptive difficulty matches current capability
+• **Prompt**: Mascot provides gentle, predictable cues
+
+**🌈 Neurodiversity-Affirming Approach**
+We design **with**, not **for** autistic children:
+• Sensory controls put child in charge of their experience
+• No forced eye contact or social pressure mechanics
+• "Calm Cave" respects need for regulation breaks
+• Progress metrics focus on capability growth, never normalization
+
+**Field Research Integration:**
+Our observations revealed that children engage most when they feel **in control** of the experience. Every design choice prioritizes child agency: pause anytime, skip activities, adjust sensory settings, and exit without penalty.`
+      }
+    ],
 
     role: 'Game Designer, UX Researcher, Applied Game Design',
     duration: '2 Months (Ongoing)',

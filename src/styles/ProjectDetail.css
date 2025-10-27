@@ -236,6 +236,102 @@
   font-weight: 400;
 }
 
+/* Extended Sections (GDD-like layout) */
+.extended-sections {
+  margin-top: 4rem;
+}
+
+.extended-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: rgba(15, 15, 35, 0.4);
+  border: 1px solid rgba(255, 120, 73, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.extended-section:hover {
+  background: rgba(15, 15, 35, 0.6);
+  border-color: rgba(255, 120, 73, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Alternate image position */
+.extended-section.image-left {
+  grid-template-areas: "image content";
+}
+
+.extended-section.image-right {
+  grid-template-areas: "content image";
+}
+
+.extended-section.image-left .extended-section-image {
+  grid-area: image;
+}
+
+.extended-section.image-left .extended-section-content {
+  grid-area: content;
+}
+
+.extended-section.image-right .extended-section-image {
+  grid-area: image;
+}
+
+.extended-section.image-right .extended-section-content {
+  grid-area: content;
+}
+
+.extended-section-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 120, 73, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.extended-section-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.extended-section:hover .extended-section-image img {
+  transform: scale(1.03);
+}
+
+.extended-section-content h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.extended-section-content .section-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  opacity: 0.95;
+  white-space: pre-line;
+}
+
+/* Responsive for extended sections */
+@media (max-width: 968px) {
+  .extended-section {
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "content" !important;
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+
 /* Features */
 .features-grid {
   display: grid;
