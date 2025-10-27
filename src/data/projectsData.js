@@ -76,122 +76,32 @@ export const projectsData = [
     // Extended sections for detailed project page
     extendedSections: [
       {
-        title: 'The Challenge: Why Don\'t We Document?',
-        image: 'capture-4.png',
-        content: `Our research aimed to understand what motivates people to document their lives and, more importantly, what causes them to stop. We wanted to find the core friction points and build a solution that addresses them directly.
-
-**Research Findings:**
-
-**😥 Friction is Fatal:** Most respondents found documentation too time-consuming. "Blank page fear" was a major barrier preventing users from starting their documentation journey.
-
-**📉 No Feedback, No Habit:** Without feedback or a sense of progress, users quickly lost motivation to continue documenting consistently.
-
-**💡 The Opportunity:** Users strongly requested gamification and AI features to make the documentation process easier, more engaging, and more fun.
-
-These insights guided every design decision, from the quick-capture interface to the reward mechanisms that keep users engaged.`
+        title: 'The Challenge',
+        content: `Research revealed three critical barriers: time-consuming entry processes creating "blank page fear," lack of feedback leading to motivation loss, and strong user demand for gamification and AI assistance. These insights shaped our solution-focused approach.`
       },
       {
-        title: 'The Solution: The Momentum Loop',
-        image: 'Game-1.png',
-        content: `We designed a cyclical **"Capture → Reflect → Reward → Repeat"** flow that turns documentation into a simple, sticky habit rather than a chore.
-
-**📸 Capture** — Quick entries (< 2 mins) using voice, photos, or notes. Hardware shortcuts reduce friction and eliminate barriers to starting.
-
-**🧠 Reflect** — AI auto-tags and provides personalized insights like mood graphs and weekly "scrapbooks" to help users understand patterns in their life.
-
-**🏆 Reward** — Streaks, badges, and growth metaphors (e.g., a growing plant) make progress tangible and celebrate consistency.
-
-**🔁 Repeat** — Gentle, smart reminders and personalized prompts restart the habit loop, bringing users back without feeling intrusive.
-
-This loop creates a sustainable habit system backed by behavioral psychology and Self-Determination Theory.`
+        title: 'The Momentum Loop',
+        content: `A cyclical "Capture → Reflect → Reward → Repeat" system turns documentation into habit. Quick entries (<2 mins), AI-powered insights, tangible progress visualization, and smart reminders create a sustainable engagement cycle grounded in behavioral psychology.`
       },
       {
         title: 'User Personas',
-        image: 'Game-2.png',
-        content: `Research identified four primary user archetypes, each with distinct motivations and barriers:
-
-**👩‍💻 The Busy Professional**
-• **Motivation:** Track progress & fitness goals
-• **Barrier:** No time for lengthy documentation
-• **Need:** Voice-to-text, AI summaries for quick capture
-
-**🎨 The Creative Dreamer**
-• **Motivation:** Express emotions, archive creative ideas
-• **Barrier:** Blank page fear and overwhelm
-• **Need:** Photo prompts, mood tracking, creative inspiration
-
-**👩‍👦 The Overwhelmed Parent**
-• **Motivation:** Memory-keeping for family moments
-• **Barrier:** Scattered photos across devices, guilt about inconsistency
-• **Need:** Auto-photo timelines, effortless organization
-
-**🎓 The MBA Student**
-• **Motivation:** Track personal and professional growth
-• **Barrier:** Forgetfulness, lack of routine
-• **Need:** Streaks, calendar integration, habit reinforcement
-
-Each persona influenced specific features, ensuring Momentum serves diverse user needs while maintaining a cohesive experience.`
+        content: `Four archetypes emerged: Busy Professionals needing speed, Creative Dreamers seeking inspiration, Overwhelmed Parents requiring effortless organization, and Growth-Focused Students wanting accountability. Each persona informed specific feature priorities.`
       },
       {
-        title: 'Turning Behavior into Features',
-        image: 'Game-3.png',
-        content: `Every feature in Momentum directly addresses a user behavior insight:
-
-**📉 Users lose motivation after a few days**
-→ **Streaks, XP, & micro-challenges** for habit formation and celebrating consistency
-
-**📝 Documentation feels "too formal"**
-→ **Playful prompts** like "Spin the Wheel" and photo challenges to reduce pressure
-
-**🤷‍♂️ Users forget to open the app**
-→ **Hardware triggers** (e.g., volume button shortcuts) & smart, gentle reminders
-
-**🔍 Users struggle to find old notes**
-→ **AI auto-tagging** with intelligent search by mood, topic, or date
-
-**🌱 Users enjoy visible progress**
-→ **Evolving visual metaphors** (trees, scrapbooks) that grow with each entry, making abstract progress concrete
-
-This research-to-design translation ensures every element serves a purpose grounded in real user needs.`
+        title: 'Design Strategy',
+        content: `Every feature directly addresses user pain points: streaks combat early drop-off, playful prompts reduce formality barriers, hardware triggers solve forgetfulness, AI auto-tagging enables retrieval, and evolving visuals make progress tangible.`
       },
       {
-        title: 'Design System: Playful & Focused',
-        image: 'Game-4.png',
-        content: `The visual identity balances playfulness with professionalism, creating an inviting space for creativity.
-
-**🎨 Color Palette:**
-• **Indigo (#4B4DED)** — Primary accent, conveys focus and creativity
-• **Mint (#96F2D7)** — Success states and growth visualization
-• **Coral (#FF8A80)** — Attention highlights and energetic moments
-• **White (#F9FAFB)** — Clean canvas for user content
-
-**✍️ Typography:**
-• **Montserrat** — Headers (Bold, confident personality)
-• **Inter** — Body text (Clear, readable, modern)
-
-**🎮 Gamification Visuals:**
-Rounded, minimalist icons with consistent stroke weight create a cohesive visual language. Subtle animations like glowing progress bars and confetti bursts celebrate achievements without overwhelming. Emojis 🔥 🌱 🌳 ✨ 🏆 serve as universal visual anchors.
-
-The design system prioritizes **clarity over decoration**, ensuring gamification elements enhance rather than distract from user content.`
+        title: 'Octalysis Framework Analysis',
+        content: `Momentum strategically employs gamification psychology: **Epic Meaning** (contributing to personal growth journey), **Accomplishment** (XP, badges, streaks), **Empowerment** (creative control with AI support), **Ownership** (customizable themes), **Social Influence** (optional sharing circles), and **Unpredictability** (resurfaced entries, prompt variations). This balanced approach drives intrinsic motivation without fostering addiction.`
       },
       {
-        title: 'Key Takeaways',
-        image: 'home-2.png',
-        content: `Four critical insights emerged from the design and research process:
-
-**1. Reducing Friction = Retention**
-Simple capture methods (voice, photo, quick text) were the #1 driver for daily use. Every extra tap or screen reduces engagement.
-
-**2. Gamification Builds Habits**
-Streaks and challenges proved crucial for encouraging consistency. Users responded to visible progress markers that celebrated effort, not perfection.
-
-**3. AI Adds Value, Not Complexity**
-Users loved AI *summaries* and *insights* that revealed patterns in their entries. However, they rejected AI-written entries, preferring authentic self-expression with AI as a supportive tool.
-
-**4. Personalization = Connection**
-Allowing users to customize themes, avatars, and visual styles made the documentation space feel *theirs*, increasing emotional investment and long-term retention.
-
-These learnings shaped a product that respects user agency while providing structure, support, and celebration.`
+        title: 'Design System',
+        content: `Visual identity balances playfulness with professionalism: Indigo (#4B4DED) for focus, Mint (#96F2D7) for success, Coral (#FF8A80) for energy. Montserrat headers paired with Inter body text. Minimalist icons with subtle animations prioritize clarity over decoration.`
+      },
+      {
+        title: 'Key Insights',
+        content: `Four learnings emerged: friction reduction drives retention, gamification builds consistency, AI enhances without replacing authenticity, and personalization deepens emotional investment. These principles shaped a product respecting user agency while providing structure and celebration.`
       }
     ],
 

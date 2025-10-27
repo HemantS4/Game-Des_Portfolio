@@ -139,15 +139,45 @@
 </section>
 
 <section>
-    <h2>6. User Personas</h2>
-    <table>
-        <tr><th>Persona</th><th>Motivation</th><th>Barrier</th><th>Needs</th></tr>
-        <tr><td>👩‍💻 The Busy Professional</td><td>Track progress & fitness</td><td>No time</td><td>Voice-to-text, AI summaries</td></tr>
-        <tr><td>🎨 The Creative Dreamer</td><td>Express emotions, archive ideas</td><td>Blank page fear</td><td>Photo prompts, mood tracking</td></tr>
-        <tr><td>👩‍👦 The Overwhelmed Parent</td><td>Memory-keeping</td><td>Scattered photos, guilt</td><td>Auto-photo timelines</td></tr>
-        <tr><td>🎓 The MBA Student</td><td>Track personal growth</td><td>Forgetfulness</td><td>Streaks, calendar integration</td></tr>
-    </table>
-    <p class="highlight">Each persona influenced specific features, ensuring Momentum serves diverse user needs while maintaining a cohesive experience.</p>
+    <h2>6. User Personas (Detailed)</h2>
+
+    <h3>👩‍💻 The Busy Professional</h3>
+    <ul>
+        <li><strong>Background:</strong> Works long hours in demanding career, values efficiency and data-driven insights.</li>
+        <li><strong>Primary Motivation:</strong> Track fitness progress, work achievements, and personal milestones without time investment.</li>
+        <li><strong>Core Barrier:</strong> No time for lengthy documentation sessions; needs instant, frictionless capture.</li>
+        <li><strong>Key Needs:</strong> Voice-to-text for hands-free entry, AI-generated summaries for quick review, mobile-first design for on-the-go use.</li>
+        <li><strong>Design Response:</strong> <2 min capture flow, hardware shortcuts (volume button trigger), weekly AI digest emails.</li>
+    </ul>
+
+    <h3>🎨 The Creative Dreamer</h3>
+    <ul>
+        <li><strong>Background:</strong> Designer, artist, or creative professional generating ideas constantly but struggling to organize them.</li>
+        <li><strong>Primary Motivation:</strong> Express emotions authentically, archive creative sparks before they fade, explore personal themes.</li>
+        <li><strong>Core Barrier:</strong> "Blank page fear" — intimidated by empty screens, needs gentle prompts to start.</li>
+        <li><strong>Key Needs:</strong> Visual inspiration (photo uploads), mood tracking with emotional tags, creative prompts to spark entries.</li>
+        <li><strong>Design Response:</strong> "Spin the Wheel" prompt system, mood color picker, photo-first entry option, unlockable aesthetic themes.</li>
+    </ul>
+
+    <h3>👩‍👦 The Overwhelmed Parent</h3>
+    <ul>
+        <li><strong>Background:</strong> Managing family life with limited time, wanting to preserve precious moments but feeling guilty about inconsistency.</li>
+        <li><strong>Primary Motivation:</strong> Create lasting memories of children's milestones without adding to mental load.</li>
+        <li><strong>Core Barrier:</strong> Photos scattered across devices, guilt over missed days, overwhelming backlog feeling.</li>
+        <li><strong>Key Needs:</strong> Automatic photo timeline assembly, forgiveness for gaps (no streak punishment), bulk import from camera roll.</li>
+        <li><strong>Design Response:</strong> Auto-photo timelines, "grace period" streak protection, "Memory Scrapbook" monthly auto-compilations.</li>
+    </ul>
+
+    <h3>🎓 The MBA Student / Growth Seeker</h3>
+    <ul>
+        <li><strong>Background:</strong> Focused on self-improvement, enjoys tracking metrics and seeing tangible progress over time.</li>
+        <li><strong>Primary Motivation:</strong> Document personal and professional growth journey, build consistent reflection habits.</li>
+        <li><strong>Core Barrier:</strong> Forgetfulness — needs external accountability systems to maintain routine.</li>
+        <li><strong>Key Needs:</strong> Streak tracking with reminders, calendar integration, visible progress metrics (XP, levels).</li>
+        <li><strong>Design Response:</strong> Daily streak counter with smart notifications, monthly "growth reports," achievement badges for milestones.</li>
+    </ul>
+
+    <p class="highlight">Each persona's pain points directly informed feature priorities, ensuring Momentum solves real problems rather than adding complexity.</p>
 </section>
 
 <section>
@@ -164,7 +194,87 @@
 </section>
 
 <section>
-    <h2>8. Gamification Mechanics</h2>
+    <h2>8. Octalysis Framework Analysis</h2>
+    <p>Momentum's gamification strategy is grounded in Yu-kai Chou's Octalysis Framework, balancing intrinsic and extrinsic motivators to create sustainable engagement without fostering addiction.</p>
+
+    <h3>Core Drive 1: Epic Meaning & Calling</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Users contribute to their personal "growth journey" — framed as building a legacy of thoughts and ideas.</li>
+        <li><strong>Mechanic:</strong> Monthly AI-generated "Year in Review" showing thematic evolution, "Memory Garden" visual metaphor showing personal growth.</li>
+        <li><strong>Psychology:</strong> Documentation becomes part of a larger narrative about self-improvement and mindfulness.</li>
+    </ul>
+
+    <h3>Core Drive 2: Development & Accomplishment</h3>
+    <ul>
+        <li><strong>Implementation:</strong> XP system, level progression (1-50), achievement badges, streak tracking.</li>
+        <li><strong>Mechanic:</strong> Clear progress bars, milestone celebrations with confetti animations, titles like "Creative Explorer" → "Idea Architect."</li>
+        <li><strong>Psychology:</strong> Visible competence development satisfies mastery needs; small wins create dopamine feedback loops.</li>
+        <li><strong>Balance:</strong> XP rewards effort (entries, tags, reflections) rather than quality, preventing perfectionism paralysis.</li>
+    </ul>
+
+    <h3>Core Drive 3: Empowerment of Creativity & Feedback</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Users maintain complete creative control; AI suggests but never dictates.</li>
+        <li><strong>Mechanic:</strong> Customizable entry formats, freestyle tagging, "Spin the Wheel" for optional prompts (never mandatory).</li>
+        <li><strong>Psychology:</strong> Immediate feedback (AI formatting preview, instant XP gain) reinforces agency and exploration.</li>
+        <li><strong>Critical Design Choice:</strong> AI generates summaries/insights but NEVER writes entries — users rejected AI-generated content as inauthentic.</li>
+    </ul>
+
+    <h3>Core Drive 4: Ownership & Possession</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Unlockable themes, fonts, color palettes; users "build" their personalized documentation space.</li>
+        <li><strong>Mechanic:</strong> Level-gated cosmetic rewards (e.g., "Midnight Blue" theme at Level 10), avatar customization, private "vaults" for sensitive entries.</li>
+        <li><strong>Psychology:</strong> Investment in personalization increases perceived value and switching costs; users feel ownership over their digital space.</li>
+    </ul>
+
+    <h3>Core Drive 5: Social Influence & Relatedness</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Optional "Sharing Circles" for selected friends/peers; privacy-first by default.</li>
+        <li><strong>Mechanic:</strong> Share specific entries (never full journals), react with emojis, collaborative prompt challenges.</li>
+        <li><strong>Balance:</strong> Social features are opt-in to avoid peer pressure; no public leaderboards to prevent unhealthy competition.</li>
+        <li><strong>Psychology:</strong> Gentle social accountability without judgment; "You're on a 7-day streak like Maya!" notifications.</li>
+    </ul>
+
+    <h3>Core Drive 6: Scarcity & Impatience</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Limited-time prompt themes (e.g., "Gratitude Week"), seasonal aesthetic packs.</li>
+        <li><strong>Mechanic:</strong> "Daily Prompt" refreshes at midnight, "Resurfaced Memory" shows one old entry per day.</li>
+        <li><strong>Balance:</strong> Scarcity used sparingly to avoid FOMO anxiety; no punitive timers or energy systems.</li>
+    </ul>
+
+    <h3>Core Drive 7: Unpredictability & Curiosity</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Randomized "Resurfaced Entries" from past months, "Spin the Wheel" for creative prompts.</li>
+        <li><strong>Mechanic:</strong> Surprise badges (e.g., "Night Owl" for midnight entries), AI discovers unexpected thematic patterns in user's writing.</li>
+        <li><strong>Psychology:</strong> Variable rewards maintain interest; discovering forgotten entries creates delightful rediscovery moments.</li>
+    </ul>
+
+    <h3>Core Drive 8: Loss & Avoidance</h3>
+    <ul>
+        <li><strong>Implementation:</strong> Streak tracking with "grace periods" to avoid harsh punishment.</li>
+        <li><strong>Mechanic:</strong> Streaks don't reset immediately; users get 1 "Streak Freeze" per week. Gentle "You haven't written in 3 days" reminders (never shaming).</li>
+        <li><strong>Balance:</strong> Loss aversion used minimally and ethically; no "lose all progress" mechanics that create anxiety.</li>
+        <li><strong>Critical Choice:</strong> Missed days show as "rest days" rather than broken chains to reduce guilt.</li>
+    </ul>
+
+    <h3>Octalysis Balance Strategy</h3>
+    <table>
+        <tr><th>Core Drive</th><th>Emphasis Level</th><th>Rationale</th></tr>
+        <tr><td>1. Epic Meaning</td><td>Medium</td><td>Personal growth framing without grandiosity</td></tr>
+        <tr><td>2. Accomplishment</td><td>High</td><td>Core motivator for habit formation</td></tr>
+        <tr><td>3. Empowerment</td><td>Very High</td><td>Creative control = intrinsic motivation</td></tr>
+        <tr><td>4. Ownership</td><td>High</td><td>Personalization drives emotional investment</td></tr>
+        <tr><td>5. Social Influence</td><td>Low-Medium</td><td>Optional to avoid pressure</td></tr>
+        <tr><td>6. Scarcity</td><td>Low</td><td>Minimal use to avoid anxiety</td></tr>
+        <tr><td>7. Unpredictability</td><td>Medium</td><td>Delight through discovery, not gambling</td></tr>
+        <tr><td>8. Loss & Avoidance</td><td>Very Low</td><td>Grace periods prevent guilt spirals</td></tr>
+    </table>
+
+    <p class="highlight"><strong>Design Philosophy:</strong> Momentum emphasizes "White Hat" gamification (meaning, accomplishment, empowerment) over "Black Hat" (scarcity, loss avoidance) to foster intrinsic motivation and long-term healthy habits rather than addictive dependency.</p>
+</section>
+
+<section>
+    <h2>9. Gamification Mechanics</h2>
     <table>
         <tr><th>Mechanic</th><th>Description</th><th>Trigger</th><th>Motivation</th></tr>
         <tr><td>XP System</td><td>Earn XP for actions like writing or tagging.</td><td>Each save action</td><td>Progress</td></tr>
@@ -176,7 +286,7 @@
 </section>
 
 <section>
-    <h2>9. Reward System</h2>
+    <h2>10. Reward System</h2>
     <table>
         <tr><th>Reward</th><th>Condition</th><th>Effect</th></tr>
         <tr><td>XP Points</td><td>Each entry (+10), tag (+2)</td><td>Progress bar animation</td></tr>
@@ -187,7 +297,7 @@
 </section>
 
 <section>
-    <h2>10. Core Features</h2>
+    <h2>11. Core Features</h2>
     <ul>
         <li><strong>Quick Capture:</strong> Text, voice, and photo entries (< 2 mins).</li>
         <li><strong>AI Summaries:</strong> Automatic formatting and insights.</li>
@@ -201,7 +311,7 @@
 </section>
 
 <section>
-    <h2>11. AI System Overview</h2>
+    <h2>12. AI System Overview</h2>
     <table>
         <tr><th>Module</th><th>Function</th><th>Example</th></tr>
         <tr><td>Voice-to-Text</td><td>Convert speech to text.</td><td>"Sketch idea: gradient logo."</td></tr>
@@ -214,7 +324,7 @@
 </section>
 
 <section>
-    <h2>12. Design System: Playful & Focused</h2>
+    <h2>13. Design System: Playful & Focused</h2>
     <h3>Color Palette</h3>
     <table>
         <tr><th>Color</th><th>Hex Code</th><th>Purpose</th></tr>
@@ -236,7 +346,7 @@
 </section>
 
 <section>
-    <h2>13. Technical Overview</h2>
+    <h2>14. Technical Overview</h2>
     <table>
         <tr><th>Component</th><th>Technology</th><th>Purpose</th></tr>
         <tr><td>Frontend</td><td>Flutter / React Native</td><td>Cross-platform UI</td></tr>
@@ -247,7 +357,7 @@
 </section>
 
 <section>
-    <h2>14. Key Takeaways</h2>
+    <h2>15. Key Takeaways</h2>
     <p>Four critical insights emerged from the design and research process:</p>
     <table>
         <tr><th>Takeaway</th><th>Insight</th></tr>
@@ -260,7 +370,7 @@
 </section>
 
 <section>
-    <h2>15. The Momentum Loop in Practice</h2>
+    <h2>16. The Momentum Loop in Practice</h2>
     <h3>Capture → Reflect → Reward → Repeat</h3>
     <table>
         <tr><th>Phase</th><th>User Action</th><th>System Response</th></tr>
@@ -273,7 +383,7 @@
 </section>
 
 <section>
-    <h2>16. Closing Vision</h2>
+    <h2>17. Closing Vision</h2>
     <blockquote>"Momentum redefines documentation as a playful, rewarding, and personalized act of self-expression."</blockquote>
     <p>Through research-driven design and habit-focused gamification, it helps users turn small moments into meaningful, organized memories — powered by AI and sustained by intrinsic motivation.</p>
     <p>It gives structure to spontaneity, turning everyday notes into a journey of reflection, growth, and creativity.</p>
