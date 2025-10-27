@@ -57,15 +57,15 @@ export const projectsData = [
 
   {
     id: 'flowlog',
-    title: 'FlowLog',
+    title: 'Momentum',
     category: 'UX/UI & Gamification',
     year: '2024',
-    description: 'A gamified journaling and documentation app for creative professionals.',
-    shortDescription: 'Gamified journaling app with AI assistance',
+    description: 'A gamified documentation app that makes capturing ideas effortless and rewarding.',
+    shortDescription: 'Gamified documentation app with AI assistance',
     tools: ['Figma', 'Principle', 'Miro', 'Adobe Creative Suite', 'Notion'],
     thumbnail: `${BASE_URL}images/projects/flowlog/thumbnail.jpg`,
 
-    overview: 'FlowLog is a gamified journaling and documentation app designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them. The app combines AI-assisted organization with gamified habit design, helping users document their thoughts, designs, and inspirations effortlessly while staying engaged and consistent.',
+    overview: 'Momentum is a gamified documentation and journaling app that helps students, designers, and professionals capture, organize, and grow their ideas while staying motivated through game mechanics such as XP, streaks, badges, and unlockable themes. It combines AI assistance with habit-forming design to make documentation both effortless and rewarding. Designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them.',
 
     role: 'UX/UI Designer, Product Designer, Researcher',
     duration: '2 Weeks',
@@ -73,26 +73,29 @@ export const projectsData = [
     platform: ['iOS', 'Android', 'Web'],
 
     challenges: [
-      'Successfully transitioning from reflective journaling to creative documentation while maintaining engagement',
+      'Creating meaningful gamification that supports intrinsic creativity rather than creating dependency on rewards',
       'Designing AI assistance that enhances creativity without overwhelming or replacing human control',
-      'Implementing gamification that supports intrinsic creativity rather than creating dependency on rewards'
+      'Balancing accessibility with depth - making quick capture instant while supporting rich documentation',
+      'Building emotionally intelligent reflection features that encourage ownership without feeling intrusive'
     ],
 
     solutions: [
-      'Developed evidence-based design using Octalysis Framework, Self-Determination Theory, and Fogg Behavior Model',
-      'Created voice-to-text transcription for rapid idea capture',
-      'Implemented AI-powered formatting, summarization, and categorization',
-      'Designed XP system, badges, and streak tracking balanced with user autonomy'
+      'Developed evidence-based design using Octalysis Framework, Self-Determination Theory, and Fogg Behavior Model for balanced gamification',
+      'Created instant capture through voice-to-text, images, and quick text entry with AI-powered organization',
+      'Implemented non-intrusive XP system, streaks, and badges that support consistency without addiction',
+      'Designed AI as collaborator: formats, summarizes, and curates while user maintains creative control',
+      'Built visual summaries and vibe charts for meaningful reflection'
     ],
 
     features: [
-      'Voice-to-text transcription for rapid idea capture',
-      'AI-powered formatting and categorization',
-      'XP system, badges, and streak tracking',
-      'Weekly vibe charts and monthly AI reflections',
-      'Unlockable themes for personalization',
-      'Privacy-first design with intentional sharing',
-      'Micro-prompts for creative inspiration'
+      'Quick capture through text, voice-to-text, or images',
+      'AI-powered formatting, summarization, and categorization',
+      'XP system with levels, badges, and streak tracking',
+      'Weekly vibe charts and monthly AI-generated reflections',
+      'Unlockable themes and fonts for personalization',
+      'Micro-prompts for creative inspiration',
+      'Privacy-first design with intentional sharing options',
+      'Resurfaced entries to encourage reflection'
     ],
 
     gallery: [
