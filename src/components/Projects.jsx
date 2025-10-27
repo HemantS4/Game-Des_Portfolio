@@ -97,7 +97,8 @@ export default function Projects({ scrollProgress }) {
     { x: 30, y: 30, z: -80, rotSpeed: 0.3, orbitRadius: 80 },    // Top left, back
     { x: 70, y: 30, z: 100, rotSpeed: 0.4, orbitRadius: 100 },   // Top right, forward
     { x: 30, y: 70, z: 50, rotSpeed: 0.35, orbitRadius: 90 },    // Bottom left, mid
-    { x: 70, y: 70, z: -40, rotSpeed: 0.45, orbitRadius: 85 }    // Bottom right, back
+    { x: 70, y: 70, z: -40, rotSpeed: 0.45, orbitRadius: 85 },   // Bottom right, back
+    { x: 50, y: 50, z: 0, rotSpeed: 0.38, orbitRadius: 95 }      // Center, mid-depth
   ]
 
   const getCardStyle = (index) => {
