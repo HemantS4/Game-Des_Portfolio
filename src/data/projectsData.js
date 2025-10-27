@@ -69,9 +69,131 @@ export const projectsData = [
     description: 'A gamified documentation app that makes capturing ideas effortless and rewarding.',
     shortDescription: 'Gamified documentation app with AI assistance',
     tools: ['Figma', 'Principle', 'Miro', 'Adobe Creative Suite', 'Notion'],
-    thumbnail: `${BASE_URL}images/projects/flowlog/1.png`,
+    thumbnail: `${BASE_URL}images/projects/flowlog/Home.png`,
 
-    overview: 'Momentum is a gamified documentation and journaling app that helps students, designers, and professionals capture, organize, and grow their ideas while staying motivated through game mechanics such as XP, streaks, badges, and unlockable themes. It combines AI assistance with habit-forming design to make documentation both effortless and rewarding. Designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them.',
+    overview: 'Momentum redefines documentation as a playful, rewarding, and personalized act of self-expression. Through research-driven design and habit-focused gamification, it helps users turn small moments into meaningful, organized memories — powered by AI and sustained by intrinsic motivation. Designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them.',
+
+    // Extended sections for detailed project page
+    extendedSections: [
+      {
+        title: 'The Challenge: Why Don\'t We Document?',
+        image: 'capture-4.png',
+        content: `Our research aimed to understand what motivates people to document their lives and, more importantly, what causes them to stop. We wanted to find the core friction points and build a solution that addresses them directly.
+
+**Research Findings:**
+
+**😥 Friction is Fatal:** Most respondents found documentation too time-consuming. "Blank page fear" was a major barrier preventing users from starting their documentation journey.
+
+**📉 No Feedback, No Habit:** Without feedback or a sense of progress, users quickly lost motivation to continue documenting consistently.
+
+**💡 The Opportunity:** Users strongly requested gamification and AI features to make the documentation process easier, more engaging, and more fun.
+
+These insights guided every design decision, from the quick-capture interface to the reward mechanisms that keep users engaged.`
+      },
+      {
+        title: 'The Solution: The Momentum Loop',
+        image: 'Game-1.png',
+        content: `We designed a cyclical **"Capture → Reflect → Reward → Repeat"** flow that turns documentation into a simple, sticky habit rather than a chore.
+
+**📸 Capture** — Quick entries (< 2 mins) using voice, photos, or notes. Hardware shortcuts reduce friction and eliminate barriers to starting.
+
+**🧠 Reflect** — AI auto-tags and provides personalized insights like mood graphs and weekly "scrapbooks" to help users understand patterns in their life.
+
+**🏆 Reward** — Streaks, badges, and growth metaphors (e.g., a growing plant) make progress tangible and celebrate consistency.
+
+**🔁 Repeat** — Gentle, smart reminders and personalized prompts restart the habit loop, bringing users back without feeling intrusive.
+
+This loop creates a sustainable habit system backed by behavioral psychology and Self-Determination Theory.`
+      },
+      {
+        title: 'User Personas',
+        image: 'Game-2.png',
+        content: `Research identified four primary user archetypes, each with distinct motivations and barriers:
+
+**👩‍💻 The Busy Professional**
+• **Motivation:** Track progress & fitness goals
+• **Barrier:** No time for lengthy documentation
+• **Need:** Voice-to-text, AI summaries for quick capture
+
+**🎨 The Creative Dreamer**
+• **Motivation:** Express emotions, archive creative ideas
+• **Barrier:** Blank page fear and overwhelm
+• **Need:** Photo prompts, mood tracking, creative inspiration
+
+**👩‍👦 The Overwhelmed Parent**
+• **Motivation:** Memory-keeping for family moments
+• **Barrier:** Scattered photos across devices, guilt about inconsistency
+• **Need:** Auto-photo timelines, effortless organization
+
+**🎓 The MBA Student**
+• **Motivation:** Track personal and professional growth
+• **Barrier:** Forgetfulness, lack of routine
+• **Need:** Streaks, calendar integration, habit reinforcement
+
+Each persona influenced specific features, ensuring Momentum serves diverse user needs while maintaining a cohesive experience.`
+      },
+      {
+        title: 'Turning Behavior into Features',
+        image: 'Game-3.png',
+        content: `Every feature in Momentum directly addresses a user behavior insight:
+
+**📉 Users lose motivation after a few days**
+→ **Streaks, XP, & micro-challenges** for habit formation and celebrating consistency
+
+**📝 Documentation feels "too formal"**
+→ **Playful prompts** like "Spin the Wheel" and photo challenges to reduce pressure
+
+**🤷‍♂️ Users forget to open the app**
+→ **Hardware triggers** (e.g., volume button shortcuts) & smart, gentle reminders
+
+**🔍 Users struggle to find old notes**
+→ **AI auto-tagging** with intelligent search by mood, topic, or date
+
+**🌱 Users enjoy visible progress**
+→ **Evolving visual metaphors** (trees, scrapbooks) that grow with each entry, making abstract progress concrete
+
+This research-to-design translation ensures every element serves a purpose grounded in real user needs.`
+      },
+      {
+        title: 'Design System: Playful & Focused',
+        image: 'Game-4.png',
+        content: `The visual identity balances playfulness with professionalism, creating an inviting space for creativity.
+
+**🎨 Color Palette:**
+• **Indigo (#4B4DED)** — Primary accent, conveys focus and creativity
+• **Mint (#96F2D7)** — Success states and growth visualization
+• **Coral (#FF8A80)** — Attention highlights and energetic moments
+• **White (#F9FAFB)** — Clean canvas for user content
+
+**✍️ Typography:**
+• **Montserrat** — Headers (Bold, confident personality)
+• **Inter** — Body text (Clear, readable, modern)
+
+**🎮 Gamification Visuals:**
+Rounded, minimalist icons with consistent stroke weight create a cohesive visual language. Subtle animations like glowing progress bars and confetti bursts celebrate achievements without overwhelming. Emojis 🔥 🌱 🌳 ✨ 🏆 serve as universal visual anchors.
+
+The design system prioritizes **clarity over decoration**, ensuring gamification elements enhance rather than distract from user content.`
+      },
+      {
+        title: 'Key Takeaways',
+        image: 'home-2.png',
+        content: `Four critical insights emerged from the design and research process:
+
+**1. Reducing Friction = Retention**
+Simple capture methods (voice, photo, quick text) were the #1 driver for daily use. Every extra tap or screen reduces engagement.
+
+**2. Gamification Builds Habits**
+Streaks and challenges proved crucial for encouraging consistency. Users responded to visible progress markers that celebrated effort, not perfection.
+
+**3. AI Adds Value, Not Complexity**
+Users loved AI *summaries* and *insights* that revealed patterns in their entries. However, they rejected AI-written entries, preferring authentic self-expression with AI as a supportive tool.
+
+**4. Personalization = Connection**
+Allowing users to customize themes, avatars, and visual styles made the documentation space feel *theirs*, increasing emotional investment and long-term retention.
+
+These learnings shaped a product that respects user agency while providing structure, support, and celebration.`
+      }
+    ],
 
     role: 'UX/UI Designer, Product Designer, Researcher',
     duration: '2 Weeks',
@@ -82,7 +204,8 @@ export const projectsData = [
       'Creating meaningful gamification that supports intrinsic creativity rather than creating dependency on rewards',
       'Designing AI assistance that enhances creativity without overwhelming or replacing human control',
       'Balancing accessibility with depth - making quick capture instant while supporting rich documentation',
-      'Building emotionally intelligent reflection features that encourage ownership without feeling intrusive'
+      'Building emotionally intelligent reflection features that encourage ownership without feeling intrusive',
+      'Understanding core friction points that prevent users from maintaining documentation habits'
     ],
 
     solutions: [
@@ -90,27 +213,32 @@ export const projectsData = [
       'Created instant capture through voice-to-text, images, and quick text entry with AI-powered organization',
       'Implemented non-intrusive XP system, streaks, and badges that support consistency without addiction',
       'Designed AI as collaborator: formats, summarizes, and curates while user maintains creative control',
-      'Built visual summaries and vibe charts for meaningful reflection'
+      'Built visual summaries and vibe charts for meaningful reflection',
+      'Conducted user research identifying four key personas and their distinct barriers to documentation'
     ],
 
     features: [
-      'Quick capture through text, voice-to-text, or images',
-      'AI-powered formatting, summarization, and categorization',
+      'Quick capture through text, voice-to-text, or images (< 2 mins)',
+      'AI-powered formatting, summarization, and auto-tagging',
       'XP system with levels, badges, and streak tracking',
       'Weekly vibe charts and monthly AI-generated reflections',
       'Unlockable themes and fonts for personalization',
-      'Micro-prompts for creative inspiration',
+      'Micro-prompts and "Spin the Wheel" creative challenges',
+      'Hardware trigger shortcuts for instant capture',
       'Privacy-first design with intentional sharing options',
-      'Resurfaced entries to encourage reflection'
+      'Resurfaced entries to encourage reflection',
+      'Evolving visual metaphors (growing plants, scrapbooks)'
     ],
 
     gallery: [
-      `${BASE_URL}images/projects/flowlog/1.png`,
-      `${BASE_URL}images/projects/flowlog/Gameification.png`,
-      `${BASE_URL}images/projects/flowlog/Gameification-2.png`,
-      `${BASE_URL}images/projects/flowlog/Gamification-3.png`,
-      `${BASE_URL}images/projects/flowlog/Gamification-themes.png`,
-      `${BASE_URL}images/projects/flowlog/jounals.png`
+      `${BASE_URL}images/projects/flowlog/Home.png`,
+      `${BASE_URL}images/projects/flowlog/home-2.png`,
+      `${BASE_URL}images/projects/flowlog/capture-4.png`,
+      `${BASE_URL}images/projects/flowlog/Capture-3.png`,
+      `${BASE_URL}images/projects/flowlog/Game-1.png`,
+      `${BASE_URL}images/projects/flowlog/Game-2.png`,
+      `${BASE_URL}images/projects/flowlog/Game-3.png`,
+      `${BASE_URL}images/projects/flowlog/Game-4.png`
     ],
 
     videoUrl: 'PLACEHOLDER_VIDEO_URL',

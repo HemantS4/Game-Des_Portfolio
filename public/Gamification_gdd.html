@@ -125,18 +125,46 @@
 </section>
 
 <section>
-    <h2>5. Target Audience</h2>
+    <h2>5. User Research & The Challenge</h2>
+    <h3>Why Don't We Document?</h3>
+    <p>Our research aimed to understand what motivates people to document their lives and, more importantly, what causes them to stop. We identified core friction points to build a solution that addresses them directly.</p>
+
+    <h3>Research Findings</h3>
     <table>
-        <tr><th>Segment</th><th>Description</th><th>Needs</th></tr>
-        <tr><td>Design Students</td><td>Generate ideas daily for coursework.</td><td>Quick capture + motivation.</td></tr>
-        <tr><td>Creative Professionals</td><td>Track client ideas, sketches, feedback.</td><td>Organization + summaries.</td></tr>
-        <tr><td>Writers / Researchers</td><td>Document thought processes.</td><td>Structured notes + AI formatting.</td></tr>
-        <tr><td>Productivity Seekers</td><td>Enjoy gamified progress systems.</td><td>XP, levels, streaks.</td></tr>
+        <tr><th>Finding</th><th>Description</th><th>Design Impact</th></tr>
+        <tr><td>😥 Friction is Fatal</td><td>Most respondents found documentation too time-consuming. "Blank page fear" was a major barrier.</td><td>Quick capture (< 2 mins), voice-to-text, photo entry</td></tr>
+        <tr><td>📉 No Feedback, No Habit</td><td>Without feedback or a sense of progress, users quickly lost motivation.</td><td>Streaks, XP, visual progress indicators</td></tr>
+        <tr><td>💡 The Opportunity</td><td>Users strongly requested gamification and AI to make the process easier and more fun.</td><td>AI-powered organization, gamification layer</td></tr>
     </table>
 </section>
 
 <section>
-    <h2>6. Gamification Mechanics</h2>
+    <h2>6. User Personas</h2>
+    <table>
+        <tr><th>Persona</th><th>Motivation</th><th>Barrier</th><th>Needs</th></tr>
+        <tr><td>👩‍💻 The Busy Professional</td><td>Track progress & fitness</td><td>No time</td><td>Voice-to-text, AI summaries</td></tr>
+        <tr><td>🎨 The Creative Dreamer</td><td>Express emotions, archive ideas</td><td>Blank page fear</td><td>Photo prompts, mood tracking</td></tr>
+        <tr><td>👩‍👦 The Overwhelmed Parent</td><td>Memory-keeping</td><td>Scattered photos, guilt</td><td>Auto-photo timelines</td></tr>
+        <tr><td>🎓 The MBA Student</td><td>Track personal growth</td><td>Forgetfulness</td><td>Streaks, calendar integration</td></tr>
+    </table>
+    <p class="highlight">Each persona influenced specific features, ensuring Momentum serves diverse user needs while maintaining a cohesive experience.</p>
+</section>
+
+<section>
+    <h2>7. Behavior to Features Translation</h2>
+    <p>Every feature in Momentum directly addresses a user behavior insight:</p>
+    <table>
+        <tr><th>Observation (The "Why")</th><th>Design Response (The "What")</th></tr>
+        <tr><td>📉 Users lose motivation after a few days</td><td><strong>Streaks, XP, & micro-challenges</strong> for habit formation</td></tr>
+        <tr><td>📝 Documentation feels "too formal"</td><td><strong>Playful prompts</strong> ("Spin the Wheel," photo challenges)</td></tr>
+        <tr><td>🤷‍♂️ Users forget to open the app</td><td><strong>Hardware triggers</strong> (e.g., volume button) & smart reminders</td></tr>
+        <tr><td>🔍 Users struggle to find old notes</td><td><strong>AI auto-tagging</strong> and search by mood, topic, or date</td></tr>
+        <tr><td>🌱 Users enjoy visible progress</td><td><strong>Evolving visual metaphors</strong> (trees, scrapbooks) that grow</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>8. Gamification Mechanics</h2>
     <table>
         <tr><th>Mechanic</th><th>Description</th><th>Trigger</th><th>Motivation</th></tr>
         <tr><td>XP System</td><td>Earn XP for actions like writing or tagging.</td><td>Each save action</td><td>Progress</td></tr>
@@ -148,53 +176,67 @@
 </section>
 
 <section>
-    <h2>7. Reward System</h2>
+    <h2>9. Reward System</h2>
     <table>
         <tr><th>Reward</th><th>Condition</th><th>Effect</th></tr>
         <tr><td>XP Points</td><td>Each entry (+10), tag (+2)</td><td>Progress bar animation</td></tr>
-        <tr><td>Badges</td><td>“First Entry”, “7-Day Flow”</td><td>Visual trophy in profile</td></tr>
+        <tr><td>Badges</td><td>"First Entry", "7-Day Flow"</td><td>Visual trophy in profile</td></tr>
         <tr><td>Themes</td><td>Level unlocks</td><td>New color palettes</td></tr>
-        <tr><td>Titles</td><td>Total XP earned</td><td>“Creative Explorer”, “Idea Architect”</td></tr>
+        <tr><td>Titles</td><td>Total XP earned</td><td>"Creative Explorer", "Idea Architect"</td></tr>
     </table>
 </section>
 
 <section>
-    <h2>8. Core Features</h2>
+    <h2>10. Core Features</h2>
     <ul>
-        <li><strong>Quick Capture:</strong> Text, voice, and photo entries.</li>
+        <li><strong>Quick Capture:</strong> Text, voice, and photo entries (< 2 mins).</li>
         <li><strong>AI Summaries:</strong> Automatic formatting and insights.</li>
         <li><strong>Gamification Layer:</strong> XP, badges, streaks, levels.</li>
         <li><strong>Insights Dashboard:</strong> Vibe charts, summaries, resurfaced ideas.</li>
-        <li><strong>Social Circles:</strong> Share with selected peers.</li>
+        <li><strong>Social Circles:</strong> Share with selected peers (privacy-first).</li>
         <li><strong>Customization:</strong> Unlock themes and fonts.</li>
+        <li><strong>Hardware Shortcuts:</strong> Volume button triggers for instant capture.</li>
+        <li><strong>Evolving Visuals:</strong> Growing plants, scrapbooks as progress metaphors.</li>
     </ul>
 </section>
 
 <section>
-    <h2>9. AI System Overview</h2>
+    <h2>11. AI System Overview</h2>
     <table>
         <tr><th>Module</th><th>Function</th><th>Example</th></tr>
-        <tr><td>Voice-to-Text</td><td>Convert speech to text.</td><td>“Sketch idea: gradient logo.”</td></tr>
-        <tr><td>Summarizer</td><td>Condense entries into key insights.</td><td>“Logo design inspired by flow.”</td></tr>
+        <tr><td>Voice-to-Text</td><td>Convert speech to text.</td><td>"Sketch idea: gradient logo."</td></tr>
+        <tr><td>Summarizer</td><td>Condense entries into key insights.</td><td>"Logo design inspired by flow."</td></tr>
         <tr><td>Tag Generator</td><td>Auto-suggests topics.</td><td>#design, #workflow</td></tr>
         <tr><td>Layout Formatter</td><td>Applies templates for readability.</td><td>Idea cards, reports</td></tr>
-        <tr><td>Insight Analyzer</td><td>Detects recurring creative themes.</td><td>“You’ve written about color 5× this week.”</td></tr>
+        <tr><td>Insight Analyzer</td><td>Detects recurring creative themes.</td><td>"You've written about color 5× this week."</td></tr>
     </table>
+    <p class="highlight">Key Insight: Users loved AI summaries and insights, but NOT AI-written entries. AI enhances, doesn't replace.</p>
 </section>
 
 <section>
-    <h2>10. Art & Visual Direction</h2>
+    <h2>12. Design System: Playful & Focused</h2>
+    <h3>Color Palette</h3>
+    <table>
+        <tr><th>Color</th><th>Hex Code</th><th>Purpose</th></tr>
+        <tr><td>Indigo</td><td>#4B4DED</td><td>Primary accent, conveys focus and creativity</td></tr>
+        <tr><td>Mint</td><td>#96F2D7</td><td>Success states and growth visualization</td></tr>
+        <tr><td>Coral</td><td>#FF8A80</td><td>Attention highlights and energetic moments</td></tr>
+        <tr><td>White</td><td>#F9FAFB</td><td>Clean canvas for user content</td></tr>
+    </table>
+
+    <h3>Typography</h3>
     <ul>
-        <li><strong>Theme:</strong> Calm + Futuristic</li>
-        <li><strong>Primary Color:</strong> Indigo #4B4DED</li>
-        <li><strong>Accent:</strong> Mint #96F2D7</li>
-        <li><strong>Typography:</strong> Montserrat + Inter</li>
-        <li><strong>Animations:</strong> Soft glows, subtle confetti, fade transitions</li>
+        <li><strong>Montserrat:</strong> Headers — Bold, confident personality</li>
+        <li><strong>Inter:</strong> Body text — Clear, readable, modern</li>
     </ul>
+
+    <h3>Gamification Visuals</h3>
+    <p>Rounded, minimalist icons with consistent stroke weight. Subtle animations like glowing progress bars and confetti bursts for rewards. Emojis 🔥 🌱 🌳 ✨ 🏆 serve as universal visual anchors.</p>
+    <p class="highlight">Design Principle: Clarity over decoration — gamification elements enhance rather than distract from user content.</p>
 </section>
 
 <section>
-    <h2>11. Technical Overview</h2>
+    <h2>13. Technical Overview</h2>
     <table>
         <tr><th>Component</th><th>Technology</th><th>Purpose</th></tr>
         <tr><td>Frontend</td><td>Flutter / React Native</td><td>Cross-platform UI</td></tr>
@@ -205,8 +247,35 @@
 </section>
 
 <section>
-    <h2>12. Closing Vision</h2>
-    <blockquote>“Momentum isn’t about journaling more — it’s about creating more, with rhythm and joy.”</blockquote>
+    <h2>14. Key Takeaways</h2>
+    <p>Four critical insights emerged from the design and research process:</p>
+    <table>
+        <tr><th>Takeaway</th><th>Insight</th></tr>
+        <tr><td>1. Reducing Friction = Retention</td><td>Simple capture methods (voice, photo, quick text) were the #1 driver for daily use. Every extra tap or screen reduces engagement.</td></tr>
+        <tr><td>2. Gamification Builds Habits</td><td>Streaks and challenges proved crucial for encouraging consistency. Users responded to visible progress markers that celebrated effort, not perfection.</td></tr>
+        <tr><td>3. AI Adds Value, Not Complexity</td><td>Users loved AI summaries and insights that revealed patterns in their entries. However, they rejected AI-written entries, preferring authentic self-expression with AI as a supportive tool.</td></tr>
+        <tr><td>4. Personalization = Connection</td><td>Allowing users to customize themes, avatars, and visual styles made the documentation space feel "theirs," increasing emotional investment and long-term retention.</td></tr>
+    </table>
+    <p class="highlight">These learnings shaped a product that respects user agency while providing structure, support, and celebration.</p>
+</section>
+
+<section>
+    <h2>15. The Momentum Loop in Practice</h2>
+    <h3>Capture → Reflect → Reward → Repeat</h3>
+    <table>
+        <tr><th>Phase</th><th>User Action</th><th>System Response</th></tr>
+        <tr><td>📸 Capture</td><td>Quick entry via voice, photo, or text (< 2 mins)</td><td>Hardware shortcuts reduce friction, eliminate barriers</td></tr>
+        <tr><td>🧠 Reflect</td><td>Review AI-generated insights</td><td>Auto-tagging, mood graphs, weekly scrapbooks</td></tr>
+        <tr><td>🏆 Reward</td><td>View progress and achievements</td><td>Streaks, badges, growing visual metaphors (plants, trees)</td></tr>
+        <tr><td>🔁 Repeat</td><td>Return to app through reminders</td><td>Smart, gentle prompts and personalized challenges</td></tr>
+    </table>
+    <p>This cyclical flow creates a sustainable habit system backed by behavioral psychology and Self-Determination Theory.</p>
+</section>
+
+<section>
+    <h2>16. Closing Vision</h2>
+    <blockquote>"Momentum redefines documentation as a playful, rewarding, and personalized act of self-expression."</blockquote>
+    <p>Through research-driven design and habit-focused gamification, it helps users turn small moments into meaningful, organized memories — powered by AI and sustained by intrinsic motivation.</p>
     <p>It gives structure to spontaneity, turning everyday notes into a journey of reflection, growth, and creativity.</p>
 </section>
 
