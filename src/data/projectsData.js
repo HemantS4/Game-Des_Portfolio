@@ -102,7 +102,7 @@ export const projectsData = [
       `${BASE_URL}images/projects/flowlog/ui-mockup.jpg`
     ],
 
-    videoUrl: '',
+    videoUrl: 'PLACEHOLDER_VIDEO_URL',
 
     links: {
       gdd: `${BASE_URL}Gamification_gdd.html`
@@ -155,9 +155,11 @@ export const projectsData = [
       `${BASE_URL}images/projects/flow-and-hold/gameplay.jpg`
     ],
 
-    videoUrl: '',
+    videoUrl: 'PLACEHOLDER_VIDEO_URL',
 
-    links: {}
+    links: {
+      gdd: `${BASE_URL}flow-and-hold_gdd.html`
+    }
   },
 
   {
@@ -219,6 +221,7 @@ export const projectsData = [
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
 
     links: {
+      gdd: `${BASE_URL}shadow-tactics_gdd.html`,
       steam: 'https://store.steampowered.com',
       itchIo: 'https://itch.io',
       website: 'https://example.com/shadow-tactics'
