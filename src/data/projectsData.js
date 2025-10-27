@@ -44,6 +44,12 @@ export const projectsData = [
 
     gallery: [
       `${BASE_URL}images/projects/ammo-batics/title-card.png`,
+      `${BASE_URL}images/projects/ammo-batics/Cover.png`,
+      `${BASE_URL}images/projects/ammo-batics/1.png`,
+      `${BASE_URL}images/projects/ammo-batics/2.png`,
+      `${BASE_URL}images/projects/ammo-batics/3.png`,
+      `${BASE_URL}images/projects/ammo-batics/4.png`,
+      `${BASE_URL}images/projects/ammo-batics/5.png`,
       `${BASE_URL}images/projects/ammo-batics/MIniMap.png`
     ],
 
