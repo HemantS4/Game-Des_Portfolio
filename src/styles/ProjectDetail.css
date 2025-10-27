@@ -97,6 +97,7 @@
 .tool-badge {
   padding: 0.5rem 1rem;
   background: rgba(255, 120, 73, 0.1);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 120, 73, 0.3);
   border-radius: 20px;
   font-size: 0.9rem;
@@ -232,6 +233,11 @@
   color: var(--color-text);
   opacity: 0.95;
   max-width: 850px;
+  background: rgba(15, 15, 35, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 120, 73, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
   letter-spacing: 0.3px;
   font-weight: 400;
 }
@@ -248,14 +254,15 @@
   align-items: start;
   margin-bottom: 4rem;
   padding: 2.5rem;
-  background: rgba(15, 15, 35, 0.4);
+  background: rgba(15, 15, 35, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 120, 73, 0.2);
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
 .extended-section:hover {
-  background: rgba(15, 15, 35, 0.6);
+  background: rgba(15, 15, 35, 0.8);
   border-color: rgba(255, 120, 73, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -344,7 +351,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.25rem;
-  background: rgba(15, 15, 35, 0.5);
+  background: rgba(15, 15, 35, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 120, 73, 0.2);
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -372,7 +380,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  background: rgba(15, 15, 35, 0.4);
+  background: rgba(15, 15, 35, 0.7);
+  backdrop-filter: blur(10px);
   padding: 3rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 120, 73, 0.2);
@@ -465,6 +474,7 @@
   gap: 0.75rem;
   padding: 1rem 2rem;
   background: rgba(255, 120, 73, 0.1);
+  backdrop-filter: blur(10px);
   border: 2px solid var(--color-primary);
   border-radius: 30px;
   color: var(--color-text);
