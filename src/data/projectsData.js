@@ -181,7 +181,27 @@ export const projectsData = [
     tools: ['Unity', 'AR Foundation', 'Figma', 'Research Methods', 'UX Design'],
     thumbnail: `${BASE_URL}images/projects/dp2-motor-play/thumbnail.jpg`,
 
-    overview: 'DP2 is an ongoing applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). It blends a learning game with light data collection for gentle progress tracking. The project combines a mascot-guided experience with avatar mirroring, where children\'s movements drive on-screen actions. Short AR sessions (10-15 minutes) feature mini-games targeting motor skills: reach & accuracy, balance & gait, hand-eye coordination, and self-regulation. The design prioritizes predictable routines, sensory-smart interfaces, and privacy-by-default data handling. This is not a medical device but a supportive tool for clinics, schools, and home use with caregivers. Currently in active development with ongoing research and design iterations.',
+    overview: `DP2 is an ongoing applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). The project emerged from extensive field research observing existing apps for ASD children and identifying gaps in motor skill development support.
+
+**Research Foundation:**
+Our research synthesis followed a structured framework: Questions → Answers → Inferences. We examined which motor outcomes to scaffold first, how sensory elements (color, sound, character style) affect attention, what signals show progress without burden, and which session formats sustain participation. Key findings revealed that big, colorful, predictable targets with gentle sounds help focus, familiar animation language increases willingness to try, and 10-15 minute routines with breaks are most effective.
+
+**Core Concept:**
+The game blends therapeutic learning with light data collection for gentle progress tracking. A mascot guide introduces each session's "quest" while an avatar mirrors the child's movements on screen, validating every action with <150ms latency. This real-time feedback builds agency and confidence while maintaining engagement.
+
+**Mini-Game Mechanics:**
+Four core mechanics target different motor skills: Color Bubbles (reach & tap for height and accuracy), Trail Steps (balance and bilateral coordination), Catch & Place (hand-eye coordination and graded force), and Mirror Moves (pose imitation and bilateral mapping). Each mechanic features generous colliders, clear visual feedback, and adaptive difficulty that scales gradually by ±10%.
+
+**Character & Sensory Design:**
+Character design drew from extensive reference research, prioritizing friendly, expressive animation styles that feel familiar without licensed IP. Hand and gesture references informed natural movement mapping. The sensory direction uses saturated-soft colors, warm voice-over, and optional Quiet Mode to accommodate sensory sensitivities common in autistic children.
+
+**Therapeutic Integration:**
+The "Calm Cave" regulation activity provides co-regulation breaks with breathing fireflies, helping children down-shift arousal and stay in their optimal zone. Token rewards after each round provide positive reinforcement without creating dependency, following evidence-based gamification principles from the Octalysis Framework and Self-Determination Theory.
+
+**Privacy & Ethics:**
+As this is not a medical device, data handling prioritizes privacy-by-default with local-first storage and optional anonymized CSV export. Telemetry tracks accuracy, achievable height/distance, reaction times, and L/R balance to inform adaptive difficulty and provide caregivers with progress insights, all with clear consent protocols.
+
+Currently in active development with ongoing research and design iterations for clinic, school, and home use with caregivers.`,
 
     role: 'Game Designer, UX Researcher, Applied Game Design',
     duration: '2 Months (Ongoing)',
@@ -218,17 +238,16 @@ export const projectsData = [
     ],
 
     gallery: [
-      `${BASE_URL}images/projects/dp2-motor-play/concept-overview.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/avatar-mirroring.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/color-bubbles.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/trail-steps.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/catch-place.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/calm-cave.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/sensory-direction.jpg`,
-      `${BASE_URL}images/projects/dp2-motor-play/research-framework.jpg`
+      `${BASE_URL}images/projects/dp2-motor-play/Initial research.png`,
+      `${BASE_URL}images/projects/dp2-motor-play/Apps For ASD kids.png`,
+      `${BASE_URL}images/projects/dp2-motor-play/Field Research.png`,
+      `${BASE_URL}images/projects/dp2-motor-play/Inferences.png`,
+      `${BASE_URL}images/projects/dp2-motor-play/Character Ref1.png`,
+      `${BASE_URL}images/projects/dp2-motor-play/Character Ref 2.png`,
+      `${BASE_URL}images/projects/dp2-motor-play/Hand Ref.png`
     ],
 
-    videoUrl: '',
+    videoUrl: `${BASE_URL}images/projects/dp2-motor-play/Dp-2.mp4`,
 
     links: {
       conceptGdd: `${BASE_URL}DP2_Concept_GDD.html`,
