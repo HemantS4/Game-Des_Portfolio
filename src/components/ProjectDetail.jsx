@@ -73,6 +73,23 @@ export default function ProjectDetail() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [selectedImage, selectedImageIndex])
 
+  // Function to render markdown-style bold text
+  const renderMarkdown = (text) => {
+    if (!text) return null
+
+    // Split by ** to handle bold text
+    const parts = text.split(/(\*\*.*?\*\*)/g)
+
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        // Remove ** and render as bold
+        const boldText = part.slice(2, -2)
+        return <strong key={index}>{boldText}</strong>
+      }
+      return <span key={index}>{part}</span>
+    })
+  }
+
   if (!project) {
     return <div className="loading">Loading project...</div>
   }
@@ -225,7 +242,7 @@ export default function ProjectDetail() {
               </div>
               <div className="extended-section-content">
                 <h2>{section.title}</h2>
-                <div className="section-text">{section.content}</div>
+                <div className="section-text">{renderMarkdown(section.content)}</div>
               </div>
             </div>
           ))}

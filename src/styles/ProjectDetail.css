@@ -183,9 +183,9 @@
 }
 
 .info-card p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Project Sections */
@@ -228,7 +228,7 @@
 }
 
 .overview-text {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   line-height: 1.9;
   color: var(--color-text);
   opacity: 0.95;
@@ -239,7 +239,13 @@
   border-radius: 12px;
   padding: 2rem;
   letter-spacing: 0.3px;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+.overview-text strong,
+.overview-text b {
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 /* Extended Sections (GDD-like layout) */
@@ -322,11 +328,18 @@
 }
 
 .extended-section-content .section-text {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--color-text);
   opacity: 0.95;
   white-space: pre-line;
+  font-weight: 500;
+}
+
+.extended-section-content .section-text strong,
+.extended-section-content .section-text b {
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 /* Responsive for extended sections */
@@ -370,9 +383,10 @@
 }
 
 .feature-item span {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--color-text);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 /* Challenges & Solutions */
@@ -404,10 +418,11 @@
   position: relative;
   padding-left: 2.5rem;
   margin-bottom: 2rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--color-text);
   opacity: 0.95;
+  font-weight: 500;
 }
 
 .challenge-list li::before {
