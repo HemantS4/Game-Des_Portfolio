@@ -3,9 +3,9 @@ import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber'
 import { useGLTF, Sphere } from '@react-three/drei'
 import * as THREE from 'three'
 
-// Component to load GLTF moon model (Updated Oct 2024)
+// Component to load GLTF controller model (Updated Oct 2024)
 function MoonModel({ meshRef, scrollProgress, mousePosition }) {
-  const modelPath = import.meta.env.BASE_URL + 'models/moon.glb'
+  const modelPath = import.meta.env.BASE_URL + 'models/Controller.glb'
   const gltf = useGLTF(modelPath)
   const modelRef = useRef()
   const targetScale = useRef(3.0)
@@ -57,21 +57,21 @@ function MoonSphere({ mousePosition, scrollProgress, clicked, onMoonClick }) {
 
   // Check if model exists on mount
   useEffect(() => {
-    const modelPath = import.meta.env.BASE_URL + 'models/moon.glb'
-    console.log('Checking for moon model at:', modelPath)
+    const modelPath = import.meta.env.BASE_URL + 'models/Controller.glb'
+    console.log('Checking for controller model at:', modelPath)
 
     fetch(modelPath, { method: 'HEAD' })
       .then(response => {
         if (response.ok) {
-          console.log('Moon model found! Loading 3D model...')
+          console.log('Controller model found! Loading 3D model...')
           setModelExists(true)
         } else {
-          console.log('Moon model not found, using procedural shader')
+          console.log('Controller model not found, using procedural shader')
           setModelExists(false)
         }
       })
       .catch(() => {
-        console.log('Moon model not found, using procedural shader')
+        console.log('Controller model not found, using procedural shader')
         setModelExists(false)
       })
   }, [])
