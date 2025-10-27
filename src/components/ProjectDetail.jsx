@@ -10,6 +10,7 @@ export default function ProjectDetail() {
   const [project, setProject] = useState(null)
   const [adjacentProjects, setAdjacentProjects] = useState(null)
   const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null)
   const [activeSection, setActiveSection] = useState('projects')
 
   useEffect(() => {
@@ -25,7 +26,52 @@ export default function ProjectDetail() {
     setProject(projectData)
     setAdjacentProjects(getAdjacentProjects(projectId))
     setSelectedImage(null)
+    setSelectedImageIndex(null)
   }, [projectId, navigate])
+
+  const openLightbox = (image, index) => {
+    setSelectedImage(image)
+    setSelectedImageIndex(index)
+  }
+
+  const closeLightbox = () => {
+    setSelectedImage(null)
+    setSelectedImageIndex(null)
+  }
+
+  const goToPreviousImage = () => {
+    if (selectedImageIndex > 0) {
+      const newIndex = selectedImageIndex - 1
+      setSelectedImageIndex(newIndex)
+      setSelectedImage(project.gallery[newIndex])
+    }
+  }
+
+  const goToNextImage = () => {
+    if (selectedImageIndex < project.gallery.length - 1) {
+      const newIndex = selectedImageIndex + 1
+      setSelectedImageIndex(newIndex)
+      setSelectedImage(project.gallery[newIndex])
+    }
+  }
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (!selectedImage) return
+
+      if (e.key === 'Escape') {
+        closeLightbox()
+      } else if (e.key === 'ArrowLeft') {
+        goToPreviousImage()
+      } else if (e.key === 'ArrowRight') {
+        goToNextImage()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [selectedImage, selectedImageIndex])
 
   if (!project) {
     return <div className="loading">Loading project...</div>
@@ -231,7 +277,7 @@ export default function ProjectDetail() {
             <div
               key={index}
               className="gallery-item"
-              onClick={() => setSelectedImage(image)}
+              onClick={() => openLightbox(image, index)}
             >
               <img
                 src={image}
@@ -267,14 +313,38 @@ export default function ProjectDetail() {
 
       {/* Image Lightbox */}
       {selectedImage && (
-        <div className="lightbox" onClick={() => setSelectedImage(null)}>
+        <div className="lightbox" onClick={closeLightbox}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={() => setSelectedImage(null)}>
+            <button className="lightbox-close" onClick={closeLightbox}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
+
+            {/* Previous Button */}
+            {selectedImageIndex > 0 && (
+              <button className="lightbox-prev" onClick={goToPreviousImage}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            )}
+
+            {/* Next Button */}
+            {selectedImageIndex < project.gallery.length - 1 && (
+              <button className="lightbox-next" onClick={goToNextImage}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            )}
+
             <img src={selectedImage} alt="Full size" />
+
+            {/* Image Counter */}
+            <div className="lightbox-counter">
+              {selectedImageIndex + 1} / {project.gallery.length}
+            </div>
           </div>
         </div>
       )}

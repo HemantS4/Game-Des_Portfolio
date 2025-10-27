@@ -96,10 +96,6 @@ export const projectsData = [
         content: `Momentum strategically employs gamification psychology: **Epic Meaning** (contributing to personal growth journey), **Accomplishment** (XP, badges, streaks), **Empowerment** (creative control with AI support), **Ownership** (customizable themes), **Social Influence** (optional sharing circles), and **Unpredictability** (resurfaced entries, prompt variations). This balanced approach drives intrinsic motivation without fostering addiction.`
       },
       {
-        title: 'Design System',
-        content: `Visual identity balances playfulness with professionalism: Indigo (#4B4DED) for focus, Mint (#96F2D7) for success, Coral (#FF8A80) for energy. Montserrat headers paired with Inter body text. Minimalist icons with subtle animations prioritize clarity over decoration.`
-      },
-      {
         title: 'Key Insights',
         content: `Four learnings emerged: friction reduction drives retention, gamification builds consistency, AI enhances without replacing authenticity, and personalization deepens emotional investment. These principles shaped a product respecting user agency while providing structure and celebration.`
       }
