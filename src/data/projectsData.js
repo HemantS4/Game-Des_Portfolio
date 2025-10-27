@@ -240,18 +240,18 @@ export const projectsData = [
   {
     id: 'dp2-motor-play',
     title: 'DP2 — AR Motor-Play',
-    category: 'Applied Game Design & Research',
-    year: '2024',
+    category: 'Applied Game',
+    year: '2024 (Ongoing)',
     description: 'An applied AR game concept for autistic children with motor coordination support.',
-    shortDescription: 'AR therapeutic game for ASD + DCD',
+    shortDescription: 'AR therapeutic game for ASD + DCD (Ongoing)',
     tools: ['Unity', 'AR Foundation', 'Figma', 'Research Methods', 'UX Design'],
     thumbnail: `${BASE_URL}images/projects/dp2-motor-play/thumbnail.jpg`,
 
-    overview: 'DP2 is an applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). It blends a learning game with light data collection for gentle progress tracking. The project combines a mascot-guided experience with avatar mirroring, where children\'s movements drive on-screen actions. Short AR sessions (10-15 minutes) feature mini-games targeting motor skills: reach & accuracy, balance & gait, hand-eye coordination, and self-regulation. The design prioritizes predictable routines, sensory-smart interfaces, and privacy-by-default data handling. This is not a medical device but a supportive tool for clinics, schools, and home use with caregivers.',
+    overview: 'DP2 is an ongoing applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). It blends a learning game with light data collection for gentle progress tracking. The project combines a mascot-guided experience with avatar mirroring, where children\'s movements drive on-screen actions. Short AR sessions (10-15 minutes) feature mini-games targeting motor skills: reach & accuracy, balance & gait, hand-eye coordination, and self-regulation. The design prioritizes predictable routines, sensory-smart interfaces, and privacy-by-default data handling. This is not a medical device but a supportive tool for clinics, schools, and home use with caregivers. Currently in active development with ongoing research and design iterations.',
 
     role: 'Game Designer, UX Researcher, Applied Game Design',
-    duration: '8 Weeks (Concept + Systems Design)',
-    teamSize: 'Solo Research & Design Project',
+    duration: '2 Months (Ongoing)',
+    teamSize: '2 People',
     platform: ['iPad', 'Android Tablet', 'AR-enabled devices'],
 
     challenges: [
@@ -294,7 +294,7 @@ export const projectsData = [
       `${BASE_URL}images/projects/dp2-motor-play/research-framework.jpg`
     ],
 
-    videoUrl: 'PLACEHOLDER_VIDEO_URL',
+    videoUrl: '',
 
     links: {
       conceptGdd: `${BASE_URL}DP2_Concept_GDD.html`,
