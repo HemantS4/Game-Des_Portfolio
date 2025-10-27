@@ -235,6 +235,71 @@ export const projectsData = [
       itchIo: 'https://itch.io',
       website: 'https://example.com/shadow-tactics'
     }
+  },
+
+  {
+    id: 'dp2-motor-play',
+    title: 'DP2 — AR Motor-Play',
+    category: 'Applied Game Design & Research',
+    year: '2024',
+    description: 'An applied AR game concept for autistic children with motor coordination support.',
+    shortDescription: 'AR therapeutic game for ASD + DCD',
+    tools: ['Unity', 'AR Foundation', 'Figma', 'Research Methods', 'UX Design'],
+    thumbnail: `${BASE_URL}images/projects/dp2-motor-play/thumbnail.jpg`,
+
+    overview: 'DP2 is an applied AR game concept designed for autistic children (ages 5-10), many with Developmental Coordination Disorder (DCD). It blends a learning game with light data collection for gentle progress tracking. The project combines a mascot-guided experience with avatar mirroring, where children\'s movements drive on-screen actions. Short AR sessions (10-15 minutes) feature mini-games targeting motor skills: reach & accuracy, balance & gait, hand-eye coordination, and self-regulation. The design prioritizes predictable routines, sensory-smart interfaces, and privacy-by-default data handling. This is not a medical device but a supportive tool for clinics, schools, and home use with caregivers.',
+
+    role: 'Game Designer, UX Researcher, Applied Game Design',
+    duration: '8 Weeks (Concept + Systems Design)',
+    teamSize: 'Solo Research & Design Project',
+    platform: ['iPad', 'Android Tablet', 'AR-enabled devices'],
+
+    challenges: [
+      'Designing for variable attention spans and sensory sensitivities in autistic children',
+      'Creating predictable, low-cognitive-load interactions that scaffold motor skill development',
+      'Balancing therapeutic goals with engaging gameplay without over-stimulation',
+      'Implementing privacy-first data collection for progress tracking in sensitive contexts',
+      'Addressing space constraints and safety concerns for AR movement-based activities'
+    ],
+
+    solutions: [
+      'Developed evidence-based design framework using research synthesis (questions → answers → inferences)',
+      'Created predictable session structure with gentle scaffolding (10% difficulty steps) and positive reinforcement',
+      'Implemented avatar mirroring system that validates child actions on-screen with <150ms latency',
+      'Designed sensory-smart interface with saturated-soft colors, warm VO, quiet mode, and high-contrast toggle',
+      'Built in AR bounds, in-place/short-step activities, and "Calm Cave" regulation breaks',
+      'Established local-first telemetry with optional anonymized CSV export and clear consent protocols'
+    ],
+
+    features: [
+      'Avatar mirroring system that maps child movements to on-screen character',
+      'Four core mechanics: Color Bubbles (reach & tap), Trail Steps (balance), Catch & Place (precision), Mirror Moves (pose imitation)',
+      'Calm Cave regulation activity with breathing fireflies for arousal down-shifting',
+      'Adaptive difficulty system (±10% adjustments based on 80%/60% success thresholds)',
+      'Token reward system with specific praise and sticker chooser',
+      'Sensory presets: Quiet Mode, high-contrast toggle, volume controls',
+      'Light telemetry: accuracy, height/distance, reaction time, L/R balance, midline crosses',
+      'Caregiver controls: pause/skip/end, difficulty sliders, session timer, data export',
+      'Privacy-by-default with local storage and optional anonymized data sharing'
+    ],
+
+    gallery: [
+      `${BASE_URL}images/projects/dp2-motor-play/concept-overview.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/avatar-mirroring.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/color-bubbles.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/trail-steps.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/catch-place.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/calm-cave.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/sensory-direction.jpg`,
+      `${BASE_URL}images/projects/dp2-motor-play/research-framework.jpg`
+    ],
+
+    videoUrl: 'PLACEHOLDER_VIDEO_URL',
+
+    links: {
+      conceptGdd: `${BASE_URL}DP2_Concept_GDD.html`,
+      gameGdd: `${BASE_URL}DP2_Game_GDD.html`
+    }
   }
 ]
 

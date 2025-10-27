@@ -97,10 +97,18 @@ export default function ProjectDetail() {
           <h2>Links & Resources</h2>
           <div className="links-grid">
             {Object.entries(project.links).map(([platform, url]) => {
-              const isGDD = platform === 'gdd';
-              const linkText = isGDD
-                ? 'View Full Game Design Document'
-                : platform.charAt(0).toUpperCase() + platform.slice(1).replace(/([A-Z])/g, ' $1');
+              const isGDD = platform === 'gdd' || platform === 'conceptGdd' || platform === 'gameGdd';
+
+              let linkText;
+              if (platform === 'gdd') {
+                linkText = 'View Full Game Design Document';
+              } else if (platform === 'conceptGdd') {
+                linkText = 'View Concept & Research GDD';
+              } else if (platform === 'gameGdd') {
+                linkText = 'View Game Systems GDD';
+              } else {
+                linkText = platform.charAt(0).toUpperCase() + platform.slice(1).replace(/([A-Z])/g, ' $1');
+              }
 
               return (
                 <a

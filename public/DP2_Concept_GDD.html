@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DP2 — Concept & Research GDD</title><style>
+:root{
+  --bg:#0e1117;
+  --panel:#121826;
+  --ink:#eaf2ff;
+  --muted:#9fb2c9;
+  --accent:#7ee7b6;
+  --accent2:#ffd166;
+  --border:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+.container{max-width:1100px;margin:0 auto;padding:40px 26px 80px}
+.header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px}
+.title{font-weight:900;font-size:40px;letter-spacing:.3px}
+.subtitle{color:var(--accent2);font-weight:700}
+.badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:linear-gradient(90deg, rgba(126,231,182,.12), rgba(255,209,102,.10));font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.section{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.section h2{margin:0 0 10px;font-size:26px}
+.kicker{color:var(--muted);font-size:13px;margin-bottom:6px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:14px}
+ul{padding-left:18px}
+ol{padding-left:22px}
+.callout{background:linear-gradient(180deg, rgba(126,231,182,.12), rgba(126,231,182,.03));border:1px solid rgba(126,231,182,.45);border-radius:12px;padding:12px;margin-top:8px}
+.warn{background:linear-gradient(180deg, rgba(255,120,120,.10), rgba(255,120,120,.02));border:1px solid rgba(255,120,120,.45)}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:12px;font-size:14px;color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+.toc a{color:var(--accent);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+footer{margin-top:36px;text-align:center;color:var(--muted);font-size:12px}
+@media print{
+  .section{break-inside:avoid}
+  .header{border:none}
+}
+</style></head>
+<body><div class="container">
+<div class="header"><div><div class="badge">Concept & Research GDD</div>
+<div class="title">DP2 — AR Motor‑Play for ASD (+ DCD)</div>
+<div class="subtitle">Concept, research synthesis, design principles & measurement</div></div>
+<div class="kv"><div>Scope</div><div>Applied game concept (learning + light data). Separate from implementation/game spec.</div>
+<div>Context</div><div>Clinic (OT/SLP), school resource rooms, home with caregiver.</div></div></div>
+
+<div class="section toc"><h2>Contents</h2><ol>
+<li><a href="#overview">Overview & Intent</a></li>
+<li><a href="#research">Research Synthesis</a></li>
+<li><a href="#personas">Target Users & Constraints</a></li>
+<li><a href="#objectives">Learning Objectives</a></li>
+<li><a href="#principles">Design Principles</a></li>
+<li><a href="#engagement">Engagement Model</a></li>
+<li><a href="#sensory">Sensory Direction</a></li>
+<li><a href="#data">Data & Measurement Strategy</a></li>
+<li><a href="#safety">Safety, Accessibility & Ethics</a></li>
+<li><a href="#narrative">Narrative Frame & Theme</a></li>
+<li><a href="#kpi">Concept KPIs</a></li>
+<li><a href="#pilot">Pilot Plan</a></li>
+<li><a href="#risks">Risks & Mitigations</a></li>
+<li><a href="#open">Open Questions (from FigJam)</a></li>
+</ol></div>
+
+<div id="overview" class="section"><div class="kicker">01</div><h2>Overview & Intent</h2>
+<p>DP2 is an <b>applied AR game concept</b> for autistic children (5–10 yrs), many with <b>DCD</b>. It blends a <b>learning game</b> with <b>light data collection</b> for gentle progress tracking. <span class="small">Not a medical device.</span></p></div>
+
+<div id="research" class="section"><div class="kicker">02</div><h2>Research Synthesis (Questions → Answers → Inferences)</h2>
+<div class="grid-3">
+<div class="card"><b>Questions</b><ul>
+<li>Which motor outcomes should we scaffold first?</li>
+<li>How do color, sound, and character style affect attention?</li>
+<li>Which signals show progress without burden?</li>
+<li>What session format sustains participation?</li></ul></div>
+<div class="card"><b>Answers</b><ul>
+<li><b>Big, colorful, predictable</b> targets + <b>gentle sounds</b> help focus.</li>
+<li>Familiar animation language increases willingness to try.</li>
+<li>10–15 minute routines with breaks are effective.</li></ul></div>
+<div class="card"><b>Inferences</b><ul>
+<li>Low cognitive load; repeatable structures; gradual scaling (~10%).</li>
+<li>Avatar mirroring improves clarity and agency.</li>
+<li>Track accuracy, achievable height/distance, reaction/movement time, L/R balance.</li></ul></div>
+</div>
+<div class="callout">Replace bullets with exact FigJam wording as you consolidate.</div>
+</div>
+
+<div id="personas" class="section"><div class="kicker">03</div><h2>Target Users & Constraints</h2>
+<div class="grid-2"><div class="card"><b>Users</b><ul>
+<li>Autistic kids (~5–10); subset with DCD.</li><li>Caregivers & clinicians (OT/SLP).</li></ul></div>
+<div class="card"><b>Constraints</b><ul>
+<li>Variable attention; sensory sensitivities.</li>
+<li>Limited safe space; household distractions.</li>
+<li>Need predictable transitions & clear affordances.</li></ul></div></div></div>
+
+<div id="objectives" class="section"><div class="kicker">04</div><h2>Learning Objectives</h2>
+<ul><li>Reach height & accuracy; graded force.</li>
+<li>Stepping & balance; bilateral coordination; crossing midline.</li>
+<li>Hand–eye coordination; timing & rhythm.</li>
+<li>Self‑regulation via co‑regulation breaks.</li></ul></div>
+
+<div id="principles" class="section"><div class="kicker">05</div><h2>Design Principles</h2>
+<div class="grid-2"><div class="card"><ul>
+<li><b>Predictable rhythm:</b> same loop each session.</li>
+<li><b>Gentle scaffolding:</b> 10% steps; one rule at a time.</li>
+<li><b>Positive reinforcement:</b> specific praise; tokens; no buzzers.</li>
+<li><b>Agency:</b> avatar mirrors child; meaningful choices.</li></ul></div>
+<div class="card"><ul>
+<li><b>Sensory‑smart:</b> saturated‑soft colors; quiet SFX; Quiet Mode.</li>
+<li><b>Safety‑first:</b> short‑step/in‑place; AR bounds.</li>
+<li><b>Privacy‑by‑default:</b> local storage; consent for export.</li></ul></div></div></div>
+
+<div id="engagement" class="section"><div class="kicker">06</div><h2>Engagement Model</h2>
+<ul><li><b>Mascot guide</b> introduces “today’s quest”.</li>
+<li><b>Player‑avatar</b> mirrors movement (“pick & place” appears on screen).</li>
+<li><b>Token board</b> rewards every 1–2 rounds.</li>
+<li><b>Calm Cave</b> break keeps arousal in green zone.</li></ul></div>
+
+<div id="sensory" class="section"><div class="kicker">07</div><h2>Sensory Direction</h2>
+<div class="grid-3"><div class="card"><b>Color</b><ul>
+<li>Saturated but gentle palette; high‑contrast toggle.</li>
+<li>Large shapes; minimal clutter.</li></ul></div>
+<div class="card"><b>Sound</b><ul>
+<li>Warm VO; soft success tones; no harsh fails.</li>
+<li>Volume presets; quick Quiet Mode.</li></ul></div>
+<div class="card"><b>Character</b><ul>
+<li>Friendly, expressive animation style (“Disney‑like” language; no licensed IP).</li>
+<li>Mascot + avatar mapped to movement.</li></ul></div></div></div>
+
+<div id="data" class="section"><div class="kicker">08</div><h2>Data & Measurement Strategy</h2>
+<div class="grid-2"><div class="card"><b>Signals</b><ul>
+<li>Accuracy, height/distance achieved.</li>
+<li>Reaction/movement time (device‑dependent).</li>
+<li>L/R balance, midline crosses.</li>
+<li>Tolerability: session length, breaks.</li></ul></div>
+<div class="card"><b>Use</b><ul>
+<li>Trendlines for adaptation & caregiver insight.</li>
+<li>No diagnosis; optional anonymized CSV export.</li>
+<li>Consent prompts; clear data dictionary.</li></ul></div></div>
+<div class="warn callout"><b>Compliance:</b> Not a medical device.</div>
+</div>
+
+<div id="safety" class="section"><div class="kicker">09</div><h2>Safety, Accessibility & Ethics</h2>
+<ul><li>AR bounds; out‑of‑bounds nudge.</li>
+<li>In‑place/short steps; no sprints.</li>
+<li>Pause/skip/end; difficulty sliders.</li>
+<li>Privacy by default; deletion & export controls.</li></ul></div>
+
+<div id="narrative" class="section"><div class="kicker">10</div><h2>Narrative Frame & Theme</h2>
+<p>A gentle world where a mascot invites the child to bring color & calm to the room. The <b>avatar</b> mirrors the child’s actions so each movement is validated on screen.</p></div>
+
+<div id="kpi" class="section"><div class="kicker">11</div><h2>Concept KPIs</h2>
+<ul><li>≥10 min average session tolerance.</li>
+<li>Upward trend in achievable height/distance.</li>
+<li>Balanced L/R reps; reduced breaks over time.</li>
+<li>Positive caregiver/therapist ratings.</li></ul></div>
+
+<div id="pilot" class="section"><div class="kicker">12</div><h2>Pilot Plan</h2>
+<ul><li>N=6–10 kids; 2–3 sessions.</li>
+<li>Track success %, tolerability, qualitative feedback.</li>
+<li>Tune sensory presets & pacing.</li></ul></div>
+
+<div id="risks" class="section"><div class="kicker">13</div><h2>Risks & Mitigations</h2>
+<div class="grid-2"><div class="card"><b>Overstimulation</b><ul><li>Quiet mode; dim palette; fewer particles.</li></ul>
+<b>Tracking drift</b><ul><li>Large colliders; re‑anchors; reset.</li></ul></div>
+<div class="card"><b>Space limits</b><ul><li>In‑place activities; short steps.</li></ul>
+<b>Licensing</b><ul><li>Original characters; no 3rd‑party IP.</li></ul></div></div></div>
+
+<div id="open" class="section"><div class="kicker">14</div><h2>Open Questions (from FigJam)</h2>
+<ul><li>Exact sensory do’s/don’ts from your observations.</li>
+<li>Mascot VO script samples; tone & length.</li>
+<li>Caregiver dashboard fields & filters.</li>
+<li>Clinic vs home differences to design for.</li></ul></div>
+
+<footer>DP2 — Concept & Research GDD · Separate from Game Systems GDD</footer>
+</div></body></html>

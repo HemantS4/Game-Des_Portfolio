@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DP2 — Game Systems GDD</title><style>
+:root{
+  --bg:#0e1117;
+  --panel:#121826;
+  --ink:#eaf2ff;
+  --muted:#9fb2c9;
+  --accent:#7ee7b6;
+  --accent2:#ffd166;
+  --border:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+.container{max-width:1100px;margin:0 auto;padding:40px 26px 80px}
+.header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px}
+.title{font-weight:900;font-size:40px;letter-spacing:.3px}
+.subtitle{color:var(--accent2);font-weight:700}
+.badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:linear-gradient(90deg, rgba(126,231,182,.12), rgba(255,209,102,.10));font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.section{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.section h2{margin:0 0 10px;font-size:26px}
+.kicker{color:var(--muted);font-size:13px;margin-bottom:6px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:14px}
+ul{padding-left:18px}
+ol{padding-left:22px}
+.callout{background:linear-gradient(180deg, rgba(126,231,182,.12), rgba(126,231,182,.03));border:1px solid rgba(126,231,182,.45);border-radius:12px;padding:12px;margin-top:8px}
+.warn{background:linear-gradient(180deg, rgba(255,120,120,.10), rgba(255,120,120,.02));border:1px solid rgba(255,120,120,.45)}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:12px;font-size:14px;color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+.toc a{color:var(--accent);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+footer{margin-top:36px;text-align:center;color:var(--muted);font-size:12px}
+@media print{
+  .section{break-inside:avoid}
+  .header{border:none}
+}
+</style></head>
+<body><div class="container">
+<div class="header"><div><div class="badge">Game Systems GDD</div>
+<div class="title">DP2 — AR Motor‑Play for ASD (+ DCD)</div>
+<div class="subtitle">Implementation spec: loop, mechanics, avatar mirroring, telemetry</div></div>
+<div class="kv"><div>Platform</div><div>Unity + AR Foundation · iPad/Android tablet</div>
+<div>Inputs</div><div>Touch raycasts · Optional body/pose proxy</div></div></div>
+
+<div class="section toc"><h2>Contents</h2><ol>
+<li><a href="#pitch">Game Pitch</a></li>
+<li><a href="#loop">Core Loop & Session Flow</a></li>
+<li><a href="#avatar">Avatar Mirroring Spec</a></li>
+<li><a href="#mechanics">Mechanics (Design Sheets)</a></li>
+<li><a href="#adapt">Difficulty & Adaptation</a></li>
+<li><a href="#ux">UX, UI & Sensory Spec</a></li>
+<li><a href="#data">Telemetry Schema</a></li>
+<li><a href="#safety">Safety & Caregiver Controls</a></li>
+<li><a href="#build">Build Plan & Roadmap</a></li>
+<li><a href="#qa">QA & Acceptance Criteria</a></li>
+<li><a href="#non">Non‑Goals</a></li>
+<li><a href="#gloss">Glossary</a></li>
+</ol></div>
+
+<div id="pitch" class="section"><div class="kicker">01</div><h2>Game Pitch</h2>
+<p>Short AR sessions where a mascot guides 2–3 mini‑games. The child’s motions drive a <b>mirroring avatar</b>; tokens and calm praise reward effort; light telemetry adapts difficulty.</p></div>
+
+<div id="loop" class="section"><div class="kicker">02</div><h2>Core Loop & Session Flow</h2>
+<ol><li>Calibrate & scan → draw bounds.</li>
+<li>Mascot intro → “today’s quest”.</li>
+<li>Rounds (60–120s) with tokens & avatar response.</li>
+<li>Calm break (3–5 breaths) as needed.</li>
+<li>Summary: tokens, highlights, optional CSV export.</li></ol></div>
+
+<div id="avatar" class="section"><div class="kicker">03</div><h2>Avatar Mirroring Spec</h2>
+<div class="grid-2"><div class="card"><b>Input Pipeline</b><ul>
+<li>Primary: touch + device orientation for big targets.</li>
+<li>Optional: pose proxy (wrist/hip) when available.</li></ul></div>
+<div class="card"><b>Mapping</b><ul>
+<li>Reach → arm IK to target; Place → basket drop.</li>
+<li>Step L/R → avatar steps; mirrored animation.</li>
+<li>Latency budget &lt; 150 ms.</li></ul></div></div></div>
+
+<div id="mechanics" class="section"><div class="kicker">04</div><h2>Mechanics (Design Sheets)</h2>
+<div class="grid-2">
+<div class="card"><b>Color Bubbles — Reach & Tap</b><ul>
+<li><b>Goal:</b> reach height & accuracy.</li><li><b>Setup:</b> shoulder→overhead bubbles; generous colliders.</li>
+<li><b>Success:</b> tap/reach; pop + token.</li><li><b>Knobs:</b> size, height, distance, time.</li>
+<li><b>Telemetry:</b> hits/misses, max height, reaction/move ms.</li></ul></div>
+<div class="card"><b>Trail Steps — Balance & Gait</b><ul>
+<li><b>Goal:</b> bilateral stepping/balance.</li><li><b>Setup:</b> floor pads L/R; sequence.</li>
+<li><b>Success:</b> pad contact/step proxy.</li><li><b>Knobs:</b> spacing, length, tempo.</li>
+<li><b>Telemetry:</b> L/R counts, cadence, misses.</li></ul></div></div>
+<div class="grid-2">
+<div class="card"><b>Catch & Place — Grasp & Precision</b><ul>
+<li><b>Goal:</b> hand–eye coordination.</li><li><b>Setup:</b> floating objects; color‑match baskets.</li>
+<li><b>Success:</b> pick → carry → place.</li><li><b>Knobs:</b> speed, basket size/distance, time.</li>
+<li><b>Telemetry:</b> accuracy, time to place, path proxy.</li></ul></div>
+<div class="card"><b>Mirror Moves — Bilateral Mapping</b><ul>
+<li><b>Goal:</b> pose imitation.</li><li><b>Setup:</b> mascot shows 2–4 s poses.</li>
+<li><b>Success:</b> hold within tolerance.</li><li><b>Knobs:</b> hold time, poses count, L/R mix.</li>
+<li><b>Telemetry:</b> holds, drift, side balance.</li></ul></div></div>
+<div class="card"><b>Calm Cave — Regulation</b><ul>
+<li><b>Goal:</b> down‑shift arousal.</li><li><b>Setup:</b> breathing fireflies; 3–5 cycles.</li>
+<li><b>Success:</b> cycles completed.</li><li><b>Knobs:</b> tempo, cycles, intensity.</li>
+<li><b>Telemetry:</b> break count/duration, pre/post ease rating.</li></ul></div>
+</div>
+
+<div id="adapt" class="section"><div class="kicker">05</div><h2>Difficulty & Adaptation</h2>
+<ul><li>≥80% success ×2 → harder (+10% distance/height or −10% size).</li>
+<li>&lt;60% → easier (reverse); add hint/VO.</li>
+<li>Reduce timers 5–10% only after 3 consecutive wins.</li>
+<li>Manual override sliders; all changes logged.</li></ul></div>
+
+<div id="ux" class="section"><div class="kicker">06</div><h2>UX, UI & Sensory Spec</h2>
+<div class="grid-3"><div class="card"><b>UI</b><ul>
+<li>Large buttons; progress dots; “next up”.</li><li>Token board; sticker chooser.</li></ul></div>
+<div class="card"><b>Visual</b><ul>
+<li>Saturated‑soft palette; high‑contrast toggle.</li><li>Predictable, slow animations.</li></ul></div>
+<div class="card"><b>Audio</b><ul>
+<li>Warm VO; soft success tones; no harsh fails.</li><li>Global volume + Quiet Mode.</li></ul></div></div></div>
+
+<div id="data" class="section"><div class="kicker">07</div><h2>Telemetry Schema</h2>
+<div class="grid-2"><div class="card"><b>Per round</b><ul>
+<li>game_id, round_id, mechanic_id, start_ts, end_ts</li>
+<li>targets_shown, hits, misses, max_height, distance</li>
+<li>reaction_ms, movement_ms</li>
+<li>side_L, side_R, midline_crosses</li></ul></div>
+<div class="card"><b>Per session</b><ul>
+<li>session_id, duration_sec, breaks_count, breaks_sec</li>
+<li>difficulty_params (size, distance, time)</li>
+<li>exported_csv (bool), consent_version</li></ul></div></div>
+<div class="callout">Local‑first; optional anonymized CSV. No PII without consent.</div></div>
+
+<div id="safety" class="section"><div class="kicker">08</div><h2>Safety & Caregiver Controls</h2>
+<ul><li>AR bounds; out‑of‑bounds nudge.</li>
+<li>Pause/skip/end; difficulty sliders; session timer.</li>
+<li>Quiet mode; high‑contrast; reset anchors.</li></ul></div>
+
+<div id="build" class="section"><div class="kicker">09</div><h2>Build Plan & Roadmap</h2>
+<div class="grid-3"><div class="card"><b>MVP (6–8 wks)</b><ul>
+<li>Plane detection; anchors; URP.</li>
+<li>Mascot + avatar mirroring (pose proxy).</li>
+<li>Color Bubbles, Trail Steps, Catch & Place, Calm Cave.</li>
+<li>Tokens; logs; caregiver controls.</li></ul></div>
+<div class="card"><b>V1.0</b><ul>
+<li>Mirror Moves; profiles; adaptation service.</li>
+<li>Dashboard export; sensory presets.</li>
+<li>Home “Lite” mode.</li></ul></div>
+<div class="card"><b>Risks</b><ul>
+<li>Tracking drift → big colliders; re‑anchors.</li>
+<li>Overstimulation → quiet defaults; caps.</li>
+<li>Licensing → original characters.</li></ul></div></div></div>
+
+<div id="qa" class="section"><div class="kicker">10</div><h2>QA & Acceptance Criteria</h2>
+<ul><li>Playable in 2×2 m space; clear bound warnings.</li>
+<li>Avatar latency &lt;150 ms on target devices.</li>
+<li>10–15 min sessions with no hard blocks.</li>
+<li>CSV export validates against schema.</li></ul></div>
+
+<div id="non" class="section"><div class="kicker">11</div><h2>Non‑Goals</h2>
+<ul><li>Clinical diagnosis without approvals.</li>
+<li>Competitive leaderboards.</li>
+<li>Complex multi-user AR.</li></ul></div>
+
+<div id="gloss" class="section"><div class="kicker">12</div><h2>Glossary</h2>
+<ul><li><b>Avatar mirroring:</b> mapping child motions to on‑screen character.</li>
+<li><b>DCD:</b> Developmental Coordination Disorder.</li>
+<li><b>Quiet Mode:</b> reduced audio/visual intensity preset.</li></ul></div>
+
+<footer>DP2 — Game Systems GDD · Separate from Concept & Research GDD</footer>
+</div></body></html>
