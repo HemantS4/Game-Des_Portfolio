@@ -137,17 +137,17 @@ export const projectsData = [
     ],
 
     gallery: [
-      `${BASE_URL}images/projects/flowlog/Home.png`,
-      `${BASE_URL}images/projects/flowlog/home-2.png`,
-      `${BASE_URL}images/projects/flowlog/capture-4.png`,
-      `${BASE_URL}images/projects/flowlog/Capture-3.png`,
-      `${BASE_URL}images/projects/flowlog/Game-1.png`,
-      `${BASE_URL}images/projects/flowlog/Game-2.png`,
-      `${BASE_URL}images/projects/flowlog/Game-3.png`,
-      `${BASE_URL}images/projects/flowlog/Game-4.png`
+      `${BASE_URL}images/projects/flowlog/1.png`,
+      `${BASE_URL}images/projects/flowlog/2.png`,
+      `${BASE_URL}images/projects/flowlog/3.png`,
+      `${BASE_URL}images/projects/flowlog/4.png`,
+      `${BASE_URL}images/projects/flowlog/5.png`,
+      `${BASE_URL}images/projects/flowlog/6.png`,
+      `${BASE_URL}images/projects/flowlog/7.png`,
+      `${BASE_URL}images/projects/flowlog/8.png`
     ],
 
-    videoUrl: 'PLACEHOLDER_VIDEO_URL',
+    videoUrl: 'https://www.youtube.com/embed/qCtC_vci1G0',
 
     links: {
       gdd: `${BASE_URL}Gamification_gdd.html`
