@@ -69,7 +69,7 @@ export const projectsData = [
     description: 'A gamified documentation app that makes capturing ideas effortless and rewarding.',
     shortDescription: 'Gamified documentation app with AI assistance',
     tools: ['Figma', 'Adobe Creative Suite', 'Notion'],
-    thumbnail: `${BASE_URL}images/projects/flowlog/Home.png`,
+    thumbnail: `${BASE_URL}images/projects/flowlog/1.png`,
 
     overview: 'Momentum redefines documentation as a playful, rewarding, and personalized act of self-expression. Through research-driven design and habit-focused gamification, it helps users turn small moments into meaningful, organized memories — powered by AI and sustained by intrinsic motivation. Designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them.',
 
