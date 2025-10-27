@@ -69,7 +69,7 @@ export const projectsData = [
     description: 'A gamified documentation app that makes capturing ideas effortless and rewarding.',
     shortDescription: 'Gamified documentation app with AI assistance',
     tools: ['Figma', 'Principle', 'Miro', 'Adobe Creative Suite', 'Notion'],
-    thumbnail: `${BASE_URL}images/projects/flowlog/thumbnail.jpg`,
+    thumbnail: `${BASE_URL}images/projects/flowlog/1.png`,
 
     overview: 'Momentum is a gamified documentation and journaling app that helps students, designers, and professionals capture, organize, and grow their ideas while staying motivated through game mechanics such as XP, streaks, badges, and unlockable themes. It combines AI assistance with habit-forming design to make documentation both effortless and rewarding. Designed for design students, creative professionals, and working individuals who generate numerous ideas daily but lack a structured, motivating way to store, organize, and reflect on them.',
 
@@ -105,10 +105,12 @@ export const projectsData = [
     ],
 
     gallery: [
-      `${BASE_URL}images/projects/flowlog/screenshot-1.jpg`,
-      `${BASE_URL}images/projects/flowlog/screenshot-2.jpg`,
-      `${BASE_URL}images/projects/flowlog/screenshot-3.jpg`,
-      `${BASE_URL}images/projects/flowlog/ui-mockup.jpg`
+      `${BASE_URL}images/projects/flowlog/1.png`,
+      `${BASE_URL}images/projects/flowlog/Gameification.png`,
+      `${BASE_URL}images/projects/flowlog/Gameification-2.png`,
+      `${BASE_URL}images/projects/flowlog/Gamification-3.png`,
+      `${BASE_URL}images/projects/flowlog/Gamification-themes.png`,
+      `${BASE_URL}images/projects/flowlog/jounals.png`
     ],
 
     videoUrl: 'PLACEHOLDER_VIDEO_URL',
