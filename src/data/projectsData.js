@@ -406,6 +406,58 @@ Field research showed children engage most when **in control**: pause anytime, s
       conceptGdd: `${BASE_URL}DP2_Concept_GDD.html`,
       gameGdd: `${BASE_URL}DP2_Game_GDD.html`
     }
+  },
+
+  {
+    id: 'spring-twilight',
+    title: 'Spring Twilight',
+    category: 'Experimental Game',
+    year: '2024',
+    description: 'An experimental narrative-driven game exploring themes of memory and time.',
+    shortDescription: 'Experimental narrative game',
+    tools: ['Unity', 'C#', 'Photoshop', 'Audacity'],
+    thumbnail: `${BASE_URL}images/projects/spring-twilight/thumbnail.png`,
+
+    overview: 'Spring Twilight is an experimental game that explores the intersection of narrative, mechanics, and atmosphere. Through minimalist design and evocative soundscapes, players experience a contemplative journey through fragmented memories and shifting perspectives of time.',
+
+    role: 'Game Designer, Developer, Sound Designer',
+    duration: '3 Weeks',
+    teamSize: 'Solo Project',
+    platform: ['PC', 'Mac'],
+
+    challenges: [
+      'Creating emotional resonance through minimal mechanics',
+      'Balancing abstraction with player comprehension',
+      'Designing non-linear narrative that remains coherent',
+      'Crafting atmospheric audio without overwhelming the experience'
+    ],
+
+    solutions: [
+      'Developed simple interaction model focused on exploration and observation',
+      'Created visual language using color and light to guide emotional tone',
+      'Implemented fragmented storytelling through environmental details',
+      'Designed layered ambient soundscape that responds to player actions'
+    ],
+
+    features: [
+      'Minimalist interaction design emphasizing contemplation',
+      'Non-linear narrative structure with multiple interpretations',
+      'Dynamic lighting system reflecting emotional states',
+      'Reactive ambient sound design',
+      'Environmental storytelling through visual details',
+      'Meditative pacing encouraging player reflection'
+    ],
+
+    gallery: [
+      `${BASE_URL}images/projects/spring-twilight/screenshot-1.png`,
+      `${BASE_URL}images/projects/spring-twilight/screenshot-2.png`,
+      `${BASE_URL}images/projects/spring-twilight/screenshot-3.png`,
+      `${BASE_URL}images/projects/spring-twilight/screenshot-4.png`
+    ],
+
+    videoUrl: 'PLACEHOLDER_VIDEO_URL',
+
+    links: {}
   }
 ]
 
