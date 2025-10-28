@@ -94,11 +94,11 @@ export default function Projects({ scrollProgress }) {
   // 3D floating positions for each card - distributed in 3D space like particles
   // Positioned to accommodate 5 projects with better spacing
   const card3DPositions = [
-    { x: 18, y: 22, z: 20, rotSpeed: 0.25, phaseX: 0, phaseY: 0, amplitudeX: 18, amplitudeY: 20 },     // Top left
-    { x: 50, y: 20, z: 25, rotSpeed: 0.4, phaseX: 2.1, phaseY: 3.5, amplitudeX: 12, amplitudeY: 16 },    // Top center
-    { x: 82, y: 24, z: 18, rotSpeed: 0.33, phaseX: 4.2, phaseY: 1.8, amplitudeX: 22, amplitudeY: 18 },    // Top right
-    { x: 32, y: 68, z: 22, rotSpeed: 0.45, phaseX: 1.3, phaseY: 5.2, amplitudeX: 16, amplitudeY: 22 },    // Bottom left
-    { x: 68, y: 70, z: 15, rotSpeed: 0.28, phaseX: 3.7, phaseY: 2.4, amplitudeX: 20, amplitudeY: 14 }     // Bottom right
+    { x: 18, y: 22, z: 20, rotSpeed: 0.15, phaseX: 0, phaseY: 0, amplitudeX: 10, amplitudeY: 12 },     // Top left
+    { x: 50, y: 20, z: 25, rotSpeed: 0.18, phaseX: 2.1, phaseY: 3.5, amplitudeX: 8, amplitudeY: 10 },    // Top center
+    { x: 82, y: 24, z: 18, rotSpeed: 0.16, phaseX: 4.2, phaseY: 1.8, amplitudeX: 11, amplitudeY: 9 },    // Top right
+    { x: 32, y: 68, z: 22, rotSpeed: 0.19, phaseX: 1.3, phaseY: 5.2, amplitudeX: 9, amplitudeY: 13 },    // Bottom left
+    { x: 68, y: 70, z: 15, rotSpeed: 0.14, phaseX: 3.7, phaseY: 2.4, amplitudeX: 12, amplitudeY: 8 }     // Bottom right
   ]
 
   const getCardStyle = (index) => {
@@ -137,13 +137,13 @@ export default function Projects({ scrollProgress }) {
       const cardWidth = 20
       const cardHeight = 25
       const cardDiagonal = Math.sqrt(cardWidth * cardWidth + cardHeight * cardHeight)
-      const minDistance = cardDiagonal * 0.6 // 60% of diagonal to ensure < 20% overlap
+      const minDistance = cardDiagonal * 0.75 // 75% of diagonal to ensure < 20% overlap
 
       if (distance < minDistance && distance > 0) {
         // Apply repulsion force proportional to overlap
         const repulsionStrength = (minDistance - distance) / minDistance
         const angle = Math.atan2(dy, dx)
-        const pushForce = repulsionStrength * 8 // Adjust strength
+        const pushForce = repulsionStrength * 15 // Increased strength for better separation
 
         floatX += Math.cos(angle) * pushForce
         floatY += Math.sin(angle) * pushForce
