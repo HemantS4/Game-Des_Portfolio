@@ -463,20 +463,6 @@ The game creates an elegant loss/payoff loop: wind ends you, but your gifts rema
 • Audio cues reinforcing wind patterns
 
 The cohesive visual and sound design serves the theme, creating an atmosphere of quiet contemplation and ultimate revelation.`
-      },
-      {
-        title: 'Portfolio Significance',
-        content: `**Why This Works:**
-
-**Clear Poetry-to-Mechanic Translation:** Demonstrates ability to transform abstract concepts (haiku imagery) into concrete, playable interactions.
-
-**Elegant Loss/Payoff Loop:** Shows understanding of emotional design—creating meaningful failure states that reframe loss as accomplishment.
-
-**Cohesive Design Vision:** All elements (visuals, audio, mechanics, theme) reinforce a unified artistic intent.
-
-**Minimalist Execution:** Proves that powerful experiences don't require complexity—restraint and focus can be equally impactful.
-
-As a solo designer-developer project, Spring Twilight showcases the ability to conceive, execute, and polish a complete artistic vision from inspiration to implementation.`
       }
     ],
 
