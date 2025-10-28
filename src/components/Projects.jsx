@@ -92,13 +92,13 @@ export default function Projects({ scrollProgress }) {
   }
 
   // 3D floating positions for each card - distributed in 3D space like particles
-  // Positioned to accommodate 5 projects
+  // Positioned to accommodate 5 projects with better spacing
   const card3DPositions = [
-    { x: 20, y: 25, z: 20, rotSpeed: 0.3, orbitRadius: 80 },     // Top left
-    { x: 50, y: 25, z: 20, rotSpeed: 0.35, orbitRadius: 85 },    // Top center
-    { x: 80, y: 25, z: 20, rotSpeed: 0.32, orbitRadius: 82 },    // Top right
-    { x: 35, y: 65, z: 20, rotSpeed: 0.37, orbitRadius: 87 },    // Bottom left
-    { x: 65, y: 65, z: 20, rotSpeed: 0.33, orbitRadius: 84 }     // Bottom right
+    { x: 18, y: 22, z: 20, rotSpeed: 0.25, phaseX: 0, phaseY: 0, amplitudeX: 18, amplitudeY: 20 },     // Top left
+    { x: 50, y: 20, z: 25, rotSpeed: 0.4, phaseX: 2.1, phaseY: 3.5, amplitudeX: 12, amplitudeY: 16 },    // Top center
+    { x: 82, y: 24, z: 18, rotSpeed: 0.33, phaseX: 4.2, phaseY: 1.8, amplitudeX: 22, amplitudeY: 18 },    // Top right
+    { x: 32, y: 68, z: 22, rotSpeed: 0.45, phaseX: 1.3, phaseY: 5.2, amplitudeX: 16, amplitudeY: 22 },    // Bottom left
+    { x: 68, y: 70, z: 15, rotSpeed: 0.28, phaseX: 3.7, phaseY: 2.4, amplitudeX: 20, amplitudeY: 14 }     // Bottom right
   ]
 
   const getCardStyle = (index) => {
@@ -106,10 +106,49 @@ export default function Projects({ scrollProgress }) {
     const isHovered = hoveredProject === projects[index].id
     const isSelected = selectedProject === projects[index].id
 
-    // Enhanced floating animation - more dynamic movement
-    const floatY = Math.sin(time * pos.rotSpeed + index * 2) * 15
-    const floatX = Math.cos(time * pos.rotSpeed * 0.7 + index) * 12
-    const floatZ = Math.sin(time * pos.rotSpeed * 0.5 + index * 1.5) * 30
+    // Enhanced floating animation - more dynamic movement with unique phases
+    // Each card has its own phase offset and amplitude to prevent clumping
+    let floatY = Math.sin(time * pos.rotSpeed + pos.phaseY) * pos.amplitudeY
+    let floatX = Math.cos(time * pos.rotSpeed * 0.7 + pos.phaseX) * pos.amplitudeX
+    const floatZ = Math.sin(time * pos.rotSpeed * 0.5 + (pos.phaseX + pos.phaseY) * 0.5) * (25 + index * 3)
+
+    // Calculate current position for this card
+    const currentX = pos.x + floatX
+    const currentY = pos.y + floatY
+
+    // Apply repulsion force to prevent overlap (more than 20%)
+    // Check against all other cards
+    for (let i = 0; i < projects.length; i++) {
+      if (i === index) continue
+
+      const otherPos = card3DPositions[i]
+      const otherFloatY = Math.sin(time * otherPos.rotSpeed + otherPos.phaseY) * otherPos.amplitudeY
+      const otherFloatX = Math.cos(time * otherPos.rotSpeed * 0.7 + otherPos.phaseX) * otherPos.amplitudeX
+      const otherX = otherPos.x + otherFloatX
+      const otherY = otherPos.y + otherFloatY
+
+      // Calculate distance between cards (in viewport percentage)
+      const dx = currentX - otherX
+      const dy = currentY - otherY
+      const distance = Math.sqrt(dx * dx + dy * dy)
+
+      // Card dimensions are roughly 20% width and 25% height in viewport
+      // 20% overlap threshold means minimum distance should be ~20% of card diagonal
+      const cardWidth = 20
+      const cardHeight = 25
+      const cardDiagonal = Math.sqrt(cardWidth * cardWidth + cardHeight * cardHeight)
+      const minDistance = cardDiagonal * 0.6 // 60% of diagonal to ensure < 20% overlap
+
+      if (distance < minDistance && distance > 0) {
+        // Apply repulsion force proportional to overlap
+        const repulsionStrength = (minDistance - distance) / minDistance
+        const angle = Math.atan2(dy, dx)
+        const pushForce = repulsionStrength * 8 // Adjust strength
+
+        floatX += Math.cos(angle) * pushForce
+        floatY += Math.sin(angle) * pushForce
+      }
+    }
 
     // Rotation animations for dynamic floating
     const rotateXAnim = Math.sin(time * 0.3 + index) * 8
