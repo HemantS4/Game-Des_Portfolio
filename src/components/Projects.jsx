@@ -92,12 +92,13 @@ export default function Projects({ scrollProgress }) {
   }
 
   // 3D floating positions for each card - distributed in 3D space like particles
-  // Positioned in 2x2 grid with more spacing to prevent overlap, all at similar z-depth for equal visibility
+  // Positioned to accommodate 5 projects
   const card3DPositions = [
-    { x: 25, y: 30, z: 20, rotSpeed: 0.3, orbitRadius: 80 },     // Top left
-    { x: 75, y: 30, z: 20, rotSpeed: 0.35, orbitRadius: 85 },    // Top right
-    { x: 25, y: 70, z: 20, rotSpeed: 0.32, orbitRadius: 82 },    // Bottom left
-    { x: 75, y: 70, z: 20, rotSpeed: 0.37, orbitRadius: 87 }     // Bottom right
+    { x: 20, y: 25, z: 20, rotSpeed: 0.3, orbitRadius: 80 },     // Top left
+    { x: 50, y: 25, z: 20, rotSpeed: 0.35, orbitRadius: 85 },    // Top center
+    { x: 80, y: 25, z: 20, rotSpeed: 0.32, orbitRadius: 82 },    // Top right
+    { x: 35, y: 65, z: 20, rotSpeed: 0.37, orbitRadius: 87 },    // Bottom left
+    { x: 65, y: 65, z: 20, rotSpeed: 0.33, orbitRadius: 84 }     // Bottom right
   ]
 
   const getCardStyle = (index) => {
