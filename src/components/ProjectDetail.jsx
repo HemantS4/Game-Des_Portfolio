@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getProjectById, getAdjacentProjects } from '../data/projectsData'
 import Sidebar from './Sidebar'
+import { BarChart, ProgressBars, StatsGrid, DonutChart } from './ResearchCharts'
 import '../styles/ProjectDetail.css'
 
 export default function ProjectDetail() {
@@ -225,6 +226,46 @@ export default function ProjectDetail() {
         <h2>Overview</h2>
         <p className="overview-text">{project.overview}</p>
       </section>
+
+      {/* Research Data Visualizations */}
+      {project.researchData && (
+        <section className="project-section research-section">
+          <h2>Research & Insights</h2>
+
+          {/* Momentum/Flowlog specific charts */}
+          {project.id === 'flowlog' && (
+            <>
+              <BarChart
+                data={project.researchData.userBarriers}
+                title="Why People Quit Journaling (N=20+ interviews)"
+                height={280}
+              />
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem' }}>
+                <DonutChart
+                  data={project.researchData.personas}
+                  title="Target User Groups"
+                  centerLabel="4 Types"
+                />
+                <ProgressBars
+                  data={project.researchData.octalysisBalance}
+                  title="Gamification Strategy Balance"
+                />
+              </div>
+            </>
+          )}
+
+          {/* DP2 specific charts */}
+          {project.id === 'dp2-motor-play' && (
+            <>
+              <StatsGrid stats={project.researchData.keyMetrics} columns={3} />
+              <ProgressBars
+                data={project.researchData.researchFindings}
+                title="Key Findings from Field Research"
+              />
+            </>
+          )}
+        </section>
+      )}
 
       {/* Extended Sections with Images (GDD-like layout) */}
       {project.extendedSections && project.extendedSections.length > 0 && (

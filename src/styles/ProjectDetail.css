@@ -4,10 +4,10 @@
   min-height: 100vh;
   background: transparent; /* Transparent to show 3D background */
   color: var(--color-text);
-  padding: 2rem var(--sidebar-width) 4rem calc(var(--sidebar-width) + 2rem);
+  padding: 2rem var(--sidebar-width) 8rem calc(var(--sidebar-width) + 2rem);
   position: relative;
   z-index: 10;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -190,8 +190,9 @@
 
 /* Project Sections */
 .project-section {
-  margin-bottom: 5rem;
+  margin-bottom: 6rem;
   position: relative;
+  padding: 3rem 0;
 }
 
 .project-section::before {
