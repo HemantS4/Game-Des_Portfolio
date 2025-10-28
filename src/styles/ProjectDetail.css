@@ -11,7 +11,7 @@
   margin: 0 auto;
 }
 
-/* Single Scrollable Container - Magazine Style */
+/* Long Scrollable Container - Magazine Style */
 .project-content-scroll {
   background: rgba(15, 15, 35, 0.85);
   backdrop-filter: blur(20px);
@@ -19,28 +19,8 @@
   border-radius: 24px;
   padding: 4rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  max-height: 85vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.project-content-scroll::-webkit-scrollbar {
-  width: 10px;
-}
-
-.project-content-scroll::-webkit-scrollbar-track {
-  background: rgba(15, 15, 35, 0.5);
-  border-radius: 10px;
-}
-
-.project-content-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 120, 73, 0.4);
-  border-radius: 10px;
-  transition: background 0.3s ease;
-}
-
-.project-content-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 120, 73, 0.6);
+  min-height: 100vh;
+  /* Removed max-height and overflow to allow natural page scrolling */
 }
 
 /* Content Blocks */
@@ -623,7 +603,6 @@
 
   .project-content-scroll {
     padding: 2rem;
-    max-height: 80vh;
     border-radius: 16px;
   }
 
