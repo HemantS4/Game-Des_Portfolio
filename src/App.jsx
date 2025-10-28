@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import Scene3D from './components/Scene3D'
+// Disabled Scene3D due to React Three Fiber rotSpeed error
+// import Scene3D from './components/Scene3D'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -90,8 +91,16 @@ function AppContent() {
 
   return (
     <div className="app">
-      {/* 3D Background - visible on all pages */}
-      <Scene3D scrollProgress={isHomePage ? scrollProgress : 0} />
+      {/* 3D Background disabled due to React Three Fiber bug */}
+      <div className="canvas-container" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'linear-gradient(180deg, #0a0a1e 0%, #1a1a3e 100%)',
+        zIndex: 0
+      }} />
 
       <Routes>
         <Route
