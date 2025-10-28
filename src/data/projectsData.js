@@ -413,39 +413,103 @@ Field research showed children engage most when **in control**: pause anytime, s
     title: 'Spring Twilight',
     category: 'Experimental Game',
     year: '2024',
-    description: 'An experimental narrative-driven game exploring themes of memory and time.',
-    shortDescription: 'Experimental narrative game',
+    description: 'Light spreads. You pass it on—until the wind takes your flame.',
+    shortDescription: 'Poetry-to-mechanic experimental game',
     tools: ['Unity', 'C#', 'Photoshop', 'Audacity'],
     thumbnail: `${BASE_URL}images/projects/spring-twilight/thumbnail.png`,
 
-    overview: 'Spring Twilight is an experimental game that explores the intersection of narrative, mechanics, and atmosphere. Through minimalist design and evocative soundscapes, players experience a contemplative journey through fragmented memories and shifting perspectives of time.',
+    overview: 'Inspired by Yosa Buson\'s haiku: "The light of a candle / is transferred to another candle— / spring twilight." Spring Twilight transforms this poetic image into interactive play. You begin as a single candle in a dark field, transferring your flame to unlit sky-lanterns drifting past. Each click ignites a lantern that rises and persists. When the wind finally snuffs your candle, the camera lifts to reveal a sky filled with every lantern you lit—your quiet legacy. A minimalist meditation on generosity, impermanence, and the cumulative impact of small acts of giving.',
 
-    role: 'Game Designer, Developer, Sound Designer',
+    // Extended sections for detailed project page
+    extendedSections: [
+      {
+        title: 'Concept & Inspiration',
+        content: `The design turns Yosa Buson's poetic image into play: small acts of giving accumulate into a sky of light. You begin as a single candle in a dark field. Unlit sky-lanterns drift past. Each click transfers your flame; the lantern rises and persists. When the wind finally snuffs your candle, the camera lifts to reveal the sky filled with every lantern you lit—your quiet legacy.
+
+**Core Philosophy:** "If you keep giving happiness to others, the real joy returns to you." Mechanically, your candle is mortal; the lights you share endure. The payoff is larger than the actions that produced it.
+
+**Attribution:** Inspired by a haiku by Yosa Buson (public domain).`
+      },
+      {
+        title: 'Core Mechanics',
+        content: `**Transfer of Light:** Click unlit lanterns to ignite them before they float away. Each successful transfer sends a lantern rising into the sky.
+
+**Wind as Obstacle:** Timed gusts push lanterns, distort your flame, and can extinguish you. Reading wind cues is essential—leaf swirls, audio whooshes, and screen shimmer telegraph incoming gusts.
+
+**End Reveal:** On loss, the scene blooms into a luminous "spring twilight," showing the cumulative impact of your generosity. The sky fills with every lantern you lit—a constellation of your giving.
+
+The game creates an elegant loss/payoff loop: wind ends you, but your gifts remain.`
+      },
+      {
+        title: 'Theme & Design Philosophy',
+        content: `**Central Theme:** Generosity and impermanence intertwine. Your candle's mortality contrasts with the enduring lights you share.
+
+**Poetry-to-Mechanic Translation:** The haiku's "transfer" becomes the core interaction—ignition and persistence. The wind represents life's inevitable challenges, while the final reveal embodies the poem's "spring twilight."
+
+**Emotional Journey:** Players experience calm moment-to-moment gameplay that builds into a reflective, contemplative payoff. The design emphasizes that small, repeated acts of kindness create something greater than their sum.`
+      },
+      {
+        title: 'Aesthetics & Audio Design',
+        content: `**Visual Language:**
+• Twilight palette with warm candle bloom
+• Particle sparks during flame transfer
+• Screen shimmer effect for wind telegraphs
+• Luminous final reveal with sky-crowded lantern-stars
+
+**Sound Design:**
+• Soft chime on successful ignition
+• Airy wind layers during gusts
+• Ambient soundscape supporting meditative mood
+• Audio cues reinforcing wind patterns
+
+The cohesive visual and sound design serves the theme, creating an atmosphere of quiet contemplation and ultimate revelation.`
+      },
+      {
+        title: 'Portfolio Significance',
+        content: `**Why This Works:**
+
+**Clear Poetry-to-Mechanic Translation:** Demonstrates ability to transform abstract concepts (haiku imagery) into concrete, playable interactions.
+
+**Elegant Loss/Payoff Loop:** Shows understanding of emotional design—creating meaningful failure states that reframe loss as accomplishment.
+
+**Cohesive Design Vision:** All elements (visuals, audio, mechanics, theme) reinforce a unified artistic intent.
+
+**Minimalist Execution:** Proves that powerful experiences don't require complexity—restraint and focus can be equally impactful.
+
+As a solo designer-developer project, Spring Twilight showcases the ability to conceive, execute, and polish a complete artistic vision from inspiration to implementation.`
+      }
+    ],
+
+    role: 'Solo Designer-Developer',
     duration: '3 Weeks',
     teamSize: 'Solo Project',
-    platform: ['PC', 'Mac'],
+    platform: ['PC', 'Mac', 'Web'],
 
     challenges: [
-      'Creating emotional resonance through minimal mechanics',
-      'Balancing abstraction with player comprehension',
-      'Designing non-linear narrative that remains coherent',
-      'Crafting atmospheric audio without overwhelming the experience'
+      'Translating abstract poetry into concrete, playable mechanics',
+      'Creating emotional resonance through minimal interaction',
+      'Balancing challenge (wind timing) with contemplative atmosphere',
+      'Designing telegraphed wind cues that feel natural, not mechanical',
+      'Crafting a reveal that justifies and recontextualizes the player\'s loss'
     ],
 
     solutions: [
-      'Developed simple interaction model focused on exploration and observation',
-      'Created visual language using color and light to guide emotional tone',
-      'Implemented fragmented storytelling through environmental details',
-      'Designed layered ambient soundscape that responds to player actions'
+      'Developed simple click-to-transfer mechanic that embodies the haiku\'s core image',
+      'Created layered wind system with visual, audio, and timing cues',
+      'Implemented persistent lanterns that accumulate to create emotional payoff',
+      'Designed camera reveal that transforms defeat into contemplative beauty',
+      'Built lightweight UI focusing player attention on flame and lanterns'
     ],
 
     features: [
-      'Minimalist interaction design emphasizing contemplation',
-      'Non-linear narrative structure with multiple interpretations',
-      'Dynamic lighting system reflecting emotional states',
-      'Reactive ambient sound design',
-      'Environmental storytelling through visual details',
-      'Meditative pacing encouraging player reflection'
+      'Poetry-inspired core mechanic: transfer light through clicking',
+      'Wind-based obstacle system with telegraphed cues',
+      'Persistent lantern accumulation visible in final reveal',
+      'Minimalist timing-based gameplay',
+      'Twilight aesthetic with warm lighting and particle effects',
+      'Responsive audio design with soft chimes and wind layers',
+      'Camera choreography for emotional reveal',
+      'Meditative pacing encouraging reflection'
     ],
 
     gallery: [
@@ -455,7 +519,7 @@ Field research showed children engage most when **in control**: pause anytime, s
       `${BASE_URL}images/projects/spring-twilight/screenshot-4.png`
     ],
 
-    videoUrl: 'PLACEHOLDER_VIDEO_URL',
+    videoUrl: 'https://www.youtube.com/embed/LdWjM72sZjo',
 
     links: {}
   }
