@@ -38,6 +38,21 @@ export const projectsData = [
         image: '1.png'
       },
       {
+        title: 'Level Design - Continued',
+        content: 'Each level was designed with clear visual language and fair telegraphing. The progression from Level 1 to Level 5 follows a careful difficulty curve that introduces mechanics one at a time before combining them in creative ways. The compact arenas ensure players always understand their goals, while the safe iteration spaces encourage experimentation without harsh punishment.',
+        image: '3.png'
+      },
+      {
+        title: 'Level Design - Final Levels',
+        content: 'The later levels increase complexity through multi-target puzzles and timed sequences. Level 4 introduces resource management with finite ammo, teaching players to plan their shots. Level 5 serves as a capstone that validates mastery of all techniques learned throughout the journey, with vertical climbs and precise timing challenges.',
+        image: '4.png'
+      },
+      {
+        title: 'Level Design - Advanced Techniques',
+        content: 'The V1 levels also introduced advanced movement opportunities for skilled players. Wide rooms with mid-platforms teach recoil hops, while narrow corridors demand precise timing and cadence. These design patterns carried forward into V2, forming the foundation for the Metroidvania-style interconnected map.',
+        image: '5.png'
+      },
+      {
         title: 'Movement Mechanics',
         content: 'The game features layered movement tech that players gradually master: **Recoil Hops** for basic vertical movement, **Ricochets** off angled surfaces for momentum preservation, and **Wall Bounces** for advanced traversal. A laser trajectory preview shows exactly where you\'ll land after firing, making recoil feel responsive and predictable. This removed the frustration of guesswork while preserving the skill ceiling.',
         image: '2.png'
@@ -49,18 +64,15 @@ export const projectsData = [
       },
       {
         title: 'Obstacles & Hazards',
-        content: 'The V2 design introduces a variety of obstacles that challenge player skill:\n\n**Seed Shooter:** Primary enemy that shoots seeds in slow arcs; exploitable for timing and can be used as moving platforms. Teaches spatial awareness and rhythm-based movement.\n\n**Spikes:** Static hazards placed strategically to punish careless movement. Force players to use precise recoil angles.\n\n**Lava Pits:** Environmental hazards with telegraphed danger zones. Players must time recoil hops carefully to avoid falling in.\n\n**Crumble Tiles:** Platforms that collapse after a short delay, creating urgency in movement decisions.\n\nAll hazards feature fair telegraphs—visual or audio cues that signal danger before it hits. The goal is challenging but never unfair.',
-        image: '3.png'
+        content: 'The V2 design introduces a variety of obstacles that challenge player skill:\n\n**Seed Shooter:** Primary enemy that shoots seeds in slow arcs; exploitable for timing and can be used as moving platforms. Teaches spatial awareness and rhythm-based movement.\n\n**Spikes:** Static hazards placed strategically to punish careless movement. Force players to use precise recoil angles.\n\n**Lava Pits:** Environmental hazards with telegraphed danger zones. Players must time recoil hops carefully to avoid falling in.\n\n**Crumble Tiles:** Platforms that collapse after a short delay, creating urgency in movement decisions.\n\nAll hazards feature fair telegraphs—visual or audio cues that signal danger before it hits. The goal is challenging but never unfair.'
       },
       {
         title: 'Beat Chart & Pacing',
-        content: 'The beat chart maps emotional peaks and valleys across the player journey. Early game: **Discovery** (low-stress exploration). Mid-game: **Challenge** (spike in difficulty as techniques layer). Late game: **Mastery** (high-intensity gauntlets requiring perfect execution). Checkpoints are strategically placed before difficulty spikes to prevent frustration, while shortcuts reward skilled players with faster routes.',
-        image: '4.png'
+        content: 'The beat chart maps emotional peaks and valleys across the player journey. Early game: **Discovery** (low-stress exploration). Mid-game: **Challenge** (spike in difficulty as techniques layer). Late game: **Mastery** (high-intensity gauntlets requiring perfect execution). Checkpoints are strategically placed before difficulty spikes to prevent frustration, while shortcuts reward skilled players with faster routes.'
       },
       {
         title: 'Future Prospects',
-        content: 'Future updates would expand enemy variety with the **Vine Lash** (telegraphed line hazard), **Moss Pod** (spawns temporary platforms when shot), and **Spore Spreader** (releases redirectable spore clouds). Additional features include **speed-run modes**, **challenge rooms** with leaderboards, and **customizable weapon skins** for player expression. The V2 map structure provides a foundation for modular expansion with new zones and abilities.',
-        image: '5.png'
+        content: 'Future updates would expand enemy variety with the **Vine Lash** (telegraphed line hazard), **Moss Pod** (spawns temporary platforms when shot), and **Spore Spreader** (releases redirectable spore clouds). Additional features include **speed-run modes**, **challenge rooms** with leaderboards, and **customizable weapon skins** for player expression. The V2 map structure provides a foundation for modular expansion with new zones and abilities.'
       }
     ],
 
