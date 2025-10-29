@@ -33,8 +33,8 @@ export const projectsData = [
         image: 'Core Loop.png'
       },
       {
-        title: 'Level Design - V1 Prototype',
-        content: 'V1 consisted of 5 linear levels designed using the **"Teach → Test → Twist"** structure. Level 1 teaches basic recoil movement. Level 2 tests it with platforming challenges. Level 3 introduces wall bounces. Level 4 combines recoil hops with ricochets. Level 5 demands mastery of all techniques in a gauntlet-style finale. Each level featured quick respawns and fair checkpoints to encourage experimentation.',
+        title: 'Level Design - V1 Prototype (5 Levels)',
+        content: 'V1 consisted of 5 linear levels designed using the **"Teach → Test → Twist"** structure:\n\n**Level 1 — The Fall & First Steps:** Tutorial level introducing basic movement and recoil hop. Single target opens first door with no hazards, focusing on clarity and player understanding.\n\n**Level 2 — Bank Shot:** Target behind a wall teaches ricochet mechanics off ceiling/wall. Short vertical chimney requiring down-shot recoil lift with safe floors for iteration.\n\n**Level 3 — Cadence & Moving Platforms:** Introduces timed doors and moving platforms. Players learn shot rhythm: move → aim → shoot → stabilize. Misses cost time, not lives.\n\n**Level 4 — Routing with Limited Ammo:** Three targets split across the room where order matters. Finite ammo creates light planning—waste bullets and you reset. First hint of multi-path routing.\n\n**Level 5 — Capstone Chain:** Blends all skills: bank shot → double recoil climb → door run. Big "aha" finale once the chain clicks, with no lethal hazards yet.',
         image: '1.png'
       },
       {
@@ -48,8 +48,8 @@ export const projectsData = [
         image: 'MIniMap.png'
       },
       {
-        title: 'Enemy Design - Seed Shooter',
-        content: 'The Seed Shooter is the primary enemy type: a stationary turret that fires projectiles in predictable patterns. Players must time their movements carefully, using recoil to dodge while positioning for return shots. The Seed Shooter teaches spatial awareness and rhythm-based movement, reinforcing the core recoil mechanic without overwhelming players with complex AI behaviors.',
+        title: 'Obstacles & Hazards',
+        content: 'The V2 design introduces a variety of obstacles that challenge player skill:\n\n**Seed Shooter:** Primary enemy that shoots seeds in slow arcs; exploitable for timing and can be used as moving platforms. Teaches spatial awareness and rhythm-based movement.\n\n**Spikes:** Static hazards placed strategically to punish careless movement. Force players to use precise recoil angles.\n\n**Lava Pits:** Environmental hazards with telegraphed danger zones. Players must time recoil hops carefully to avoid falling in.\n\n**Crumble Tiles:** Platforms that collapse after a short delay, creating urgency in movement decisions.\n\nAll hazards feature fair telegraphs—visual or audio cues that signal danger before it hits. The goal is challenging but never unfair.',
         image: '3.png'
       },
       {
@@ -59,7 +59,7 @@ export const projectsData = [
       },
       {
         title: 'Future Prospects',
-        content: 'Future updates would expand enemy variety with the **Spore Spreader** (creates hazardous zones), **Crystal Guardian** (mobile enemy requiring prediction), and **Vine Snatcher** (grapple-based movement disruption). Additional features include **speed-run modes**, **challenge rooms** with leaderboards, and **customizable weapon skins** for player expression. The V2 map structure provides a foundation for modular expansion with new zones and abilities.',
+        content: 'Future updates would expand enemy variety with the **Vine Lash** (telegraphed line hazard), **Moss Pod** (spawns temporary platforms when shot), and **Spore Spreader** (releases redirectable spore clouds). Additional features include **speed-run modes**, **challenge rooms** with leaderboards, and **customizable weapon skins** for player expression. The V2 map structure provides a foundation for modular expansion with new zones and abilities.',
         image: '5.png'
       }
     ],
