@@ -32,12 +32,12 @@ export default function Hero() {
           
         </div>
         <h1 ref={titleRef} className="hero-title">
-          {splitText('Hemant,')}
+          {splitText('Hi, I am ')}
           <br />
-          {splitText('Game System Designer')}
+          {splitText('Hemant Sharma')}
         </h1>
         <p className="hero-subtitle">
-          Designing engaging systems and mechanics that create meaningful player experiences
+          I am Game System Designer,I Design engaging systems and mechanics that create meaningful player experiences,
         </p>
         <button className="cta-button" onClick={scrollToProjects}>
           <span>View My Work</span>
