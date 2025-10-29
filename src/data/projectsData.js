@@ -262,36 +262,71 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
     teamSize: 'Multi disciplinary group Project',
     platform: ['Physical Card Game'],
 
+    // Extended sections for detailed project page
+    extendedSections: [
+      {
+        title: 'The Spark — Initial Ideation',
+        content: 'We started by asking: **What does water do?** It flows in rivers, rests in ponds, crashes as tsunamis, hides in bottles. We noticed something profound: the container changes water\'s meaning. A bottle suggests purity and profit. A dam implies control. A flood represents chaos. We began by mapping where water lives and how humans categorize it based on containment.',
+        image: 'Frame.png'
+      },
+      {
+        title: 'The Nature of Water',
+        content: 'Through our research, we identified water\'s fundamental dualities:\n\n**Calm vs. Chaos** — A lake versus a flood.\n\n**Fluid vs. Solid vs. Vapour** — Water slips between states seamlessly.\n\n**Vital yet Volatile** — It gives life and destroys it.\n\nThis duality became the foundation of our game concept. Water doesn\'t choose between being held or flowing—it exists in both states simultaneously.',
+        image: 'Frame-1.png'
+      },
+      {
+        title: 'The Core Question',
+        content: 'Our central inquiry emerged: **Why do we trust water only when it\'s in a glass or bottle? Who decided that?** And why is the same water suddenly called "holy" in a temple or "dirty" in a flood? The nature of water is redefined by the **container** it occupies. This philosophical observation became the mechanical heart of our card game.',
+        image: 'Frame-10.png'
+      },
+      {
+        title: 'Game Concept — Container Defines Nature',
+        content: 'The game concept crystallized around a simple truth: **Water\'s essence is defined by one innate quality—its flow.** Yet humans constantly try to contain it, categorize it, control it. Players navigate this tension through card-based strategic gameplay, balancing "Hold" cards (containment, stability, control) with "Flow" cards (movement, chaos, freedom). The winner is the player who best strikes the balance.',
+        image: 'Frame-11.png'
+      },
+      {
+        title: 'Card Design & Visual Language',
+        content: 'We developed a clean, minimalist visual language using three primary colors:\n\n**Blue** for Hold cards (ocean, stability, containment)\n\n**Cream/Yellow** for Flow cards (waterfalls, movement, freedom)\n\n**Navy/Gold** for Disaster cards (tsunamis, floods, disruption)\n\nEach card features abstract shapes inspired by water\'s forms—waves, droplets, spirals—combined with clear iconography to communicate game mechanics instantly.',
+        image: 'Frame-23.png'
+      }
+    ],
+
     challenges: [
       'Creating meaningful philosophical depth while maintaining engaging, competitive gameplay',
       'Translating abstract concepts about water\'s nature into clear, intuitive visual card designs',
-      'Making complex philosophical concepts accessible to players of varying backgrounds'
+      'Making complex philosophical concepts accessible to players of varying backgrounds',
+      'Balancing "Hold" and "Flow" mechanics so neither strategy dominates'
     ],
 
     solutions: [
       'Developed dynamic water states that change based on player actions',
       'Created strategic balance between containment and release mechanics',
       'Designed extensive research into water\'s physical and metaphysical properties',
-      'Implemented playtesting feedback to balance philosophy with engaging gameplay'
+      'Implemented playtesting feedback to balance philosophy with engaging gameplay',
+      'Used clean iconography and color coding for instant card recognition'
     ],
 
     features: [
       'Dynamic water states responsive to player actions',
-      'Strategic balance between containment and release',
+      'Strategic balance between containment (Hold) and release (Flow)',
       'Philosophical depth encouraging reflective gameplay',
-      'Multiple simultaneous water states',
-      'Elegant card design reflecting water properties',
-      'Meditative gameplay experience'
+      'Three card types: Hold, Flow, and Disaster',
+      'Elegant minimalist card design reflecting water properties',
+      'Meditative yet competitive gameplay experience'
     ],
 
     gallery: [
-      `${BASE_URL}images/projects/flow-and-hold/screenshot-1.jpg`,
-      `${BASE_URL}images/projects/flow-and-hold/screenshot-2.jpg`,
-      `${BASE_URL}images/projects/flow-and-hold/card-designs.jpg`,
-      `${BASE_URL}images/projects/flow-and-hold/gameplay.jpg`
+      `${BASE_URL}images/projects/flow-and-hold/Frame-22.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-24.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-25.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-26.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-27.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-28.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-29.png`,
+      `${BASE_URL}images/projects/flow-and-hold/Frame-30.png`
     ],
 
-    videoUrl: 'PLACEHOLDER_VIDEO_URL',
+    videoUrl: `${BASE_URL}images/projects/flow-and-hold/Frame-23.png`,
 
     links: {
       gdd: `${BASE_URL}flow-and-hold_gdd.html`
