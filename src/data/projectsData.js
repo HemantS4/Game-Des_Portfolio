@@ -38,7 +38,6 @@ export const projectsData = [
       'Interconnected rooms with multiple traversal routes',
       'Quick respawns and fair checkpoints',
       'Explore → Learn → Bypass → Unlock progression cycle',
-      'Bioluminescent cave environments',
       'Recoil-powered movement system'
     ],
 
@@ -54,6 +53,12 @@ export const projectsData = [
     ],
 
     videoUrl: 'https://www.youtube.com/embed/oXmuplxd0LM',
+
+    figmaEmbed: {
+      url: 'https://embed.figma.com/design/ZbC20ANmnQrRe2TL5c5JU6/Untitled?node-id=11-1489&embed-host=share',
+      title: 'Game Design Documentation',
+      description: 'Complete design documentation including mechanics, level design, and player progression'
+    },
 
     links: {
       itchIo: 'https://hemants4.itch.io/ammo-batics',
