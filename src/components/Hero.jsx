@@ -37,7 +37,7 @@ export default function Hero() {
           {splitText('Hemant Sharma', 'name-text')}
         </h1>
         <p className="hero-subtitle">
-          I am Game System Designer,I Design engaging systems and mechanics that create meaningful player experiences,
+         Biologist turned game designer, bringing life to play
         </p>
         <button className="cta-button" onClick={scrollToProjects}>
           <span>View My Work</span>

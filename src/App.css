@@ -179,7 +179,8 @@
 }
 
 .letter:hover {
-  animation: letterBounce 0.5s ease;
+  animation: letterBounce 0.5s ease forwards;
+  animation-fill-mode: forwards;
 }
 
 /* Small text for "Hi, I am" */
@@ -204,17 +205,23 @@
 }
 
 @keyframes letterBounce {
-  0%, 100% {
-    transform: translateY(0) rotateX(0);
+  0% {
+    transform: translateY(0);
   }
-  25% {
-    transform: translateY(-15px) rotateX(10deg);
+  30% {
+    transform: translateY(-20px);
   }
   50% {
-    transform: translateY(-25px) rotateX(15deg);
+    transform: translateY(-25px);
   }
-  75% {
-    transform: translateY(-10px) rotateX(5deg);
+  70% {
+    transform: translateY(-20px);
+  }
+  85% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
