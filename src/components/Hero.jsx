@@ -32,9 +32,9 @@ export default function Hero() {
           Hemant Sharma
         </div>
         <h1 ref={titleRef} className="hero-title">
-          {splitText('Game System')}
+          {splitText('Hemant,')}
           <br />
-          {splitText('Designer')}
+          {splitText(' Game System Designer')}
         </h1>
         <p className="hero-subtitle">
           Designing engaging systems and mechanics that create meaningful player experiences
