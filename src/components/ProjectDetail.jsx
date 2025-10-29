@@ -235,8 +235,8 @@ export default function ProjectDetail() {
               <div className="figma-embed-container">
                 <iframe
                   src={project.figmaEmbed.url}
-                  allowFullScreen
                   title={project.figmaEmbed.title || 'Figma Design'}
+                  style={{ pointerEvents: 'none' }}
                 ></iframe>
               </div>
               {project.figmaEmbed.description && (
