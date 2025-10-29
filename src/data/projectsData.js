@@ -54,12 +54,6 @@ export const projectsData = [
 
     videoUrl: 'https://www.youtube.com/embed/oXmuplxd0LM',
 
-    figmaEmbed: {
-      url: 'https://embed.figma.com/design/ZbC20ANmnQrRe2TL5c5JU6/Untitled?node-id=11-1489&embed-host=share',
-      title: 'Game Design Documentation',
-      description: 'Complete design documentation including mechanics, level design, and player progression'
-    },
-
     links: {
       itchIo: 'https://hemants4.itch.io/ammo-batics',
       gdd: `${BASE_URL}ammobatics_gdd.html`
@@ -196,13 +190,6 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
     ],
 
     videoUrl: 'https://www.youtube.com/embed/qCtC_vci1G0',
-
-    // Example Figma embed - to use this, add:
-    // figmaEmbed: {
-    //   url: 'https://www.figma.com/embed?embed_host=share&url=YOUR_FIGMA_FILE_URL',
-    //   title: 'UI/UX Design Overview',
-    //   description: 'Interactive Figma prototype showing all screens and user flows'
-    // },
 
     links: {
       gdd: `${BASE_URL}Gamification_gdd.html`

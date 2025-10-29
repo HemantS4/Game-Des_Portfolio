@@ -228,23 +228,6 @@ export default function ProjectDetail() {
             </div>
           )}
 
-          {/* Figma Embed Section */}
-          {project.figmaEmbed && (
-            <div className="content-block figma-embed-block">
-              <h2 className="block-title">{project.figmaEmbed.title || 'Project Design'}</h2>
-              <div className="figma-embed-container">
-                <iframe
-                  src={project.figmaEmbed.url}
-                  title={project.figmaEmbed.title || 'Figma Design'}
-                  style={{ pointerEvents: 'none' }}
-                ></iframe>
-              </div>
-              {project.figmaEmbed.description && (
-                <p className="figma-embed-description">{project.figmaEmbed.description}</p>
-              )}
-            </div>
-          )}
-
           {/* Research Data Visualizations */}
           {project.researchData && (
             <div className="content-block research-block">
