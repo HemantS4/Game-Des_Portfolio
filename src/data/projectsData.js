@@ -326,8 +326,6 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
       `${BASE_URL}images/projects/flow-and-hold/Frame-30.png`
     ],
 
-    videoUrl: `${BASE_URL}images/projects/flow-and-hold/Frame-23.png`,
-
     links: {
       gdd: `${BASE_URL}flow-and-hold_gdd.html`
     }
