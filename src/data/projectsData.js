@@ -193,7 +193,8 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
     videoUrl: 'https://www.youtube.com/embed/qCtC_vci1G0',
 
     links: {
-      gdd: `${BASE_URL}Gamification_gdd.html`
+      gdd: `${BASE_URL}Gamification_gdd.html`,
+      figma: 'https://www.figma.com/design/your-figma-file-id'  // Replace with your actual Figma link
     }
   },
 
