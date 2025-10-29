@@ -10,9 +10,9 @@ export default function Hero() {
     })
   }, [])
 
-  const splitText = (text) => {
+  const splitText = (text, className = '') => {
     return text.split('').map((char, index) => (
-      <span key={index} className="letter">
+      <span key={index} className={`letter ${className}`}>
         {char === ' ' ? '\u00A0' : char}
       </span>
     ))
@@ -32,9 +32,9 @@ export default function Hero() {
           
         </div>
         <h1 ref={titleRef} className="hero-title">
-          {splitText('Hi, I am ')}
+          {splitText('Hi, I am ', 'small-text')}
           <br />
-          {splitText('Hemant Sharma')}
+          {splitText('Hemant Sharma', 'name-text')}
         </h1>
         <p className="hero-subtitle">
           I am Game System Designer,I Design engaging systems and mechanics that create meaningful player experiences,
