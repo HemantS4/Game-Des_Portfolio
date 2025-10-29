@@ -7,7 +7,7 @@
   padding: 2rem var(--sidebar-width) 8rem calc(var(--sidebar-width) + 2rem);
   position: relative;
   z-index: 10;
-  max-width: 1600px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 

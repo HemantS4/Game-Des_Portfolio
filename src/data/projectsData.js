@@ -13,12 +13,56 @@ export const projectsData = [
     thumbnail: `${BASE_URL}images/projects/ammo-batics/Cover.png`,
 
     // Detailed project information
-    overview: 'You fire a gun. The recoil throws you backward. That\'s the whole game. Ammo-batics started as a two-week design sprint exploring what happens when shooting isn\'t about hitting targets—it\'s about moving through space. You wake up at the bottom of a bioluminescent cave with an alien pistol. The only way out is up, and every bullet counts as both ammo and movement fuel. I prototyped V1 in Unity to test if recoil-as-movement could work, then designed V2 as a full Metroidvania map on paper.',
+    overview: 'You fire a gun. The recoil throws you backward. That\'s the whole game. Ammo-batics started as a two-week design sprint exploring what happens when shooting isn\'t about hitting targets—it\'s about moving through space. You wake up at the bottom of a bioluminescent cave with an alien pistol. The only way out is up, and every bullet counts as both ammo and movement fuel.',
 
-    role: 'Game Designer, Level Designer, 3D Artist',
+    role: 'Game Designer, Level Designer, Programmer',
     duration: '2 Weeks',
     teamSize: 'Solo Project',
     platform: ['PC'],
+
+    // Extended sections with detailed content and images
+    extendedSections: [
+      {
+        title: 'Design Process',
+        content: 'The design process for Ammo-batics was iterative and focused on rapid prototyping. I started by identifying the core mechanic—recoil-based movement—and built a minimal prototype to test if shooting could feel good as a movement tool rather than a combat mechanic. Through playtesting, I identified key pain points like unpredictable trajectories and soft-lock scenarios, which led to the addition of trajectory previews and the transition from finite to regenerating ammo in V2.',
+        image: 'Design process.png'
+      },
+      {
+        title: 'Core Loop',
+        content: 'The core loop revolves around **Explore → Learn → Bypass → Unlock**. Players explore interconnected rooms, learn new movement techniques through environmental challenges, bypass previously inaccessible areas using their skills, and unlock shortcuts or new abilities. Each cycle reinforces mastery while opening new paths, creating a satisfying sense of progression.',
+        image: 'Core Loop.png'
+      },
+      {
+        title: 'Level Design - V1 Prototype',
+        content: 'V1 consisted of 5 linear levels designed using the **"Teach → Test → Twist"** structure. Level 1 teaches basic recoil movement. Level 2 tests it with platforming challenges. Level 3 introduces wall bounces. Level 4 combines recoil hops with ricochets. Level 5 demands mastery of all techniques in a gauntlet-style finale. Each level featured quick respawns and fair checkpoints to encourage experimentation.',
+        image: '1.png'
+      },
+      {
+        title: 'Movement Mechanics',
+        content: 'The game features layered movement tech that players gradually master: **Recoil Hops** for basic vertical movement, **Ricochets** off angled surfaces for momentum preservation, and **Wall Bounces** for advanced traversal. A laser trajectory preview shows exactly where you\'ll land after firing, making recoil feel responsive and predictable. This removed the frustration of guesswork while preserving the skill ceiling.',
+        image: '2.png'
+      },
+      {
+        title: 'V2 Design - Metroidvania Evolution',
+        content: 'V2 pivoted from linear levels to a paper-based **Metroidvania map** with interconnected rooms, checkpoints, shortcuts, and optional hard-mode routes. The biggest change: **regenerating ammo with slot upgrades** instead of finite bullets. This solved the soft-lock problem—players could no longer trap themselves by running out of ammo. Instead, progression became about cooldown management and strategic ammo slot expansion.',
+        image: 'MIniMap.png'
+      },
+      {
+        title: 'Enemy Design - Seed Shooter',
+        content: 'The Seed Shooter is the primary enemy type: a stationary turret that fires projectiles in predictable patterns. Players must time their movements carefully, using recoil to dodge while positioning for return shots. The Seed Shooter teaches spatial awareness and rhythm-based movement, reinforcing the core recoil mechanic without overwhelming players with complex AI behaviors.',
+        image: '3.png'
+      },
+      {
+        title: 'Beat Chart & Pacing',
+        content: 'The beat chart maps emotional peaks and valleys across the player journey. Early game: **Discovery** (low-stress exploration). Mid-game: **Challenge** (spike in difficulty as techniques layer). Late game: **Mastery** (high-intensity gauntlets requiring perfect execution). Checkpoints are strategically placed before difficulty spikes to prevent frustration, while shortcuts reward skilled players with faster routes.',
+        image: '4.png'
+      },
+      {
+        title: 'Future Prospects',
+        content: 'Future updates would expand enemy variety with the **Spore Spreader** (creates hazardous zones), **Crystal Guardian** (mobile enemy requiring prediction), and **Vine Snatcher** (grapple-based movement disruption). Additional features include **speed-run modes**, **challenge rooms** with leaderboards, and **customizable weapon skins** for player expression. The V2 map structure provides a foundation for modular expansion with new zones and abilities.',
+        image: '5.png'
+      }
+    ],
 
     challenges: [
       'Making recoil feel responsive without being unpredictable—players needed to know exactly where they\'d land',
@@ -38,19 +82,12 @@ export const projectsData = [
       'Interconnected rooms with multiple traversal routes',
       'Quick respawns and fair checkpoints',
       'Explore → Learn → Bypass → Unlock progression cycle',
-      'Recoil-powered movement system'
+      'Recoil-powered movement system',
+      'Laser trajectory preview for predictable movement',
+      'Regenerating ammo with upgradeable slots'
     ],
 
-    gallery: [
-      `${BASE_URL}images/projects/ammo-batics/title-card.png`,
-      `${BASE_URL}images/projects/ammo-batics/Cover.png`,
-      `${BASE_URL}images/projects/ammo-batics/1.png`,
-      `${BASE_URL}images/projects/ammo-batics/2.png`,
-      `${BASE_URL}images/projects/ammo-batics/3.png`,
-      `${BASE_URL}images/projects/ammo-batics/4.png`,
-      `${BASE_URL}images/projects/ammo-batics/5.png`,
-      `${BASE_URL}images/projects/ammo-batics/MIniMap.png`
-    ],
+    gallery: [],
 
     videoUrl: 'https://www.youtube.com/embed/oXmuplxd0LM',
 
