@@ -29,12 +29,12 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className="hero-content">
         <div className="hero-name" style={{ fontSize: '1.2rem', color: 'var(--color-primary)', marginBottom: '1rem', fontWeight: '600' }}>
-          Hemant Sharma
+          
         </div>
         <h1 ref={titleRef} className="hero-title">
           {splitText('Hemant,')}
           <br />
-          {splitText(' Game System Designer')}
+          {splitText('Game System Designer')}
         </h1>
         <p className="hero-subtitle">
           Designing engaging systems and mechanics that create meaningful player experiences

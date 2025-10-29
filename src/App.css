@@ -160,7 +160,7 @@
 }
 
 .hero-title {
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 2rem;
@@ -1262,7 +1262,7 @@
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .section-title {
