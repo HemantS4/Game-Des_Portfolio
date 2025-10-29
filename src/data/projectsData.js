@@ -192,9 +192,15 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
 
     videoUrl: 'https://www.youtube.com/embed/qCtC_vci1G0',
 
+    // Example Figma embed - to use this, add:
+    // figmaEmbed: {
+    //   url: 'https://www.figma.com/embed?embed_host=share&url=YOUR_FIGMA_FILE_URL',
+    //   title: 'UI/UX Design Overview',
+    //   description: 'Interactive Figma prototype showing all screens and user flows'
+    // },
+
     links: {
-      gdd: `${BASE_URL}Gamification_gdd.html`,
-      figma: 'https://www.figma.com/design/your-figma-file-id'  // Replace with your actual Figma link
+      gdd: `${BASE_URL}Gamification_gdd.html`
     }
   },
 

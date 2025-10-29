@@ -189,7 +189,6 @@ export default function ProjectDetail() {
               <div className="links-inline">
                 {Object.entries(project.links).map(([platform, url]) => {
                   const isGDD = platform === 'gdd' || platform === 'conceptGdd' || platform === 'gameGdd';
-                  const isFigma = platform === 'figma' || platform === 'figmaFile';
 
                   let linkText;
                   if (platform === 'gdd') {
@@ -198,8 +197,6 @@ export default function ProjectDetail() {
                     linkText = 'View Concept & Research GDD';
                   } else if (platform === 'gameGdd') {
                     linkText = 'View Game Systems GDD';
-                  } else if (platform === 'figma' || platform === 'figmaFile') {
-                    linkText = 'View Figma Design File';
                   } else {
                     linkText = platform.charAt(0).toUpperCase() + platform.slice(1).replace(/([A-Z])/g, ' $1');
                   }
@@ -210,7 +207,7 @@ export default function ProjectDetail() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={isGDD ? 'link-button gdd-button' : isFigma ? 'link-button figma-button' : 'link-button'}
+                      className={isGDD ? 'link-button gdd-button' : 'link-button'}
                     >
                       {isGDD && (
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -218,17 +215,8 @@ export default function ProjectDetail() {
                           <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       )}
-                      {isFigma && (
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                          <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      )}
                       {linkText}
-                      {!isGDD && !isFigma && (
+                      {!isGDD && (
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                           <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
@@ -237,6 +225,23 @@ export default function ProjectDetail() {
                   );
                 })}
               </div>
+            </div>
+          )}
+
+          {/* Figma Embed Section */}
+          {project.figmaEmbed && (
+            <div className="content-block figma-embed-block">
+              <h2 className="block-title">{project.figmaEmbed.title || 'Project Design'}</h2>
+              <div className="figma-embed-container">
+                <iframe
+                  src={project.figmaEmbed.url}
+                  allowFullScreen
+                  title={project.figmaEmbed.title || 'Figma Design'}
+                ></iframe>
+              </div>
+              {project.figmaEmbed.description && (
+                <p className="figma-embed-description">{project.figmaEmbed.description}</p>
+              )}
             </div>
           )}
 
