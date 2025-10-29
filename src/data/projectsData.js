@@ -253,7 +253,7 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
     description: 'A philosophical card game redefining the binary of containment and continuum of water.',
     shortDescription: 'Card game exploring water\'s dual nature',
     tools: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma', 'Tabletop Simulator'],
-    thumbnail: `${BASE_URL}images/projects/flow-and-hold/thumbnail.jpg`,
+    thumbnail: `${BASE_URL}images/projects/flow-and-hold/Frame-19.png`,
 
     overview: 'Water exists in a constant state of duality - it can be contained yet flows freely, held yet always seeking escape. Flow & Hold challenges players to think beyond traditional boundaries and explore the philosophical nature of water through strategic card gameplay. This innovative card game redefines the existing binary of contain and continuum, creating a unique gaming experience that mirrors water\'s fundamental properties through elegant mechanics and thoughtful design.',
 
