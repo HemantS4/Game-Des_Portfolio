@@ -28,6 +28,9 @@ export default function Hero() {
   return (
     <section id="home" className="hero">
       <div className="hero-content">
+        <div className="hero-name" style={{ fontSize: '1.2rem', color: 'var(--color-primary)', marginBottom: '1rem', fontWeight: '600' }}>
+          Hemant Sharma
+        </div>
         <h1 ref={titleRef} className="hero-title">
           {splitText('Game System')}
           <br />

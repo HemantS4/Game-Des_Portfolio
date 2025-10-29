@@ -37,8 +37,8 @@ export default function Sidebar({ activeSection, setActiveSection }) {
     <aside className="sidebar">
       <div className="sidebar-top">
         <div className="logo">
-          <h2>GD</h2>
-          <span>Game Designer</span>
+          <h2>HS</h2>
+          <span>Hemant Sharma</span>
         </div>
       </div>
 
@@ -57,7 +57,6 @@ export default function Sidebar({ activeSection, setActiveSection }) {
 
       <div className="sidebar-footer">
         <div className="social-links">
-          <a href="#" aria-label="Twitter">TW</a>
           <a href="#" aria-label="LinkedIn">LI</a>
           <a href="#" aria-label="Instagram">IG</a>
         </div>

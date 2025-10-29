@@ -20,7 +20,7 @@ export default function About() {
         <div className="about-text">
           <h2 className="section-title">About Me</h2>
           <p className="about-intro">
-            Game System Designer specializing in creating engaging gameplay mechanics and systems
+            I'm <strong style={{ color: 'var(--color-primary)' }}>Hemant Sharma</strong>, a Game System Designer specializing in creating engaging gameplay mechanics and systems
             that drive player interaction and immersion.
           </p>
           <p className="about-description">
