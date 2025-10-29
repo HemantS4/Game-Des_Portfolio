@@ -9,8 +9,19 @@ export default function Projects({ scrollProgress }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [sectionProgress, setSectionProgress] = useState(0)
   const [time, setTime] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
   const projectsRef = useRef(null)
   const animationRef = useRef(null)
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const startTime = Date.now()
@@ -105,6 +116,25 @@ export default function Projects({ scrollProgress }) {
     const pos = card3DPositions[index]
     const isHovered = hoveredProject === projects[index].id
     const isSelected = selectedProject === projects[index].id
+
+    // Mobile: Stack cards vertically
+    if (isMobile && !isSelected) {
+      const verticalSpacing = 25 // Percentage spacing between cards
+      const mobileY = 10 + (index * verticalSpacing) // Start at 10%, space by 25%
+
+      return {
+        position: 'relative',
+        left: '50%',
+        top: 'auto',
+        transform: 'translateX(-50%)',
+        opacity: projectPhase,
+        pointerEvents: projectPhase > 0.3 && aboutPhase < 0.5 ? 'all' : 'none',
+        cursor: 'pointer',
+        zIndex: 300 + (index * 50),
+        marginBottom: '2rem',
+        transition: 'opacity 0.3s ease'
+      }
+    }
 
     // Enhanced floating animation - more dynamic movement with unique phases
     // Each card has its own phase offset and amplitude to prevent clumping

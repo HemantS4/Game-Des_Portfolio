@@ -1214,6 +1214,29 @@
 @media (max-width: 1024px) {
   .projects-grid {
     grid-template-columns: 1fr;
+    height: auto !important;
+    min-height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    perspective: none !important;
+    padding: 2rem 1rem;
+  }
+
+  /* Mobile: Stack cards vertically, no 3D floating */
+  .project-floating {
+    position: relative !important;
+    width: 90vw !important;
+    max-width: 400px !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 auto 2rem !important;
+  }
+
+  .project-card.selected {
+    max-height: 80vh;
   }
 
   .about-content {
@@ -1224,16 +1247,6 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  /* Ensure project cards fit well on tablets */
-  .project-floating {
-    width: 340px;
-    max-width: 88vw;
-  }
-
-  .project-card.selected {
-    max-height: 80vh;
   }
 
   /* About section responsive */
