@@ -272,18 +272,22 @@ export default function ProjectDetail() {
           {project.extendedSections && project.extendedSections.length > 0 && (
             <>
               {project.extendedSections.map((section, index) => (
-                <div key={index} className="content-block mixed-block">
+                <div key={index} className={`content-block ${section.content ? 'mixed-block' : 'image-banner-block'}`}>
                   <h2 className="block-title">{section.title}</h2>
-                  <div className="text-content">{renderMarkdown(section.content)}</div>
-                  <div className="block-image">
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/projects/${project.id.replace(/-/g, '-')}/${section.image}`}
-                      alt={section.title}
-                      onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/800x450/1a1a2e/ff7849?text=${encodeURIComponent(section.title)}`
-                      }}
-                    />
-                  </div>
+                  {section.content && (
+                    <div className="text-content">{renderMarkdown(section.content)}</div>
+                  )}
+                  {section.image && (
+                    <div className="block-image">
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/projects/${project.id.replace(/-/g, '-')}/${section.image}`}
+                        alt={section.title}
+                        onError={(e) => {
+                          e.target.src = `https://via.placeholder.com/800x450/1a1a2e/ff7849?text=${encodeURIComponent(section.title)}`
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               ))}
             </>

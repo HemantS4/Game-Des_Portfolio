@@ -137,7 +137,8 @@ export const projectsData = [
       },
       {
         title: 'Gamification Framework',
-        content: `I used Yu-kai Chou's Octalysis model to balance "White Hat" (healthy motivation) vs "Black Hat" (addictive pressure). High emphasis on Accomplishment (XP, streaks), Empowerment (you control everything, AI just helps), and Ownership (unlock themes). Low emphasis on Loss Avoidance (grace periods prevent guilt spirals) and Scarcity (no timers or energy bars). The goal: make it sticky without being manipulative.`
+        content: '',
+        image: 'Framework.png'
       },
       {
         title: 'What I Learned',
