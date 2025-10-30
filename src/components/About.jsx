@@ -51,7 +51,7 @@ export default function About() {
           <div className="profile-image-container">
             <div className="profile-image-wrapper">
               <img
-                src={`${import.meta.env.BASE_URL}profile.jpg`}
+                src={`${import.meta.env.BASE_URL}ME1.png`}
                 alt="Profile"
                 className="profile-image"
                 onError={(e) => {
