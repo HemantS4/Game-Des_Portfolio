@@ -834,11 +834,12 @@
     0 10px 40px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 2;
+  transform: scale(1.15); /* Zoom in the image a bit */
   transition: transform 0.3s ease;
 }
 
 .profile-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.2); /* Slightly larger zoom on hover */
 }
 
 .profile-glow {
