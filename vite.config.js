@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/hemant/', // Must match GitHub repository name
+  base: '/Hemant/', // Must match GitHub repository name
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
