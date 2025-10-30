@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow & Hold — Game Design Document</title>
+  <style>
+    :root {
+      --bg-dark: #0a0a1e;
+      --bg-card: #1a1a2e;
+      --text-main: #e8e8f0;
+      --text-muted: #a0a0b8;
+      --accent-blue: #4a7c9e;
+      --accent-cream: #f5e6d3;
+      --accent-pink: #e89fc7;
+      --border-subtle: rgba(74, 124, 158, 0.2);
+      --glow-blue: rgba(74, 124, 158, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #1a1a3e 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid var(--border-subtle);
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    h2 {
+      font-size: 36px;
+      color: var(--accent-blue);
+      margin-bottom: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: var(--accent-cream);
+      margin: 32px 0 16px;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 18px;
+      color: var(--accent-blue);
+      margin: 24px 0 12px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 17px;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent-blue);
+      box-shadow: 0 12px 32px rgba(74, 124, 158, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    b {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    em {
+      color: var(--accent-pink);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* Callout */
+    .callout {
+      background: var(--glow-blue);
+      border-left: 4px solid var(--accent-blue);
+      padding: 24px;
+      margin: 32px 0;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .callout b {
+      color: var(--accent-blue);
+    }
+
+    /* Figure/Images */
+    .figure {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--border-subtle);
+      background: var(--bg-card);
+      transition: all 0.4s ease;
+      margin-bottom: 24px;
+    }
+
+    .figure:hover {
+      border-color: var(--accent-blue);
+      box-shadow: 0 16px 48px rgba(74, 124, 158, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .figure:hover img {
+      transform: scale(1.02);
+    }
+
+    .caption {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.2);
+      font-style: italic;
+    }
+
+    /* Divider */
+    .hr {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+      margin: 32px 0;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 100px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px 60px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Flow & Hold</h1>
+      <div class="subtitle">A Philosophical Card Game About Water's Dual Nature</div>
+    </header>
+
+    <!-- Title Image -->
+    <div class="section">
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-19.png" alt="Flow & Hold — Strike the Balance">
+        <div class="caption">Flow & Hold — Strike the Balance</div>
+      </div>
+    </div>
+
+    <!-- The Spark -->
+    <div id="spark" class="section">
+      <h2>The Spark</h2>
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame.png" alt="The Spark — What does water do?">
+      </div>
+
+      <div class="callout">
+        <b>What does water do?</b><br>
+        Flows in rivers, rests in ponds, crashes as tsunamis, hides in bottles. Container changes meaning: Bottle = purity & profit. Dam = control. Flood = chaos.<br><br>
+        We began by mapping where water lives.
+      </div>
+    </div>
+
+    <!-- The Nature of Water -->
+    <div id="nature" class="section">
+      <h2>The Nature of Water</h2>
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-1.png" alt="The Nature of Water">
+      </div>
+
+      <div class="card">
+        <h3>Properties We Noticed</h3>
+        <ul>
+          <li><b>Calm vs. Chaos</b> → a lake vs. a flood.</li>
+          <li><b>Fluid vs. Solid vs. Vapour</b> → water slips between states.</li>
+          <li><b>Vital yet Volatile</b> → life-giver and destroyer.</li>
+        </ul>
+        <p>This duality fascinated us.</p>
+      </div>
+    </div>
+
+    <!-- Initial Sketches -->
+    <div id="sketches" class="section">
+      <h2>Initial Sketches & Exploration</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-2.png" alt="First Shapes">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-3.png" alt="Exploration 1">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-4.png" alt="Exploration 2">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-5.png" alt="Visual Language Development">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-6.png" alt="Shape Studies">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-7.png" alt="Pattern Exploration">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-8.png" alt="Symbol Development">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-9.png" alt="Final Symbol Set">
+      </div>
+    </div>
+
+    <!-- The Question -->
+    <div id="question" class="section">
+      <h2>The Question We're Asking</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-10.png" alt="That's the question we're asking!">
+      </div>
+
+      <div class="callout">
+        <b>Why do we trust water only when it's in a glass/bottle?</b><br>
+        Who decided that?<br><br>
+        And why is the same water suddenly called "holy" in a temple or "dirty" in a flood?
+      </div>
+    </div>
+
+    <!-- Game Concept -->
+    <div id="concept" class="section">
+      <h2>Game Concept</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-11.png" alt="Game Concept Introduction">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-12.png" alt="Core Mechanics">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-13.png" alt="Gameplay Loop">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-14.png" alt="Player Interaction">
+      </div>
+    </div>
+
+    <!-- Card Design -->
+    <div id="cards" class="section">
+      <h2>Card Design & Visual Language</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-15.png" alt="Card Design Process">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-16.png" alt="Hold Cards">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-17.png" alt="Flow Cards">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-18.png" alt="Card Variations">
+      </div>
+    </div>
+
+    <!-- Game Rules -->
+    <div id="rules" class="section">
+      <h2>How to Play</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-20.png" alt="Game Setup">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-21.png" alt="Turn Structure">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-22.png" alt="Gameplay Example">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-23.png" alt="Advanced Strategies">
+      </div>
+    </div>
+
+    <!-- Playtesting & Iteration -->
+    <div id="playtesting" class="section">
+      <h2>Playtesting & Iteration</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-24.png" alt="Playtesting Insights">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-25.png" alt="Player Feedback">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-26.png" alt="Design Iterations">
+      </div>
+    </div>
+
+    <!-- Final Design -->
+    <div id="final" class="section">
+      <h2>Final Design & Production</h2>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-27.png" alt="Final Card Design">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-28.png" alt="Production Ready">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-29.png" alt="Complete Set">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-30.png" alt="Packaging Design">
+      </div>
+
+      <div class="figure">
+        <img src="images/projects/flow-and-hold/Frame-31.png" alt="Final Product">
+      </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div id="conclusion" class="section">
+      <h2>Conclusion & Reflection</h2>
+      <div class="card">
+        <p>
+          Flow & Hold emerged from a simple question about water's dual nature and evolved into a
+          philosophical card game that challenges players to think beyond traditional binaries.
+          Through iterative design, playtesting, and thoughtful visual development, we created a
+          game that mirrors water's fundamental properties—containment and continuum, held and flowing.
+        </p>
+        <p>
+          The game invites players to question their relationship with water and the containers we
+          place around it—both literal and metaphorical. By engaging with these concepts through
+          strategic gameplay, players develop a deeper appreciation for water's complexity and the
+          arbitrary boundaries we impose on nature.
+        </p>
+      </div>
+
+      <div class="callout">
+        <b>Strike the balance.</b> Water doesn't choose between flow and hold—it exists in both states
+        simultaneously. The game asks: can you?
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Flow & Hold — A Philosophical Card Game (2024)</p>
+      <p>Designed by Hemant Singh & Team</p>
+    </footer>
+  </div>
+</body>
+</html>
