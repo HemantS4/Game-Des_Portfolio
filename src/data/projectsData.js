@@ -515,7 +515,7 @@ Field research: kids engage most when they feel in control. Pause anytime. Skip 
     year: '2025',
     description: 'Light spreads. You pass it on—until the wind takes your flame.',
     shortDescription: 'Poetry-to-mechanic experimental game',
-    tools: ['Unity', 'C#', 'Photoshop', 'Audacity'],
+    tools: ['Unity', 'C#', 'Photoshop'],
     thumbnail: `${BASE_URL}images/projects/spring-twilight/thumbnail.png`,
 
     overview: 'Inspired by Yosa Buson\'s haiku: "The light of a candle / is transferred to another candle— / spring twilight." Spring Twilight transforms this poetic image into interactive play. You begin as a single candle in a dark field, transferring your flame to unlit sky-lanterns drifting past. Each click ignites a lantern that rises and persists. When the wind finally snuffs your candle, the camera lifts to reveal a sky filled with every lantern you lit—your quiet legacy. A minimalist meditation on generosity, impermanence, and the cumulative impact of small acts of giving.',
@@ -574,9 +574,9 @@ The cohesive visual and sound design serves the theme, creating an atmosphere of
     ],
 
     role: 'Solo Designer-Developer',
-    duration: '3 Weeks',
+    duration: '2 Weeks',
     teamSize: 'Solo Project',
-    platform: ['PC', 'Mac', 'Web'],
+    platform: ['PC', 'Web'],
 
     challenges: [
       'Translating abstract poetry into concrete, playable mechanics',
@@ -615,7 +615,9 @@ The cohesive visual and sound design serves the theme, creating an atmosphere of
 
     videoUrl: 'https://www.youtube.com/embed/LdWjM72sZjo',
 
-    links: {}
+    links: {
+      itchIo: 'https://hemants4.itch.io/light-of-a-candle'
+    }
   }
 ]
 

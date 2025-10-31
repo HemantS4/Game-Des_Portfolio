@@ -10,7 +10,7 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="footer">
+    <footer className="footer">
       <div className="footer-content">
         <div className="footer-main">
           <h2 className="footer-title">Let's Create Something Amazing</h2>

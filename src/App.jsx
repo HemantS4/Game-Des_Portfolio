@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import About from './components/About'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectDetail from './components/ProjectDetail'
 import AllProjects from './components/AllProjects'
@@ -18,6 +19,7 @@ function HomePage({ activeSection, setActiveSection, scrollProgress }) {
         <Hero />
         <Projects scrollProgress={scrollProgress} />
         <About />
+        <Contact />
         <Footer />
       </main>
     </>
