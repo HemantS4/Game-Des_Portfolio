@@ -133,7 +133,8 @@ export const projectsData = [
       },
       {
         title: 'Who It\'s For',
-        content: `The research split into four groups: Busy Professionals (need voice-to-text, no time to type), Creative Dreamers (blank page anxiety, need prompts), Overwhelmed Parents (photos scattered everywhere, feel guilty about gaps), Growth Seekers (want visible progress metrics). I designed for all four—voice entry, creative prompts, auto-photo timelines, XP tracking.`
+        content: '',
+        image: 'Who It is for.png'
       },
       {
         title: 'Gamification Framework',
@@ -211,12 +212,6 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
         { label: 'Takes Too Long', value: 78, unit: '%', color: '#ff7849' },
         { label: 'No Feedback', value: 65, unit: '%', color: '#ffb347' },
         { label: 'Want AI/Gamification', value: 82, unit: '%', color: '#4ade80' }
-      ],
-      personas: [
-        { label: 'Busy Professionals', value: 28, color: '#ff7849' },
-        { label: 'Creative Dreamers', value: 24, color: '#ffb347' },
-        { label: 'Overwhelmed Parents', value: 26, color: '#4ade80' },
-        { label: 'Growth Seekers', value: 22, color: '#60a5fa' }
       ],
       octalysisBalance: [
         { label: 'Accomplishment', value: 90, unit: '%', color: '#4ade80' },
