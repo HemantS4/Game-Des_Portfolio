@@ -3,6 +3,34 @@ import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber'
 import { useGLTF, Sphere } from '@react-three/drei'
 import * as THREE from 'three'
 
+// Error Boundary for GLTF loading errors
+class GLTFErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error) {
+    console.error('GLTF loading error:', error)
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('GLTF Error details:', error, errorInfo)
+    // Notify parent component of the error
+    if (this.props.onError) {
+      this.props.onError(error)
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null // Render nothing on error, will fall back to shader moon
+    }
+    return this.props.children
+  }
+}
+
 // Component to load GLTF controller model (Updated Oct 2024)
 function MoonModel({ meshRef, scrollProgress, mousePosition }) {
   const modelPath = import.meta.env.BASE_URL + 'models/Controller.glb'
@@ -38,6 +66,12 @@ function MoonModel({ meshRef, scrollProgress, mousePosition }) {
     modelRef.current.position.y = Math.sin(time * 0.3) * 0.3
     modelRef.current.position.x = Math.sin(scrollProgress * Math.PI) * 0.8
   })
+
+  // Validate and render
+  if (!gltf || !gltf.scene) {
+    console.error('GLTF model failed to load or is invalid')
+    return null
+  }
 
   return (
     <primitive
@@ -352,26 +386,33 @@ function MoonSphere({ mousePosition, scrollProgress, clicked, onMoonClick }) {
     return null
   }
 
+  // Render shader moon fallback
+  const renderShaderMoon = () => (
+    <mesh
+      ref={meshRef}
+      scale={3.0}
+      position={[0, 0, -2]}
+    >
+      <sphereGeometry args={[1, 64, 64]} />
+      <primitive object={moonMaterial} attach="material" />
+    </mesh>
+  )
+
   return (
     <>
       {/* Use GLTF model if it exists, otherwise use shader moon */}
       {modelExists ? (
-        <React.Suspense fallback={null}>
-          <MoonModel
-            meshRef={meshRef}
-            scrollProgress={scrollProgress}
-            mousePosition={mousePosition}
-          />
-        </React.Suspense>
+        <GLTFErrorBoundary onError={() => setModelExists(false)}>
+          <React.Suspense fallback={null}>
+            <MoonModel
+              meshRef={meshRef}
+              scrollProgress={scrollProgress}
+              mousePosition={mousePosition}
+            />
+          </React.Suspense>
+        </GLTFErrorBoundary>
       ) : (
-        <mesh
-          ref={meshRef}
-          scale={3.0}
-          position={[0, 0, -2]}
-        >
-          <sphereGeometry args={[1, 64, 64]} />
-          <primitive object={moonMaterial} attach="material" />
-        </mesh>
+        renderShaderMoon()
       )}
     </>
   )

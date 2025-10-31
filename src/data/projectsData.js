@@ -6,7 +6,7 @@ export const projectsData = [
     id: 'ammo-batics',
     title: 'Ammo-batics',
     category: '2D Platformer',
-    year: '2024',
+    year: '2025',
     description: 'A 2D momentum-centric platformer where every shot fired becomes a movement decision.',
     shortDescription: '2D shooter platformer focusing on Level Design',
     tools: ['Unity', 'Photoshop', 'C#'],
@@ -113,7 +113,7 @@ export const projectsData = [
     id: 'flowlog',
     title: 'Momentum',
     category: 'UX/UI & Gamification',
-    year: '2024',
+    year: '2025',
     description: 'A gamified documentation app that makes capturing ideas effortless and rewarding.',
     shortDescription: 'Gamified documentation app with AI assistance',
     tools: ['Figma', 'Adobe Creative Suite', 'Notion'],
@@ -129,7 +129,8 @@ export const projectsData = [
       },
       {
         title: 'How It Works',
-        content: `Capture (voice, text, or photo) → AI formats and tags it → You earn XP and streak progress → Weekly vibe charts show patterns → Unlocked themes keep it fresh. The loop takes under 2 minutes. Open app, say what happened, close app. AI handles the rest. Streaks use "grace periods" so missing one day doesn't nuke your progress—because guilt kills habits.`
+        content: '',
+        image: 'Howitworks.png'
       },
       {
         title: 'Who It\'s For',
@@ -159,17 +160,8 @@ Customizable themes, avatars, and visual styles made the documentation space fee
       },
       {
         title: 'The Momentum Loop',
-        content: `The app follows a cyclical habit system backed by behavioral psychology:
-
-**📸 Capture** → Quick entry via voice, photo, or text (<2 mins). Hardware shortcuts reduce friction.
-
-**🧠 Reflect** → Review AI-generated insights: auto-tagging, mood graphs, weekly scrapbooks.
-
-**🏆 Reward** → View progress and achievements: streaks, badges, growing visual metaphors (plants, trees).
-
-**🔁 Repeat** → Return through smart, gentle prompts and personalized challenges.
-
-This creates a sustainable engagement cycle based on Self-Determination Theory: Autonomy (you control everything), Competence (visible progress), Relatedness (optional social circles).`
+        content: '',
+        image: 'The momentum loop.png'
       }
     ],
 
@@ -245,7 +237,7 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
     id: 'flow-and-hold',
     title: 'Flow & Hold',
     category: 'Card Game Design',
-    year: '2024',
+    year: '2025',
     description: 'A philosophical card game redefining the binary of containment and continuum of water.',
     shortDescription: 'Card game exploring water\'s dual nature',
     tools: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma', 'Tabletop Simulator'],
@@ -331,7 +323,7 @@ This creates a sustainable engagement cycle based on Self-Determination Theory: 
     id: 'dp2-motor-play',
     title: 'DP2 — AR Motor-Play',
     category: 'Applied Game',
-    year: '2024 (Ongoing)',
+    year: '2025 (Ongoing)',
     description: 'An applied AR game concept for autistic children with motor coordination support.',
     shortDescription: 'AR therapeutic game for ASD + DCD (Ongoing)',
     tools: ['Unity', 'AR Foundation', 'Figma', 'Research Methods', 'UX Design'],
@@ -520,7 +512,7 @@ Field research: kids engage most when they feel in control. Pause anytime. Skip 
     id: 'spring-twilight',
     title: 'Spring Twilight',
     category: 'Experimental Game',
-    year: '2024',
+    year: '2025',
     description: 'Light spreads. You pass it on—until the wind takes your flame.',
     shortDescription: 'Poetry-to-mechanic experimental game',
     tools: ['Unity', 'C#', 'Photoshop', 'Audacity'],
@@ -536,7 +528,13 @@ Field research: kids engage most when they feel in control. Pause anytime. Skip 
 
 **Core Philosophy:** "If you keep giving happiness to others, the real joy returns to you." Mechanically, your candle is mortal; the lights you share endure. The payoff is larger than the actions that produced it.
 
-**Attribution:** Inspired by a haiku by Yosa Buson (public domain).`
+**Attribution:** Inspired by a haiku by Yosa Buson (public domain).`,
+        image: 'Concept.jpg'
+      },
+      {
+        title: 'Core Loop',
+        content: '',
+        image: 'Core-Loop.png'
       },
       {
         title: 'Core Mechanics',
@@ -554,7 +552,8 @@ The game creates an elegant loss/payoff loop: wind ends you, but your gifts rema
 
 **Poetry-to-Mechanic Translation:** The haiku's "transfer" becomes the core interaction—ignition and persistence. The wind represents life's inevitable challenges, while the final reveal embodies the poem's "spring twilight."
 
-**Emotional Journey:** Players experience calm moment-to-moment gameplay that builds into a reflective, contemplative payoff. The design emphasizes that small, repeated acts of kindness create something greater than their sum.`
+**Emotional Journey:** Players experience calm moment-to-moment gameplay that builds into a reflective, contemplative payoff. The design emphasizes that small, repeated acts of kindness create something greater than their sum.`,
+        backgroundGif: 'Theme.gif'
       },
       {
         title: 'Aesthetics & Audio Design',
@@ -607,6 +606,7 @@ The cohesive visual and sound design serves the theme, creating an atmosphere of
     ],
 
     gallery: [
+      `${BASE_URL}images/projects/spring-twilight/thumbnail.png`,
       `${BASE_URL}images/projects/spring-twilight/screenshot-1.png`,
       `${BASE_URL}images/projects/spring-twilight/screenshot-2.png`,
       `${BASE_URL}images/projects/spring-twilight/screenshot-3.png`,

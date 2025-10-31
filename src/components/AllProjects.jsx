@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 import Sidebar from './Sidebar'
@@ -8,6 +8,7 @@ export default function AllProjects() {
   const [activeSection, setActiveSection] = useState('projects')
   const [filter, setFilter] = useState('all')
   const [selectedArtwork, setSelectedArtwork] = useState(null)
+  const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(null)
 
   const categories = ['all', ...new Set(projectsData.map(p => p.category))]
 
@@ -15,15 +16,64 @@ export default function AllProjects() {
     ? projectsData
     : projectsData.filter(p => p.category === filter)
 
-  // Artwork images - add your artwork file names here
+  // Artwork images and videos
   const artworks = [
-    { id: 1, src: `${import.meta.env.BASE_URL}images/artworks/artwork-1.jpg`, alt: 'Artwork 1' },
-    { id: 2, src: `${import.meta.env.BASE_URL}images/artworks/artwork-2.jpg`, alt: 'Artwork 2' },
-    { id: 3, src: `${import.meta.env.BASE_URL}images/artworks/artwork-3.jpg`, alt: 'Artwork 3' },
-    { id: 4, src: `${import.meta.env.BASE_URL}images/artworks/artwork-4.jpg`, alt: 'Artwork 4' },
-    { id: 5, src: `${import.meta.env.BASE_URL}images/artworks/artwork-5.jpg`, alt: 'Artwork 5' },
-    { id: 6, src: `${import.meta.env.BASE_URL}images/artworks/artwork-6.jpg`, alt: 'Artwork 6' }
+    { id: 1, src: `${import.meta.env.BASE_URL}images/artworks/1.png`, alt: 'Digital Art', type: 'image' },
+    { id: 2, src: `${import.meta.env.BASE_URL}images/artworks/3.jpg`, alt: 'Character Design', type: 'image' },
+    { id: 3, src: `${import.meta.env.BASE_URL}images/artworks/camera2.jpg`, alt: 'Camera Study', type: 'image' },
+    { id: 4, src: `${import.meta.env.BASE_URL}images/artworks/POT.png`, alt: 'POT Artwork', type: 'image' },
+    { id: 5, src: `${import.meta.env.BASE_URL}images/artworks/Screenshot 2024-03-31 150415.png`, alt: 'Digital Illustration', type: 'image' },
+    { id: 6, src: `${import.meta.env.BASE_URL}images/artworks/Screenshot 2025-08-10 205226.png`, alt: 'Game Art', type: 'image' },
+    { id: 7, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork (12).png`, alt: 'Untitled Artwork 12', type: 'image' },
+    { id: 8, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork(7).png`, alt: 'Untitled Artwork 7', type: 'image' },
+    { id: 9, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork(8).png`, alt: 'Untitled Artwork 8', type: 'image' },
+    { id: 10, src: `${import.meta.env.BASE_URL}images/artworks/whale1.png`, alt: 'Whale Artwork 1', type: 'image' },
+    { id: 11, src: `${import.meta.env.BASE_URL}images/artworks/Whale2.png`, alt: 'Whale Artwork 2', type: 'image' },
+    { id: 12, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork.png`, alt: 'Untitled Artwork', type: 'image' },
+    { id: 13, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork(1).png`, alt: 'Untitled Artwork 1', type: 'image' },
+    { id: 14, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork(2).png`, alt: 'Untitled Artwork 2', type: 'image' },
+    { id: 15, src: `${import.meta.env.BASE_URL}images/artworks/Untitled_Artwork(3).png`, alt: 'Untitled Artwork 3', type: 'image' },
+    { id: 16, src: `${import.meta.env.BASE_URL}images/artworks/0000-0480.mp4`, alt: 'Animation Demo', type: 'video' }
   ]
+
+  const goToPreviousArtwork = () => {
+    if (selectedArtworkIndex > 0) {
+      const newIndex = selectedArtworkIndex - 1
+      setSelectedArtworkIndex(newIndex)
+      setSelectedArtwork(artworks[newIndex])
+    }
+  }
+
+  const goToNextArtwork = () => {
+    if (selectedArtworkIndex < artworks.length - 1) {
+      const newIndex = selectedArtworkIndex + 1
+      setSelectedArtworkIndex(newIndex)
+      setSelectedArtwork(artworks[newIndex])
+    }
+  }
+
+  const closeArtworkLightbox = () => {
+    setSelectedArtwork(null)
+    setSelectedArtworkIndex(null)
+  }
+
+  // Keyboard navigation for artwork lightbox
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (!selectedArtwork) return
+
+      if (e.key === 'Escape') {
+        closeArtworkLightbox()
+      } else if (e.key === 'ArrowLeft') {
+        goToPreviousArtwork()
+      } else if (e.key === 'ArrowRight') {
+        goToNextArtwork()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [selectedArtwork, selectedArtworkIndex])
 
   return (
     <>
@@ -113,19 +163,41 @@ export default function AllProjects() {
                 key={artwork.id}
                 className="artwork-item"
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedArtwork(artwork)}
+                onClick={() => {
+                  setSelectedArtwork(artwork)
+                  setSelectedArtworkIndex(index)
+                }}
               >
-                <img
-                  src={artwork.src}
-                  alt={artwork.alt}
-                  onError={(e) => {
-                    e.target.src = `https://via.placeholder.com/600x600/1a1a2e/ff7849?text=Artwork+${artwork.id}`
-                  }}
-                />
+                {artwork.type === 'video' ? (
+                  <video
+                    src={artwork.src}
+                    muted
+                    loop
+                    playsInline
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={artwork.src}
+                    alt={artwork.alt}
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/600x600/1a1a2e/ff7849?text=Artwork+${artwork.id}`
+                    }}
+                  />
+                )}
                 <div className="artwork-overlay">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  {artwork.type === 'video' ? (
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                    </svg>
+                  ) : (
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
                 </div>
               </div>
             ))}
@@ -134,14 +206,48 @@ export default function AllProjects() {
 
         {/* Artwork Lightbox */}
         {selectedArtwork && (
-          <div className="artwork-lightbox" onClick={() => setSelectedArtwork(null)}>
+          <div className="artwork-lightbox" onClick={closeArtworkLightbox}>
             <div className="artwork-lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <button className="artwork-close" onClick={() => setSelectedArtwork(null)}>
+              <button className="artwork-close" onClick={closeArtworkLightbox}>
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
                   <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
-              <img src={selectedArtwork.src} alt={selectedArtwork.alt} />
+
+              {/* Previous Button */}
+              {selectedArtworkIndex > 0 && (
+                <button className="artwork-prev" onClick={goToPreviousArtwork}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              )}
+
+              {/* Next Button */}
+              {selectedArtworkIndex < artworks.length - 1 && (
+                <button className="artwork-next" onClick={goToNextArtwork}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              )}
+
+              {selectedArtwork.type === 'video' ? (
+                <video
+                  src={selectedArtwork.src}
+                  controls
+                  autoPlay
+                  loop
+                  style={{ maxWidth: '90vw', maxHeight: '85vh', width: 'auto', height: 'auto' }}
+                />
+              ) : (
+                <img src={selectedArtwork.src} alt={selectedArtwork.alt} />
+              )}
+
+              {/* Image Counter */}
+              <div className="artwork-counter">
+                {selectedArtworkIndex + 1} / {artworks.length}
+              </div>
             </div>
           </div>
         )}

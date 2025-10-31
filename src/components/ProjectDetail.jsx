@@ -99,6 +99,16 @@ export default function ProjectDetail() {
     <>
       <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
 
+      {/* Floating Lanterns for Spring Twilight */}
+      {project.id === 'spring-twilight' && (
+        <div className="floating-lanterns">
+          <img src={`${import.meta.env.BASE_URL}images/projects/spring-twilight/Floating-Lantern.gif`} className="lantern lantern-1" alt="" />
+          <img src={`${import.meta.env.BASE_URL}images/projects/spring-twilight/Floating-Lantern.gif`} className="lantern lantern-2" alt="" />
+          <img src={`${import.meta.env.BASE_URL}images/projects/spring-twilight/Floating-Lantern.gif`} className="lantern lantern-3" alt="" />
+          <img src={`${import.meta.env.BASE_URL}images/projects/spring-twilight/Floating-Lantern.gif`} className="lantern lantern-4" alt="" />
+        </div>
+      )}
+
       {/* Fixed Back Button Overlay */}
       <Link to="/" className="back-button">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -229,31 +239,9 @@ export default function ProjectDetail() {
           )}
 
           {/* Research Data Visualizations */}
-          {project.researchData && (
+          {project.researchData && project.id !== 'flowlog' && (
             <div className="content-block research-block">
               <h2 className="block-title">Research & Insights</h2>
-
-              {/* Momentum/Flowlog specific charts */}
-              {project.id === 'flowlog' && (
-                <>
-                  <BarChart
-                    data={project.researchData.userBarriers}
-                    title="Why People Quit Journaling (N=20+ interviews)"
-                    height={280}
-                  />
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem' }}>
-                    <DonutChart
-                      data={project.researchData.personas}
-                      title="Target User Groups"
-                      centerLabel="4 Types"
-                    />
-                    <ProgressBars
-                      data={project.researchData.octalysisBalance}
-                      title="Gamification Strategy Balance"
-                    />
-                  </div>
-                </>
-              )}
 
               {/* DP2 specific charts */}
               {project.id === 'dp2-motor-play' && (
@@ -272,13 +260,19 @@ export default function ProjectDetail() {
           {project.extendedSections && project.extendedSections.length > 0 && (
             <>
               {project.extendedSections.map((section, index) => (
-                <div key={index} className={`content-block ${section.content ? 'mixed-block' : 'image-banner-block'}`}>
+                <div
+                  key={index}
+                  className={`content-block ${section.content ? 'mixed-block' : 'image-banner-block'} ${section.backgroundGif ? 'gif-background-block' : ''}`}
+                  style={section.backgroundGif ? {
+                    backgroundImage: `url(${import.meta.env.BASE_URL}images/projects/${project.id.replace(/-/g, '-')}/${section.backgroundGif})`
+                  } : {}}
+                >
                   <h2 className="block-title">{section.title}</h2>
                   {section.content && (
                     <div className="text-content">{renderMarkdown(section.content)}</div>
                   )}
                   {section.image && (
-                    <div className="block-image">
+                    <div className={`block-image ${section.image === 'Howitworks.png' ? 'small-image' : ''}`}>
                       <img
                         src={`${import.meta.env.BASE_URL}images/projects/${project.id.replace(/-/g, '-')}/${section.image}`}
                         alt={section.title}

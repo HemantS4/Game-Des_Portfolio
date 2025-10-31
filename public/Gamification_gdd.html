@@ -71,8 +71,23 @@
         padding: 25px 15px;
         font-size: 0.95em;
     }
+    .section-image {
+        width: 100%;
+        max-width: 900px;
+        margin: 30px auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    .section-image.medium {
+        max-width: 700px;
+    }
+    .section-image.small {
+        max-width: 500px;
+    }
     @media print {
         header, footer { background: none; color: black; }
+        .section-image { max-width: 100%; page-break-inside: avoid; }
     }
 </style>
 </head>
@@ -111,6 +126,11 @@
         <li><strong>Personalize:</strong> Unlock visual themes and rewards.</li>
     </ol>
     <p class="highlight">Player motivation: Create → Progress → Reflect → Personalize → Repeat.</p>
+
+    <img src="images/projects/flowlog/The momentum loop.png" alt="The Momentum Loop" class="section-image medium">
+
+    <h3>How It Works</h3>
+    <img src="images/projects/flowlog/Howitworks.png" alt="How It Works" class="section-image small">
 </section>
 
 <section>
@@ -140,6 +160,8 @@
 
 <section>
     <h2>6. User Personas (Detailed)</h2>
+
+    <img src="images/projects/flowlog/Who It is for.png" alt="Who It's For - User Personas" class="section-image">
 
     <h3>👩‍💻 The Busy Professional</h3>
     <ul>
@@ -196,6 +218,8 @@
 <section>
     <h2>8. Octalysis Framework Analysis</h2>
     <p>Momentum's gamification strategy is grounded in Yu-kai Chou's Octalysis Framework, balancing intrinsic and extrinsic motivators to create sustainable engagement without fostering addiction.</p>
+
+    <img src="images/projects/flowlog/Framework.png" alt="Gamification Framework" class="section-image">
 
     <h3>Core Drive 1: Epic Meaning & Calling</h3>
     <ul>

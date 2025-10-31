@@ -2,8 +2,13 @@ import React from 'react'
 import '../styles/ResearchCharts.css'
 
 // Simple bar chart component
-export const BarChart = ({ data, title, height = 300 }) => {
+export const BarChart = ({ data, title, height = 320 }) => {
+  if (!data || data.length === 0) {
+    return null
+  }
+
   const maxValue = Math.max(...data.map(d => d.value))
+  const unit = data[0]?.unit || '%'
 
   return (
     <div className="chart-container">
@@ -15,10 +20,12 @@ export const BarChart = ({ data, title, height = 300 }) => {
               className="bar"
               style={{
                 height: `${(item.value / maxValue) * 100}%`,
-                backgroundColor: item.color || '#ff7849'
+                background: item.color
+                  ? `linear-gradient(to top, ${item.color}, ${item.color}dd)`
+                  : 'linear-gradient(to top, #ff7849, #ffb347)'
               }}
             >
-              <span className="bar-value">{item.value}{item.unit || '%'}</span>
+              <span className="bar-value">{item.value}{item.unit || unit}</span>
             </div>
             <span className="bar-label">{item.label}</span>
           </div>
@@ -30,6 +37,10 @@ export const BarChart = ({ data, title, height = 300 }) => {
 
 // Horizontal progress bars for comparisons
 export const ProgressBars = ({ data, title }) => {
+  if (!data || data.length === 0) {
+    return null
+  }
+
   return (
     <div className="chart-container progress-bars-container">
       {title && <h4 className="chart-title">{title}</h4>}
@@ -58,6 +69,10 @@ export const ProgressBars = ({ data, title }) => {
 
 // Stats grid for key numbers
 export const StatsGrid = ({ stats, columns = 3 }) => {
+  if (!stats || stats.length === 0) {
+    return null
+  }
+
   return (
     <div className="stats-grid" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
       {stats.map((stat, index) => (
@@ -75,6 +90,10 @@ export const StatsGrid = ({ stats, columns = 3 }) => {
 
 // Pie/Donut chart for distribution
 export const DonutChart = ({ data, title, centerLabel }) => {
+  if (!data || data.length === 0) {
+    return null
+  }
+
   const total = data.reduce((sum, item) => sum + item.value, 0)
   let currentAngle = 0
 
