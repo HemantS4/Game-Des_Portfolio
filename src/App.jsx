@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectDetail from './components/ProjectDetail'
 import AllProjects from './components/AllProjects'
+import LockScreen from './components/LockScreen'
 import './App.css'
 
 function HomePage({ activeSection, setActiveSection, scrollProgress }) {
@@ -150,10 +151,22 @@ function AppContent() {
 }
 
 function App() {
+  // LOCK SCREEN: Set to true to enable, false to disable
+  const ENABLE_LOCK_SCREEN = true
+
+  const [isLocked, setIsLocked] = useState(ENABLE_LOCK_SCREEN)
+
+  const handleUnlock = () => {
+    setIsLocked(false)
+  }
+
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <>
+      {ENABLE_LOCK_SCREEN && isLocked && <LockScreen onUnlock={handleUnlock} />}
+      <Router>
+        <AppContent />
+      </Router>
+    </>
   )
 }
 
