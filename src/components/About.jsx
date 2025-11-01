@@ -11,7 +11,7 @@ export default function About() {
 
   const handleResumeClick = () => {
     // Open resume PDF in new tab
-    window.open('/Resume.pdf', '_blank')
+    window.open(`${import.meta.env.BASE_URL}Resume.pdf`, '_blank')
   }
 
   return (

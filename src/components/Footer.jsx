@@ -80,7 +80,7 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Resources</h4>
             <ul>
-              <li><a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+              <li><a href={`${import.meta.env.BASE_URL}Resume.pdf`} target="_blank" rel="noopener noreferrer">Resume</a></li>
               <li><a href="#">Portfolio PDF</a></li>
             </ul>
           </div>
