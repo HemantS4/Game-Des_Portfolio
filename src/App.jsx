@@ -151,7 +151,7 @@ function AppContent() {
 
 function App() {
   return (
-    <Router basename="/Hemant">
+    <Router>
       <AppContent />
     </Router>
   )
