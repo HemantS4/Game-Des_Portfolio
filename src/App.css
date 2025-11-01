@@ -136,6 +136,8 @@
   margin-left: var(--sidebar-width);
   position: relative;
   z-index: 10;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Hero Section */
@@ -149,8 +151,6 @@
   padding: 4rem 6rem;
   position: relative;
   z-index: 20;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .hero-content {
@@ -290,8 +290,6 @@
   flex-direction: column;
   justify-content: center;
   perspective: 2000px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   perspective-origin: 50% 50%;
 }
 
@@ -757,8 +755,6 @@
   min-height: 100vh;
   height: 100vh;
   padding: 6rem;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   display: flex;
   align-items: center;
   justify-content: center;

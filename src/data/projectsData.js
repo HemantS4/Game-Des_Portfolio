@@ -509,6 +509,49 @@ Field research: kids engage most when they feel in control. Pause anytime. Skip 
   },
 
   {
+    id: 'moti',
+    title: 'Moti',
+    category: 'Indie Game',
+    year: '2025',
+    description: 'A cozy indie dog experience game',
+    shortDescription: 'Cozy dog companion experience',
+    tools: ['Unity', 'C#', 'Blender'],
+    thumbnail: `${BASE_URL}images/projects/Moti/moti 1.png`,
+
+    overview: '',
+
+    role: 'System Designer, Developer',
+    duration: '3 Weeks',
+    teamSize: '3 Person Team',
+    platform: ['PC'],
+
+    extendedSections: [],
+
+    challenges: [],
+
+    solutions: [],
+
+    features: [],
+
+    gallery: [
+      `${BASE_URL}images/projects/Moti/moti 1.png`,
+      `${BASE_URL}images/projects/Moti/moti 2.png`,
+      `${BASE_URL}images/projects/Moti/moti 3.png`,
+      `${BASE_URL}images/projects/Moti/moti 4.png`,
+      `${BASE_URL}images/projects/Moti/moti 5.png`,
+      `${BASE_URL}images/projects/Moti/moti 6.png`,
+      `${BASE_URL}images/projects/Moti/moti 7.png`,
+      `${BASE_URL}images/projects/Moti/moti 8.png`,
+      `${BASE_URL}images/projects/Moti/moti 9.png`,
+      `${BASE_URL}images/projects/Moti/moti 10.png`
+    ],
+
+    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+
+    links: {}
+  },
+
+  {
     id: 'spring-twilight',
     title: 'Spring Twilight',
     category: 'Experimental Game',

@@ -11,7 +11,7 @@ export default function About() {
 
   const handleResumeClick = () => {
     // Open resume PDF in new tab
-    window.open('/resume.pdf', '_blank')
+    window.open('/Resume.pdf', '_blank')
   }
 
   return (

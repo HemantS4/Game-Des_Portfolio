@@ -9,6 +9,8 @@
   z-index: 10;
   max-width: 1800px;
   margin: 0 auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Long Scrollable Container - Magazine Style */
@@ -21,6 +23,16 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   min-height: 100vh;
   /* Removed max-height and overflow to allow natural page scrolling */
+}
+
+/* Image-only layout - no padding for seamless image display */
+.project-content-scroll.image-only-layout {
+  padding: 4rem 4rem 0 4rem;
+}
+
+.project-content-scroll.image-only-layout .project-hero-content {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* Content Blocks */
@@ -507,6 +519,32 @@
   margin-right: 0;
 }
 
+/* Vertical stacked gallery with no gaps (for image-only projects) */
+.content-block.gallery-block:not(:has(h2)) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
+}
+
+.gallery-block:not(:has(h2)) .gallery-image-block {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  display: block;
+  cursor: default;
+}
+
+.gallery-block:not(:has(h2)) .gallery-image-block:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.gallery-block:not(:has(h2)) .gallery-image-block:hover img {
+  transform: none;
+}
+
 .gallery-image-block:hover {
   border-color: rgba(255, 120, 73, 0.5);
   transform: translateY(-5px);
@@ -580,13 +618,16 @@
 
 .nav-project {
   display: flex;
-  flex-direction: column;
-  padding: 2rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
   background: rgba(15, 15, 35, 0.6);
   border: 1px solid rgba(255, 120, 73, 0.3);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .nav-project:hover {
@@ -597,6 +638,21 @@
 
 .prev-project:hover {
   transform: translateX(-5px);
+}
+
+.nav-thumbnail {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 120, 73, 0.3);
+  flex-shrink: 0;
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .nav-label {
@@ -769,6 +825,16 @@
 
   .project-navigation {
     grid-template-columns: 1fr;
+  }
+
+  .nav-project {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-thumbnail {
+    width: 100%;
+    height: 200px;
   }
 
   /* Stack images on mobile */

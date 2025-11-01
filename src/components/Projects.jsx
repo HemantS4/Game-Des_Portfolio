@@ -109,7 +109,8 @@ export default function Projects({ scrollProgress }) {
     { x: 50, y: 20, z: 25, rotSpeed: 0.18, phaseX: 2.1, phaseY: 3.5, amplitudeX: 8, amplitudeY: 10 },    // Top center
     { x: 82, y: 24, z: 18, rotSpeed: 0.16, phaseX: 4.2, phaseY: 1.8, amplitudeX: 11, amplitudeY: 9 },    // Top right
     { x: 32, y: 68, z: 22, rotSpeed: 0.19, phaseX: 1.3, phaseY: 5.2, amplitudeX: 9, amplitudeY: 13 },    // Bottom left
-    { x: 68, y: 70, z: 15, rotSpeed: 0.14, phaseX: 3.7, phaseY: 2.4, amplitudeX: 12, amplitudeY: 8 }     // Bottom right
+    { x: 68, y: 70, z: 15, rotSpeed: 0.14, phaseX: 3.7, phaseY: 2.4, amplitudeX: 12, amplitudeY: 8 },     // Bottom right
+    { x: 50, y: 45, z: 20, rotSpeed: 0.17, phaseX: 5.5, phaseY: 4.1, amplitudeX: 10, amplitudeY: 11 }     // Center (6th card)
   ]
 
   const getCardStyle = (index) => {

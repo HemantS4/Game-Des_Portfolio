@@ -119,7 +119,7 @@ export default function ProjectDetail() {
 
       <div className="project-detail">
         {/* Single Scrollable Container */}
-        <div className="project-content-scroll">
+        <div className={`project-content-scroll ${!project.overview ? 'image-only-layout' : ''}`}>
           {/* Hero Section */}
           <div className="project-hero-content">
             <div className="project-meta">
@@ -188,10 +188,12 @@ export default function ProjectDetail() {
           </div>
 
           {/* Overview */}
-          <div className="content-block text-block">
-            <h2 className="block-title">Overview</h2>
-            <p className="text-content">{project.overview}</p>
-          </div>
+          {project.overview && (
+            <div className="content-block text-block">
+              <h2 className="block-title">Overview</h2>
+              <p className="text-content">{project.overview}</p>
+            </div>
+          )}
 
           {/* Links */}
           {project.links && Object.keys(project.links).length > 0 && (
@@ -288,49 +290,55 @@ export default function ProjectDetail() {
           )}
 
           {/* Features */}
-          <div className="content-block features-block">
-            <h2 className="block-title">Key Features</h2>
-            <div className="features-list">
-              {project.features.map((feature, index) => (
-                <div key={index} className="feature-item">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6L9 17L4 12" stroke="#ff7849" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span>{feature}</span>
-                </div>
-              ))}
+          {project.features && project.features.length > 0 && (
+            <div className="content-block features-block">
+              <h2 className="block-title">Key Features</h2>
+              <div className="features-list">
+                {project.features.map((feature, index) => (
+                  <div key={index} className="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M20 6L9 17L4 12" stroke="#ff7849" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Challenges */}
-          <div className="content-block text-block">
-            <h2 className="block-title">Challenges</h2>
-            <ul className="styled-list challenges-list">
-              {project.challenges.map((challenge, index) => (
-                <li key={index}>{challenge}</li>
-              ))}
-            </ul>
-          </div>
+          {project.challenges && project.challenges.length > 0 && (
+            <div className="content-block text-block">
+              <h2 className="block-title">Challenges</h2>
+              <ul className="styled-list challenges-list">
+                {project.challenges.map((challenge, index) => (
+                  <li key={index}>{challenge}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Solutions */}
-          <div className="content-block text-block">
-            <h2 className="block-title">Solutions</h2>
-            <ul className="styled-list solutions-list">
-              {project.solutions.map((solution, index) => (
-                <li key={index}>{solution}</li>
-              ))}
-            </ul>
-          </div>
+          {project.solutions && project.solutions.length > 0 && (
+            <div className="content-block text-block">
+              <h2 className="block-title">Solutions</h2>
+              <ul className="styled-list solutions-list">
+                {project.solutions.map((solution, index) => (
+                  <li key={index}>{solution}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Gallery Images interspersed */}
           {project.gallery && project.gallery.length > 0 && (
             <div className="content-block gallery-block">
-              <h2 className="block-title">Gallery</h2>
+              {project.overview && <h2 className="block-title">Gallery</h2>}
               {project.gallery.map((image, index) => (
                 <div
                   key={index}
                   className="gallery-image-block"
-                  onClick={() => openLightbox(image, index)}
+                  onClick={project.overview ? () => openLightbox(image, index) : undefined}
                 >
                   <img
                     src={image}
@@ -339,7 +347,7 @@ export default function ProjectDetail() {
                       e.target.src = `https://via.placeholder.com/800x450/1a1a2e/ff7849?text=Screenshot+${index + 1}`
                     }}
                   />
-                  <div className="image-caption">Click to enlarge</div>
+                  {project.overview && <div className="image-caption">Click to enlarge</div>}
                 </div>
               ))}
             </div>
@@ -353,15 +361,21 @@ export default function ProjectDetail() {
             to={`/project/${adjacentProjects.previous.id}`}
             className="nav-project prev-project"
           >
-            <span className="nav-label">Previous Project</span>
-            <span className="nav-title">{adjacentProjects.previous.title}</span>
+            <img src={adjacentProjects.previous.thumbnail} alt={adjacentProjects.previous.title} className="nav-thumbnail" />
+            <div className="nav-content">
+              <span className="nav-label">Previous Project</span>
+              <span className="nav-title">{adjacentProjects.previous.title}</span>
+            </div>
           </Link>
           <Link
             to={`/project/${adjacentProjects.next.id}`}
             className="nav-project next-project"
           >
-            <span className="nav-label">Next Project</span>
-            <span className="nav-title">{adjacentProjects.next.title}</span>
+            <div className="nav-content">
+              <span className="nav-label">Next Project</span>
+              <span className="nav-title">{adjacentProjects.next.title}</span>
+            </div>
+            <img src={adjacentProjects.next.thumbnail} alt={adjacentProjects.next.title} className="nav-thumbnail" />
           </Link>
         </section>
       )}
